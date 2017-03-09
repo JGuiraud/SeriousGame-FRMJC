@@ -6,6 +6,11 @@
 	display: unset;
 }
 
+/*
+*
+*BUDGET
+*
+*/
 .budget {
 	height: 1vh;
 	width: 1vw;
@@ -15,25 +20,38 @@
 	position: absolute;
 	height: 8vw;
 	width: 8vw;
-	box-shadow: 5px 5px 5px #888888;
+	box-shadow: 5px -5px 5px #888888;
 	transition: .2s;
 }
 
 .postitcheck {
-	box-shadow: 20px 20px 5px #888888;
+	box-shadow: 20px -10px 5px #888888;
 	height: 9vw;
 	width: 9vw;
 }
 
-#diagram {
+.diagram {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 	position: absolute;
 	background-color: #eee;
 	width: 12vw;
+}
+#budget {
 	top: 60vh;
 	left: 70vw;
+}
+#depenses {
+	top: 50vh;
+	left: 70vw;
+}
+#progressdepenses {
+	width: 0.2vw;
+}
+#progressbudget {
+	width: 7.4vw;
+
 }
 .progressbar {
 	transition: 1s;
@@ -55,3 +73,35 @@
 #nonpris {
 	transition: .2s;
 }
+/*
+*
+* FIN BUDGET
+*
+*/
+
+/*
+*
+* MISSIONS
+*
+*/
+.mission {
+	padding: 2vw;
+	margin: 1vw;
+	border: black solid;
+	border-radius: .5vw;
+	width: 25vw;
+}
+.missions {
+	border: purple solid;
+}
+#missions div.flexmission {
+	display: flex;
+	justify-content: space-around;
+	flex-flow: wrap row;
+}
+
+/*
+*
+* FIN MISSIONS
+*
+*/
