@@ -1,0 +1,57 @@
+.quest {
+	display: none;
+}
+
+.queston {
+	display: unset;
+}
+
+.budget {
+	height: 1vh;
+	width: 1vw;
+}
+
+.postit {
+	position: absolute;
+	height: 8vw;
+	width: 8vw;
+	box-shadow: 5px 5px 5px #888888;
+	transition: .2s;
+}
+
+.postitcheck {
+	box-shadow: 20px 20px 5px #888888;
+	height: 9vw;
+	width: 9vw;
+}
+
+#diagram {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	background-color: #eee;
+	width: 12vw;
+	top: 60vh;
+	left: 70vw;
+}
+.progressbar {
+	transition: 1s;
+	background-color: green;
+	width: 7.4vw;
+	height: 3vw;
+}
+#textdiagram {
+	position: absolute;
+	display: flex;
+	top: 65vh;
+	left: 65vw;
+}
+
+#textdiagram ul {
+	width: 175px;
+}
+
+#nonpris {
+	transition: .2s;
+}

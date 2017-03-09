@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
-
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 </head>
@@ -14,12 +12,38 @@
 <body>
     <div id="carnet"></div>
     <div id="container-general">
-
-        <div id="pays"></div>
-        <div id="missions"></div>
-        <div id="budget"></div>
-        <div id="cv"></div>
-        <div id="entretien"></div>
+        <button id="dev">dev</button>
+        <div class="quest" id="pays"></div>
+        <div class="quest" id="missions"></div>
+        <div class="quest budget" id="budget">
+            <img class="postit" id="postit0" src="assets/postittraj.png" alt="" />
+            <img class="postit" id="postit1" src="assets/postitmanger.png" alt="" />
+            <img class="postit" id="postit2" src="assets/postitdepenses.png" alt="" />
+            <img class="postit" id="postit3" src="assets/postittel.png" alt="" />
+            <img class="postit" id="postit4" src="assets/postittransports.png" alt="" />
+            <img class="postit" id="postit5" src="assets/postitlogement.png" alt="" />
+            <div id="diagram">
+                <h4>Budget</h4>
+                <img id="progressbudget" class="progressbar" src="assets/progressb.png" />
+            </div>
+            <div id="textdiagram">
+                <ul id="prisencharge">
+                <h3>Non pris en charge</h3>
+                </ul>
+                <ul id="nonpris">
+                <h3>Pris en charge</h3>
+                    <li>Billet allé+retour</li>
+                    <li>Manger</li>
+                    <li>Dépenses quotidiennes</li>
+                    <li>Téléphone</li>
+                    <li>Transport sur place</li>
+                    <li>Logement</li>
+                </ul>
+            </div>
+            <button id="verrif">Verrifier ?</button>
+        </div>
+        <div class="quest" id="cv"></div>
+        <div class="quest" id="entretien"></div>
 
     </div>
     <div id="indy"></div>
