@@ -5,27 +5,81 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
-
-    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-    <script src="./js/turn.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" type="text/javascript"></script>
-    <script src="./js/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
-    <link href="./css/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js">
+    </script>
+<script src="./js/turn.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" type="text/javascript"></script>
+<script src="./js/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
+<link href="./css/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
 
 
 </head>
 
-<body id="container-general">
+<body>
+    <div id="container-general">
+        <div class="container-game">
+            <div class="quest" id="missions">
+                <div class="flexmission">
+                    <div class="mission" id="mission1">
+                        <h3 class="missionname">mission1</h3>
+                        <p class="missiondescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, error.</p>
+                        <button class="missionchoose" id="missionchoose1">choisir</button>
+                    </div>
+                    <div class="mission" id="mission2">
+                        <h3 class="missionname">mission2</h3>
+                        <p class="missiondescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, expedita.</p>
+                        <button class="missionchoose" id="missionchoose2">choisir</button>
+                    </div>
+                    <div class="mission" id="mission3">
+                        <h3 class="missionname">mission3</h3>
+                        <p class="missiondescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, debitis.</p>
+                        <button class="missionchoose" id="missionchoose3">choisir</button>
+                    </div>
+                    <div class="mission" id="mission4">
+                        <h3 class="missionname">mission4</h3>
+                        <p class="missiondescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, maiores!</p>
+                        <button class="missionchoose" id="missionchoose4">choisir</button>
+                    </div>
+                    <div class="mission" id="mission5">
+                        <h3 class="missionname">mission5</h3>
+                        <p class="missiondescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, illo.</p>
+                        <button class="missionchoose" id="missionchoose5">choisir</button>
+                    </div>
+                </div>
+            </div>
+            <div class="quest queston" id="budget">
+                <img class="postit" id="postit0" src="assets/postittraj.png" alt="" />
+                <img class="postit" id="postit1" src="assets/postitmanger.png" alt="" />
+                <img class="postit" id="postit2" src="assets/postitdepenses.png" alt="" />
+                <img class="postit" id="postit3" src="assets/postittel.png" alt="" />
+                <img class="postit" id="postit4" src="assets/postittransports.png" alt="" />
+                <img class="postit" id="postit5" src="assets/postitlogement.png" alt="" />
+                <div class="diagram" id="budget">
+                    <h4>Budget</h4>
+                    <img id="progressbudget" class="progressbar" src="assets/progressb.png" />
+                </div>
+                <div class="diagram" id="depenses">
+                    <h4>Dépenses</h4>
+                    <img id="progressdepenses" class="progressbar" src="assets/progressb.png" />
+                </div>
+                <button id="verrif">Verrifier ?</button>
+            </div>
+            <div class="quest" id="pays"></div>
 
-    <div class="container-carnet">
-        <div class="carnet carnetmiddle">
+            <div class="quest" id="cv"></div>
+            <div class="quest" id="entretien"></div>
 
-            <div class="book_wrapper">
-                <a id="next_page_button"></a>
-                <a id="prev_page_button"></a>
-                <div id="loading" class="loading">Loading pages...</div>
-                <div id="mybook" style="display:none;">
+        </div>
+        <div class="container-carnet carnetleft">
+            <div class="carnet">
+
+
+
+                <div class="book_wrapper">
+                    <a id="next_page_button"></a>
+                    <a id="prev_page_button"></a>
+                    <div id="loading" class="loading">Loading pages...</div>
+                    <div id="mybook" style="display:none;">
 <div class="b-load">
     <div>
         <h1>Préparation SVE pour partir</h1>
@@ -82,20 +136,9 @@
 </div>
 </div>
 <img class="indy" src="./assets/indy2.png" alt="">
-<div class="container-game">
 
 </div>
 
-
-
-<div id="pays"></div>
-<div id="missions"></div>
-<div id="budget"></div>
-<div id="cv"></div>
-<div id="entretien"></div>
-
-<div id="indy"></div>
-<div id="lang"></div>
 
 
 <script src="js/app.js"></script>
