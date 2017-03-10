@@ -1,0 +1,56 @@
+#jones{
+
+	position: absolute;
+	top: 365px;
+	left: 1150px;
+
+
+}
+
+#bubble{
+	position: relative;
+	left: 850px;
+	top: 300px;
+	background-color:white;
+	text-align:center;
+	width:25%;
+	height:120%;
+	border:2px solid #555555;
+	border-radius: 25%;
+/*	background-image: url(../assets/parch.jpg);
+*/}
+
+#arrow_border{
+	position:absolute;
+	bottom:-30px;
+	right:65px;
+	width:0;
+	height:0;
+	line-height:0;
+	border-bottom:30px solid transparent;
+	border-left:30px solid transparent;
+	border-right:30px solid #555555;
+}
+
+#arrow_inner{
+	position:absolute;
+	bottom:-25px;
+	right:67px;
+	width:0;
+	height:0;
+	line-height:0;
+	border-bottom:30px solid transparent;
+	border-left:30px solid transparent;
+	border-right:30px solid white;
+}
+
+#text{
+	padding: 20%;
+/*		padding-top: 100px;
+*/		position:relative;
+font-family: 'Dancing Script', cursive;
+font-size: 20px;
+/*background: no-repeat center url(../assets/parchemin.png);
+*/}
+
+
