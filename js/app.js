@@ -23,7 +23,7 @@ $(document).ready(function () {
 			if (loaded == cnt_images) {
 				$loading.hide();
 				$bttn_next.show();
-				$bttn_prev.hide();
+				$bttn_prev.show();
 				$mybook.show().booklet({
 					name: null,
 					width: 800,
@@ -83,7 +83,7 @@ $(document).ready(function () {
 	// 	})
 	// })
 
-	$(".book_wrapper").click(function () {
+	$(".b-load").click(function () {
 		if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
 			$(".container-carnet").removeClass("carnetleft")
 			$(".container-carnet").addClass("carnetmiddle")
