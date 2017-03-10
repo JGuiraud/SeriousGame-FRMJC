@@ -5,6 +5,9 @@ $(document).ready(function () {
 
 
 	/* ----- carnet ----- */
+
+	$("#paysLink").click()
+
 	var $mybook = $('#mybook');
 	var $bttn_next = $('#next_page_button');
 	var $bttn_prev = $('#prev_page_button');
@@ -76,52 +79,26 @@ $(document).ready(function () {
 	});
 
 
-	/* ----- button carnet ---- */
-	// $('#container-general').click(function () {
-	// 	$(this).delegate('#bugdet', 'click', function () {
-	// 		console.log('bonjour je suis toulouse')
-	// 	})
-	// })
-
 	$(".b-load").click(function () {
 		if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
 			$(".container-carnet").removeClass("carnetleft")
 			$(".container-carnet").addClass("carnetmiddle")
-
 		} else {
 			$(".container-carnet").addClass("carnetleft")
 			$(".container-carnet").removeClass("carnetmiddle")
 		}
-		// $(".container-carnet").click(function () {
-
-		// 	if ($(".carnetmiddle").attr('class') == "container-carnet carnetmiddle") {
-		// 		console.log("lol")
-		// 		$(".container-carnet").removeClass("carnetmiddle")
-		// 		$(".container-carnet").addClass("carnetleft")
-		// 	}
-		// })
-
-
-
-		// else if ($(".container-carnet").attr('class') == "container-carnet carnetmiddle") {
-		// 	$(".carnet").removeClass("carnetmiddle")
-		// 	$(".carnet").addClass("carnetleft")
-		// }
-
-		// $(this).delegate('.carnet', 'click', function () {
-		// 	if ($(".carnet").attr('class') == "carnet carnetleft") {
-		// 		// $("#next_page_button").fadeIn('fast')
-
-		// 		$(".carnet").removeClass("carnetleft")
-		// 		$(".carnet").addClass("carnetmiddle")
-		// 	} else if ($(".carnet").attr('class') == "carnet carnetmiddle") {
-
-		// 		$(".carnet").removeClass("carnetmiddle")
-
-		// 		$(".carnet").addClass("carnetleft")
-		// 	}
-		// })
 	})
+
+	$("#paysLink").click(function (e) {
+		e.preventDefault()
+		console.log("click pays")
+		verifMiddle();
+	})
+
+	// function verifMiddle(){
+	// 	if ()
+	// }
+
 
 
 	function callQuest(quest) {

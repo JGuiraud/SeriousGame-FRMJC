@@ -22,6 +22,10 @@ html {
 
 /* ------ carnet ------ */
 
+#imgpageone {
+	height : 10vh;
+}
+
 .container-carnet.carnetleft {
 width:70vw;
 }
