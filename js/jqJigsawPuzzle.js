@@ -1,262 +1,3 @@
-
-$(document).ready(function () {
-	console.log("ready");
-
-// 
-
-/* ----- carnet ----- */
-var $mybook = $('#mybook');
-var $bttn_next = $('#next_page_button');
-var $bttn_prev = $('#prev_page_button');
-var $loading = $('#loading');
-var $mybook_images = $mybook.find('img');
-var cnt_images = $mybook_images.length;
-var loaded = 0;
-
-$bttn_next.hide();
-
-$mybook_images.each(function () {
-	var $img = $(this);
-	var source = $img.attr('src');
-	$('<img/>').load(function () {
-		++loaded;
-		if (loaded == cnt_images) {
-			$loading.hide();
-			$bttn_next.show();
-			$bttn_prev.show();
-			$mybook.show().booklet({
-				name: null,
-				width: 800,
-				height: 500,
-				speed: 600,
-				direction: 'LTR',
-				startingPage: 0,
-				easing: 'easeInOutQuad',
-				easeIn: 'easeInQuad',
-				easeOut: 'easeOutQuad',
-
-				closed: true,
-				closedFrontTitle: null,
-				closedFrontChapter: null,
-				closedBackTitle: null,
-
-				closedBackChapter: null,
-				covers: false,
-
-				pagePadding: 10,
-				pageNumbers: true,
-
-				hovers: false,
-				overlays: false,
-				tabs: false,
-				tabWidth: 60,
-				tabHeight: 20,
-				arrows: false,
-				cursor: 'pointer',
-
-				hash: false,
-				keyboard: true,
-				next: $bttn_next,
-				prev: $bttn_prev,
-
-				menu: null,
-				pageSelector: false,
-				chapterSelector: false,
-
-				shadows: true,
-				shadowTopFwdWidth: 166,
-				shadowTopBackWidth: 166,
-				shadowBtmWidth: 50,
-
-				before: function () { },
-				after: function () { }
-			});
-		}
-	}).attr('src', source);
-});
-
-
-/* ----- button carnet ---- */
-	// $('#container-general').click(function () {
-	// 	$(this).delegate('#bugdet', 'click', function () {
-	// 		console.log('bonjour je suis toulouse')
-	// 	})
-	// })
-
-	$(".b-load").click(function () {
-		if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
-			$(".container-carnet").removeClass("carnetleft")
-			$(".container-carnet").addClass("carnetmiddle")
-
-		} else {
-			$(".container-carnet").addClass("carnetleft")
-			$(".container-carnet").removeClass("carnetmiddle")
-		}
-		// $(".container-carnet").click(function () {
-
-		// 	if ($(".carnetmiddle").attr('class') == "container-carnet carnetmiddle") {
-		// 		console.log("lol")
-		// 		$(".container-carnet").removeClass("carnetmiddle")
-		// 		$(".container-carnet").addClass("carnetleft")
-		// 	}
-		// })
-
-
-
-		// else if ($(".container-carnet").attr('class') == "container-carnet carnetmiddle") {
-		// 	$(".carnet").removeClass("carnetmiddle")
-		// 	$(".carnet").addClass("carnetleft")
-		// }
-
-		// $(this).delegate('.carnet', 'click', function () {
-		// 	if ($(".carnet").attr('class') == "carnet carnetleft") {
-		// 		// $("#next_page_button").fadeIn('fast')
-
-		// 		$(".carnet").removeClass("carnetleft")
-		// 		$(".carnet").addClass("carnetmiddle")
-		// 	} else if ($(".carnet").attr('class') == "carnet carnetmiddle") {
-
-		// 		$(".carnet").removeClass("carnetmiddle")
-
-		// 		$(".carnet").addClass("carnetleft")
-		// 	}
-		// })
-	})
-
-
-	function callQuest(quest) {
-		$('.quest').each(function () {
-			if ($(this).attr('id') == quest && !($(this).attr('class') == "quest queston")) {
-				$(this).toggleClass('queston');
-			} if ($(this).attr('id') != quest && $(this).attr('class') == "quest queston") {
-				$(this).toggleClass('queston');
-			}
-		})
-	}
-
-	function randbet(min, max) {
-		return Math.floor((Math.random() * (max - min)) + min);
-	}
-
-	// FIN GÉNÉRAL
-
-	// debut BUDGET !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	function Postits(name, prix, prisencharge, posx, posy) {
-		this.name = name;
-		this.prix = prix;
-		this.prisencharge = prisencharge;
-		this.posx = posx;
-		this.posy = posy;
-	}
-
-	var postitstabl = [
-	new Postits('Billet allé+retour', 20, true, 12, 10),
-	new Postits('Manger', 10, true, 35, 10),
-	new Postits('Dépenses quotidiennes', 5, false, 58, 10),
-	new Postits('Téléphone', 10, true, 12, 30),
-	new Postits('Transport sur place', 15, true, 35, 30),
-	new Postits('Logement', 20, true, 58, 30)
-	];
-	var prisencharge = [];
-	var nonpris = ["Billet allé+retour", "Manger", "Dépenses quotidiennes", "Téléphone", "Transport sur place", "Logement"];
-
-	function melangepostits(e, celuila) {
-		posx = postitstabl[e].posx;
-		posy = postitstabl[e].posy;
-		rot = randbet(-10, 10) + "deg";
-		$(celuila)
-		.css('top', (randbet(posx, posx + $(window).width() / 200)) + "%")
-		.css('left', (randbet(posy, posy + $(window).width() / 150)) + "%")
-		.css('transform', "rotate(" + rot + ")");
-		console.log('coucoupotit')
-	}
-	$('.postit').each(function (e) {
-		melangepostits(e, this);
-	})
-
-	$('.postit').click(function () {
-		$(this).toggleClass('postitcheck');
-		id = ($(this).attr('id')).slice(6);
-		console.log($("#progressbudget").attr('style'))
-		if (!prisencharge.includes(postitstabl[id].name)) {
-			prisencharge.push(postitstabl[id].name);
-			$('#progressdepense').val($('#progressdepense').val() + postitstabl[id].prix);
-		} else {
-			prisencharge.splice(prisencharge.indexOf(postitstabl[id].name), 1);
-			$('#progressdepense').val($('#progressdepense').val() - postitstabl[id].prix);
-		}
-		if (!nonpris.includes(postitstabl[id].name)) {
-			nonpris.push(postitstabl[id].name);
-		} else {
-			nonpris.splice(nonpris.indexOf(postitstabl[id].name), 1);
-			// $('#progressbudget').css("width",$('#progressbudget').attr('width')-postitstabl[id].prix);
-		}
-		$('#prisencharge').html('<h3>Non pris en charge</h3>');
-		for (var i = 0; i < prisencharge.length; i++) {
-			$('#prisencharge')
-			.append($('<li/>')
-				.text(prisencharge[i]));
-		}
-		$('#nonpris').html('<h3>Pris en charge</h3>');
-		for (var i = 0; i < nonpris.length; i++) {
-			$('#nonpris')
-			.append($('<li/>')
-				.text(nonpris[i]));
-		}
-		$('#progressbudget').css("width", nonpris.length * 1.2 + .2 + "vw");
-		$('#progressdepenses').css("width", prisencharge.length * 1.2 + .2 + "vw");
-		if (nonpris.length < 2) {
-			$('#progressbudget').css("background-color", "red");
-			$('#progressdepenses').css("background-color", "red");
-		} else if (nonpris.length < 4) {
-			$('#progressbudget').css("background-color", "orange");
-			$('#progressdepenses').css("background-color", "orange");
-		} else if (nonpris.length < 6) {
-			$('#progressbudget').css("background-color", "green");
-			$('#progressdepenses').css("background-color", "green");
-		}
-	})
-
-	$('#verrif').click(function () {
-		var rightres = 0, wrongres = 0;
-		$('.postit').each(function (e) {
-			correc = postitstabl[e].prisencharge;
-			if ($(this).attr("class") == 'postit') {
-				res = true;
-			} else {
-				res = false;
-			}
-			if (res == correc) {
-				// console.log('ok '+ postitstabl[e].name);
-				rightres++;
-			} else {
-				// console.log('nope '+ postitstabl[e].name);
-				wrongres++;
-			}
-		})
-		console.log("vous avez " + Math.floor((rightres * 100) / 6) + "% de bonnes réponses");
-	})
-	// fin BUDGET !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-	// debut MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	$('#dev').click(function () {
-		callQuest("missions");
-	})
-	// fin MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-	/* ----- puzzle ----- */
-
-	jqJigsawPuzzle.createPuzzleFromURL("#my_frame", "assets/cv30.png",  {
-		piecesSize: 'big',
-		borderWidth: 0,
-		shuffle: {
-			rightLimit: 250,
-			leftLimit: 200,
-			topLimit: -30,
-			bottomLimit: 40
-		}
-	});
-
 /*
  * «Copyright 2012 JFMDev»
  *
@@ -274,19 +15,19 @@ $mybook_images.each(function () {
  * The array 'pieceSizes' defines the logical and the real sizes of the three sizes of pieces (small, normal and big).
  */
  jqJigsawPuzzle.pieceSizes = {
- 	small : {
- 		logical: 25,
- 		real: 43
- 	},
- 	normal : {
- 		logical: 50, 
- 		real: 86
- 	},
- 	big : {
- 		logical: 100, 
- 		real: 170
- 	}
- };
+    small : {
+        logical: 25,
+        real: 43
+    },
+    normal : {
+        logical: 50, 
+        real: 86
+    },
+    big : {
+        logical: 100, 
+        real: 170
+    }
+};
 
 /**
  * Creates an array which defines the type of each piece of the puzzle
@@ -301,8 +42,8 @@ $mybook_images.each(function () {
  * @return {Array} An array with the type of each piece.
  */
  jqJigsawPuzzle.randomPieceTypes = function(rows, columns) {
- 	var res = new Array();
-
+    var res = new Array();
+    
     // Format used for represent a piece type as a binary number of four digits (dcba)
     // ----- d -----
     // c --------- a
@@ -311,11 +52,11 @@ $mybook_images.each(function () {
     // Define diagonal pieces.
     for(var i=0; i<rows; i++)
     {
-    	res[i] = new Array();
-    	for(var j=0; j<columns; j++)
-    	{
-    		if( (i+j)%2 == 0)
-    		{
+        res[i] = new Array();
+        for(var j=0; j<columns; j++)
+        {
+            if( (i+j)%2 == 0)
+            {
                 // Generate a random number between 0 and 15 (0000 and 1111).
                 var rand = Math.floor(Math.random()*16); 
 
@@ -333,11 +74,11 @@ $mybook_images.each(function () {
 
     // Define the other pieces.
     for(i=0; i<rows; i++)
-    	for(j=0; j<columns; j++)
-    	{
-    		if( (i+j)%2 == 1)
-    		{
-    			var det = 0;
+        for(j=0; j<columns; j++)
+        {
+            if( (i+j)%2 == 1)
+            {
+                var det = 0;
 
             if(i != 0) { det = det | (res[i-1][j] & 2)<<2; }           // d = !b from the piece up.
             if(i != rows-1) { det = det | (res[i+1][j] & 8)>>2; }      // b = !d from the piece down.
@@ -350,17 +91,17 @@ $mybook_images.each(function () {
 
     // Convert binary number into strings.
     for(i=0; i<rows; i++)
-    	for(j=0; j<columns; j++)
-    	{
-    		var value = '';
-    		value += ((res[i][j] & 8) != 0)? '1' : '0';
-    		value += ((res[i][j] & 4) != 0)? '1' : '0';
-    		value += ((res[i][j] & 2) != 0)? '1' : '0';
-    		value += ((res[i][j] & 1) != 0)? '1' : '0';
-    		res[i][j] = value;
-    	}
+        for(j=0; j<columns; j++)
+        {
+            var value = '';
+            value += ((res[i][j] & 8) != 0)? '1' : '0';
+            value += ((res[i][j] & 4) != 0)? '1' : '0';
+            value += ((res[i][j] & 2) != 0)? '1' : '0';
+            value += ((res[i][j] & 1) != 0)? '1' : '0';
+            res[i][j] = value;
+        }
 
-    	return res;
+        return res;
     }
 
 /**
@@ -384,11 +125,11 @@ $mybook_images.each(function () {
 
     // Move the pieces.
     jQuery(containerSelector).find('div.piece').each(function(index, piece) {
-    	var pieceWidth = jQuery(this).width();
-    	var pieceHeight = jQuery(this).height();
-
-    	jQuery(this).css('left', Math.floor(Math.random()*((0) - pieceWidth)) - leftLimit-15);
-    	jQuery(this).css('top', Math.floor(Math.random()*(puzzleHeight - pieceHeight)) - topLimit);
+        var pieceWidth = jQuery(this).width();
+        var pieceHeight = jQuery(this).height();
+        
+        jQuery(this).css('left', Math.floor(Math.random()*((0) - pieceWidth)) - leftLimit-15);
+        jQuery(this).css('top', Math.floor(Math.random()*(puzzleHeight - pieceHeight)) - topLimit);
     });
 }
 
@@ -427,16 +168,16 @@ $mybook_images.each(function () {
 
             // Add event for when the puzzle is created.
             jQuery(imageSelector).load(function() {
-            	if(!puzzleCreated) {
-            		puzzleCreated = true;
-            		jqJigsawPuzzle.imageToPuzzle(imageSelector, options);
-            	}
+                if(!puzzleCreated) {
+                    puzzleCreated = true;
+                    jqJigsawPuzzle.imageToPuzzle(imageSelector, options);
+                }
             });
-
+            
             // Check, just in case, if the image has been loaded.
             if(jQuery(imageSelector).width() > 0 && jQuery(imageSelector).height() > 0) {
-            	puzzleCreated = true;
-            	jqJigsawPuzzle.imageToPuzzle(imageSelector, options);
+                puzzleCreated = true;
+                jqJigsawPuzzle.imageToPuzzle(imageSelector, options);
             }            
         }
     }
@@ -474,7 +215,7 @@ $mybook_images.each(function () {
     '</tr></table>' + 
     '</div>' +
     '</div>';
-    jQuery('#cv').append(html);
+    jQuery('body').append(html);
     var piecesContainer = jQuery("#" + puzzleId);
 
     // Get the size of the pieces.
@@ -487,11 +228,11 @@ $mybook_images.each(function () {
     if(imgWidth % logicalSize != 0) columns++;
     var rows = parseInt(imgHeight / logicalSize);
     if(imgHeight % logicalSize != 0) rows++;
-
+    
     // Save the number of pieces and set the counter which checks how many pieces has been put in the right location.
     piecesContainer.data('pieces-number', columns*rows);
     piecesContainer.data('pieces-located', 0);
-
+    
     // Calculate piece types.
     var pieceTypes = jqJigsawPuzzle.randomPieceTypes(rows, columns);
 
@@ -501,7 +242,7 @@ $mybook_images.each(function () {
 
     // Create pieces.
     for(var r=0; r<rows; r++) {
-    	for(var c=0; c<columns; c++) {
+        for(var c=0; c<columns; c++) {
             // Calculate parameter.
             var posX = -offset + c*logicalSize;
             var posY = -offset + r*logicalSize;
@@ -529,16 +270,16 @@ $mybook_images.each(function () {
 
             // Add draggable behavior.
             jQuery("#" + id).draggable({
-            	start: function(event, ui) {
+                start: function(event, ui) {
                     // Verify if the piece is not already positioned.
                     var posX = parseInt(jQuery(this).attr('data-posX'), 10);
                     var posY = parseInt(jQuery(this).attr('data-posY'), 10);
                     if(posX == ui.position.left && posY == ui.position.top)
-                    	{ return false; }
-
+                        { return false; }
+                    
                     // Start timer counter.
                     jqJigsawPuzzle.startTimerCounter(piecesContainer);
-
+                    
                     // Verify if the cursor is inside the 'logical' area, besides being insided the 'real' area.
                     //var relativeCursorPosX = event.pageX - ui.position.left - piecesContainer.position().left;
                     //var relativeCursorPosY = event.pageY - ui.position.top - piecesContainer.position().top;                   
@@ -550,7 +291,7 @@ $mybook_images.each(function () {
                     var zIndex = parseInt(piecesContainer.data('last-z-index'), 10);
                     jQuery(this).css("z-index", zIndex);
                     piecesContainer.data('last-z-index', zIndex+1);
-
+                    
                     return true;
                 },
                 stop: function(event, ui) {
@@ -571,16 +312,16 @@ $mybook_images.each(function () {
                         // Change the color of the border for a quarter of a second.
                         piecesContainer.addClass('highlight');
                         setTimeout(function() { piecesContainer.removeClass('highlight'); }, 250);
-
+                        
                         // Increase the number of pieces located.
                         var piecesLocated = parseInt(piecesContainer.data('pieces-located'), 10);
                         piecesContainer.data('pieces-located', piecesLocated + 1);
-
+                        
                         // Verify if the puzzle has been solved.
                         if(piecesLocated+1 >= parseInt(piecesContainer.data('pieces-number'), 10)) {
-                        	piecesContainer.addClass('resolved');
-                        	jqJigsawPuzzle.stopTimerCounter(piecesContainer);
-                        	console.log('youpi !');
+                            piecesContainer.addClass('resolved');
+                            jqJigsawPuzzle.stopTimerCounter(piecesContainer);
+                            console.log('youpi !');
                             // if(jqJigsawPuzzle.finishSound != null) jqJigsawPuzzle.finishSound.play();
                         }
                     }
@@ -595,14 +336,14 @@ $mybook_images.each(function () {
     // Shuffle pieces and initialize time and movement compters.
     jqJigsawPuzzle.shufflePieces(piecesContainer, options!=null? options.shuffle : null);
     jqJigsawPuzzle.resetCounters(piecesContainer);
-
+    
     // Assign behavior to shuffle button.
     jQuery("#" + puzzleId + "_shuffle").click(function() {
-    	piecesContainer.data('pieces-located', 0);
-    	piecesContainer.removeClass('highlight');
-    	piecesContainer.removeClass('resolved');
-    	jqJigsawPuzzle.shufflePieces(piecesContainer, options!=null? options.shuffle : null);
-    	jqJigsawPuzzle.resetCounters(piecesContainer);
+        piecesContainer.data('pieces-located', 0);
+        piecesContainer.removeClass('highlight');
+        piecesContainer.removeClass('resolved');
+        jqJigsawPuzzle.shufflePieces(piecesContainer, options!=null? options.shuffle : null);
+        jqJigsawPuzzle.resetCounters(piecesContainer);
     });
 };
 
@@ -615,7 +356,7 @@ $mybook_images.each(function () {
     // Resets timer counter.
     jqJigsawPuzzle.stopTimerCounter(piecesContainer);
     jqJigsawPuzzle.setTimerCounter(piecesContainer, 0);
-
+    
     // Resets movement counter.
     jQuery(piecesContainer).find(".movement_compter").html('0');
 };
@@ -626,9 +367,9 @@ $mybook_images.each(function () {
  * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
  */
  jqJigsawPuzzle.increaseMovementCounter = function(piecesContainer) { 
- 	var count = parseInt(jQuery(piecesContainer).find(".movement_compter").html(), 10);
- 	jQuery(piecesContainer).find(".movement_compter").html((count+1) + '');
- };
+    var count = parseInt(jQuery(piecesContainer).find(".movement_compter").html(), 10);
+    jQuery(piecesContainer).find(".movement_compter").html((count+1) + '');
+};
 
 /**
  * Starts the timer counter.
@@ -641,10 +382,10 @@ $mybook_images.each(function () {
         // Change status and set initial time.
         jQuery(piecesContainer).data('timer-status', 'running');
         jQuery(piecesContainer).data('timer-value', new Date().getTime());
-
+        
         // Refresh timer each second.
         var interval = setInterval(function(){
-        	jqJigsawPuzzle.refreshTimerCounter(piecesContainer);
+            jqJigsawPuzzle.refreshTimerCounter(piecesContainer);
         }, 1000);
         jQuery(piecesContainer).data('timer-interval', interval);
     }
@@ -658,8 +399,8 @@ $mybook_images.each(function () {
  jqJigsawPuzzle.stopTimerCounter = function(piecesContainer) { 
     // Verify if the timer has not already been stoped.
     if(jQuery(piecesContainer).data('timer-status') != 'stopped') {
-    	jQuery(piecesContainer).data('timer-status', 'stopped');
-    	clearInterval(jQuery(piecesContainer).data('timer-interval'));
+        jQuery(piecesContainer).data('timer-status', 'stopped');
+        clearInterval(jQuery(piecesContainer).data('timer-interval'));
     }
 };
 
@@ -669,9 +410,9 @@ $mybook_images.each(function () {
  * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
  */
  jqJigsawPuzzle.refreshTimerCounter = function(piecesContainer) { 
- 	var currentTime = new Date().getTime();
- 	jqJigsawPuzzle.setTimerCounter(piecesContainer, currentTime - jQuery(piecesContainer).data('timer-value'));
- };
+    var currentTime = new Date().getTime();
+    jqJigsawPuzzle.setTimerCounter(piecesContainer, currentTime - jQuery(piecesContainer).data('timer-value'));
+};
 
 /**
  * Sets the visible value of the timer counter.
@@ -680,15 +421,15 @@ $mybook_images.each(function () {
  * @param {int} time The time passed in milliseconds
  */
  jqJigsawPuzzle.setTimerCounter = function(piecesContainer, time) {    
- 	time = (time>0)? time/1000 : 0;
- 	var seconds = parseInt(time%60, 10);
- 	var minutes = parseInt((time/60)%60, 10);
- 	var hours = parseInt(time/3600, 10);
- 	if(seconds < 10) seconds = '0' + seconds;
- 	if(minutes < 10) minutes = '0' + minutes;
- 	if(hours < 10) hours = '0' + hours;
- 	jQuery(piecesContainer).find(".time_compter").html(hours + ':' + minutes + ':' + seconds);
- };
+    time = (time>0)? time/1000 : 0;
+    var seconds = parseInt(time%60, 10);
+    var minutes = parseInt((time/60)%60, 10);
+    var hours = parseInt(time/3600, 10);
+    if(seconds < 10) seconds = '0' + seconds;
+    if(minutes < 10) minutes = '0' + minutes;
+    if(hours < 10) hours = '0' + hours;
+    jQuery(piecesContainer).find(".time_compter").html(hours + ':' + minutes + ':' + seconds);
+};
 
 /**
  * Define the sound object, created by SoundManager, used for reproduce a sound when a piece is put.
@@ -704,19 +445,19 @@ $mybook_images.each(function () {
  * Configure SoundManager.
  */ 
  soundManager.setup({
- 	url: 'swf/',
- 	flashVersion: 9,
- 	useFlashBlock: false,
- 	onready: function() {
+    url: 'swf/',
+    flashVersion: 9,
+    useFlashBlock: false,
+    onready: function() {
         // Initialize sounds.
         jqJigsawPuzzle.pieceSound = soundManager.createSound({
-        	id: 'piece',
-        	url: 'mp3/tom1.mp3'
+            id: 'piece',
+            url: 'mp3/tom1.mp3'
             //, onload: function() {}
         });
         jqJigsawPuzzle.finishSound = soundManager.createSound({
-        	id: 'finish',
-        	url: 'mp3/large_crowd_applause.mp3'
+            id: 'finish',
+            url: 'mp3/large_crowd_applause.mp3'
             //, onload: function() {}
         });
     },
@@ -724,4 +465,3 @@ $mybook_images.each(function () {
         // The library has not successfully initialized.
     }
 });
-})
