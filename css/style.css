@@ -1,3 +1,5 @@
+
+/**** GENERAL ****/
 *{
 	margin:0;
 	padding:0;
@@ -19,6 +21,15 @@ html {
 
 }
 
+.quest {
+	/*position: absolute;*/
+	z-index: 4;
+	display: none;
+}
+
+.queston {
+	display: unset;
+}
 
 /* ------ carnet ------ */
 
@@ -255,15 +266,6 @@ a#prev_page_button:hover{
 
 /* ----------------- */
 
-.quest {
-	/*position: absolute;*/
-	z-index: 4;
-	display: none;
-}
-
-.queston {
-	display: unset;
-}
 
 /*
 *
@@ -299,11 +301,11 @@ a#prev_page_button:hover{
 }
 #budget {
 	top: 60vh;
-	left: 70vw;
+	left: 60vw;
 }
 #depenses {
 	top: 50vh;
-	left: 70vw;
+	left: 60vw;
 }
 #progressdepenses {
 	width: 0.2vw;
