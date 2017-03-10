@@ -71,29 +71,5 @@ $(document).ready(function() {
             splitted2 = splitted2.split("<")[0];
             console.log(splitted2);
         }
-
-
-
-
-
-
-
-
-
-
-
-        // console.log($(".leaflet-popup-content"))
-
-
-        // var content = feature.target._popupContent
-        // console.log(content)
-        // var sliced1 = content.slice(8);
-        // console.log(sliced1);
-        // sliced = sliced.slice(sliced.length - 8, sliced.length);
-        // console.log(sliced);
-
     }
-
-
-
 });
