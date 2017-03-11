@@ -150,12 +150,12 @@ $(document).ready(function () {
 	}
 
 	var postitstabl = [
-		new Postits('Billet allé+retour', 20, true, 12, 10),
-		new Postits('Manger', 10, true, 35, 10),
-		new Postits('Dépenses quotidiennes', 5, false, 58, 10),
-		new Postits('Téléphone', 10, true, 12, 30),
-		new Postits('Transport sur place', 15, true, 35, 30),
-		new Postits('Logement', 20, true, 58, 30)
+	new Postits('Billet allé+retour', 20, true, 58, 10),
+	new Postits('Manger', 10, true, 35, 10),
+	new Postits('Dépenses quotidiennes', 5, false, 12, 10),
+	new Postits('Téléphone', 10, true, 58, 30),
+	new Postits('Transport sur place', 15, true, 35, 30),
+	new Postits('Logement', 20, true, 12, 30)
 	];
 	var prisencharge = [];
 	var nonpris = ["Billet allé+retour", "Manger", "Dépenses quotidiennes", "Téléphone", "Transport sur place", "Logement"];
@@ -165,9 +165,9 @@ $(document).ready(function () {
 		posy = postitstabl[e].posy;
 		rot = randbet(-10, 10) + "deg";
 		$(celuila)
-			.css('top', (randbet(posx, posx + $(window).width() / 200)) + "%")
-			.css('left', (randbet(posy, posy + $(window).width() / 150)) + "%")
-			.css('transform', "rotate(" + rot + ")");
+		.css('top', (randbet(posx, posx + $(window).width() / 200)) + "%")
+		.css('left', (randbet(posy, posy + $(window).width() / 150)) + "%")
+		.css('transform', "rotate(" + rot + ")");
 		console.log('coucoupotit')
 	}
 	$('.postit').each(function (e) {
@@ -194,14 +194,14 @@ $(document).ready(function () {
 		$('#prisencharge').html('<h3>Non pris en charge</h3>');
 		for (var i = 0; i < prisencharge.length; i++) {
 			$('#prisencharge')
-				.append($('<li/>')
-					.text(prisencharge[i]));
+			.append($('<li/>')
+				.text(prisencharge[i]));
 		}
 		$('#nonpris').html('<h3>Pris en charge</h3>');
 		for (var i = 0; i < nonpris.length; i++) {
 			$('#nonpris')
-				.append($('<li/>')
-					.text(nonpris[i]));
+			.append($('<li/>')
+				.text(nonpris[i]));
 		}
 		$('#progressbudget').css("width", nonpris.length * 1.2 + .2 + "vw");
 		$('#progressdepenses').css("width", prisencharge.length * 1.2 + .2 + "vw");
@@ -239,8 +239,16 @@ $(document).ready(function () {
 	// fin BUDGET !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	// debut MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	$('#dev').click(function () {
-		callQuest("missions");
+	callQuest("missions");
+	$('.missionchoose').click(function(){
+		$('.missions').each(function(e){
+			console.log($(e).attr('class'));
+			if($(this).attr('class') == 'missions'){
+
+			}
+		})
+		$(this).parent("div").toggleClass('choosedmission');
+
 	})
 	// fin MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 })

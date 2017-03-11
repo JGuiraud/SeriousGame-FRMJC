@@ -352,8 +352,11 @@ a#prev_page_button:hover{
 	border-radius: .5vw;
 	width: 25vw;
 }
-.missions {
-	border: purple solid;
+.mission.notchoosedmission {
+	border: blue solid;
+}
+.mission.choosedmission {
+	border: white solid;
 }
 #missions div.flexmission {
 	display: flex;
