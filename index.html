@@ -7,14 +7,10 @@
     <link rel="stylesheet" href="css/jqJigsawPuzzle.css" type="text/css" />
     <link rel="stylesheet" href="css/jquery-ui-1.8.22.custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 
-    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.8.22.custom.min.js"></script>
-    <script type="text/javascript" src="js/jqJigsawPuzzle.js"></script>
-    <script src="./js/turn.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" type="text/javascript"></script>
-    <script src="./js/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
     <link href="./css/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
+
 
 </head>
 
@@ -67,21 +63,15 @@
                 </div>
                 <button id="verrif">Verrifier ?</button>
             </div>
-
-
-            <div class="quest" id="pays"></div>
-
-
-
-            <div class="quest queston" id="cv">
+            <div class="quest" id="pays">
+                <div id="mapdiv"></div>
+            </div>
+            <div class="quest" id="cv">
                 <div id="my_frame">
-
                 </div>
             </div>
-
-            <div class="quest" id="entretien"></div>
-
         </div>
+
         <div class="container-carnet carnetleft">
             <div class="carnet">
                 <div class="book_wrapper">
@@ -97,10 +87,10 @@
                                 <img id="imgpageone" src="./assets/circle.png" alt="" />
                                 <ul>
                                     <li><a id="paysLink" href="">Choix du pays</a></li>
-                                    <li>Choix de la mission</li>
-                                    <li>Budget</li>
-                                    <li>Curriculum Vitae/Lettre de Motivation</li>
-                                    <li>Entretien</li>
+                                    <li><a id="missionsLink" href="">Choix de la mission</a></li>
+                                    <li><a id="budgetLink" href="">Budget</a></li>
+                                    <li><a id="cvlmLink" href="">Curriculum Vitae/Lettre de Motivation</a></li>
+                                    <li><a id="entretienLink" href="">Entretien</a></li>
                                 </ul>
                             </div>
                             <div>
@@ -178,6 +168,7 @@
                                     Ad error quibusdam rerum expedita mollitia! Atque minima aliquam quo vero inventore,
                                     suscipit laudantium, iure a voluptas dolores magni dicta neque beatae nobis. Aperiam,
                                     quasi, aliquam.
+
                                 </p>
                                 <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
                                 <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
@@ -190,8 +181,17 @@
         <img class="indy" src="./assets/indy2.png" alt="">
 
     </div>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>-->
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery-ui-1.8.22.custom.min.js"></script>
+    <script src="./js/turn.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" type="text/javascript"></script>
+    <script src="./js/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
 
     <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/jqJigsawPuzzle.js"></script>
 
 
 </body>
