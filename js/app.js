@@ -200,32 +200,42 @@ $(document).ready(function () {
     });
 
     $("#paysLink").click(function (e) {
+        e.stopPropagation()
         chargement();
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault()
-        setTimeout(callQuest("pays"), 0.9)
+        callQuest("pays")
         // callQuest("pays")
     })
 
     $("#missionsLink").click(function (e) {
+        e.stopPropagation()
         chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault()
         callQuest("missions")
     })
 
     $("#budgetLink").click(function (e) {
+        e.stopPropagation()
         chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault()
         callQuest("budget")
     })
 
     $("#cvlmLink").click(function (e) {
+        e.stopPropagation()
         chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault();
         callQuest("cv")
     })
 
     $("#entretienLink").click(function (e) {
+        e.stopPropagation()
         chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault();
         callQuest("entretien")
     })
@@ -236,11 +246,15 @@ $(document).ready(function () {
             $(".container-carnet").addClass("carnetmiddle")
             $("#next_page_button").fadeIn()
         } else {
-            $(".container-carnet").addClass("carnetleft")
-            $(".container-carnet").removeClass("carnetmiddle")
-            $("#next_page_button").fadeOut()
+            waitReturnCarnet();
         }
     })
+
+    function waitReturnCarnet() {
+        $(".container-carnet").addClass("carnetleft")
+        $(".container-carnet").removeClass("carnetmiddle")
+        $("#next_page_button").fadeOut()
+    }
 
     function callQuest(quest) {
         $('.quest').each(function () {

@@ -472,7 +472,7 @@ html {
     border: black solid;
     border-radius: .5vw;
     width: 12vw;
-    height: 16vw;
+    height: 31.5vh;
     opacity: 1;
     transform: rotateX(0deg);
     transition: .4s;
