@@ -389,7 +389,7 @@ html {
 
 .mission {
 	background-image: url('http://placehold.it/350x150/ffffff/?text=+');
-	font-size: 1.2vw;
+	font-size: 1.05vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -398,8 +398,8 @@ html {
 	margin: 1vw;
 	border: black solid;
 	border-radius: .5vw;
-	width: 10vw;
-	height: 14.14vw;
+	width: 12vw;
+	height: 16vw;
 	opacity: 1;
 	transform: rotateX(0deg);
 	transition: .4s;
@@ -412,13 +412,14 @@ html {
 	flex-direction: column-reverse;
 	transition: .3s, 'background-image' 0s;
 }
-.mission.choosedmission>p, .mission.choosedmission>h3, .mission.choosedmission>button {
+.mission.choosedmission>p, .mission.choosedmission>h3, .mission.choosedmission>h5, .mission.choosedmission>button {
 	transform: rotateX(180deg);
 	transition: .15s;
+    
 }
 .missionchoose {
-	width: 5.656vw;
-	height: 4vw;
+	width: 7vw;
+	height: 2vw;
 	font-size: 1.1vw;
 }
 #missions div.flexmission {
@@ -426,6 +427,8 @@ html {
 	justify-content: space-around;
 	flex-flow: wrap row;
 }
+
+
 
 /*
 *
