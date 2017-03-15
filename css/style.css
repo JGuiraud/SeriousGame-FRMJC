@@ -430,6 +430,14 @@ a#prev_page_button:hover {
     transition: .15s;
 }
 
+.mission.choosedmission>p,
+.mission.choosedmission>h3,
+.mission.choosedmission>h5,
+.mission.choosedmission>button {
+    transform: rotateX(180deg);
+    transition: .15s;
+}
+
 .missionchoose {
     width: 7vw;
     height: 2vw;
@@ -448,6 +456,22 @@ a#prev_page_button:hover {
 * FIN MISSIONS
 *
 */
+
+
+/* puzzle */
+
+
+/*
+#my_frame {
+border: 2em solid red;
+height: 100%;
+background: rgba(0,255,0,.5)
+}*/
+
+.leaflet-tile.leaflet-tile-loaded {
+    height: 100%;
+    width: 100%;
+}
 
 
 /* puzzle */
