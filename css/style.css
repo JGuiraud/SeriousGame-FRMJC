@@ -8,11 +8,38 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: sans-serif;
 }
 
 html {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.lang {
+    position: absolute;
+    z-index: 101;
+}
+
+#uk {
+    margin-left: 9vh;
+}
+
+#loadingPage {
+	position: absolute;
+	z-index: 102;
 	height: 100vh;
-	overflow: hidden;
+	width: 100vw;
+	background: lightgrey;
+	transition: .5s;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#load {
+	height : 20vh;
 }
 
 #container-general {
@@ -29,27 +56,26 @@ html {
     /*position: absolute;*/
     z-index: -1;
     display: none;
-
 }
 
 .queston {
-	display: unset;
+    display: unset;
 }
 
 
 /* ------ carnet ------ */
 
 #imgpageone {
-	height: 10vh;
+    height: 10vh;
 }
 
 .container-carnet.carnetleft {
-	width: 70vw;
+    width: 70vw;
 }
 
 .container-carnet.carnetmiddle {
-	width: 100vw;
-	/*margin-right:-100px;*/
+    width: 100vw;
+    /*margin-right:-100px;*/
 }
 
 .container-carnet {
@@ -61,7 +87,6 @@ html {
     width: 90vw;
     z-index: 100;
     /*padding-right:-100vw;*/
-
 }
 
 
@@ -277,14 +302,12 @@ html {
     .container-game {
     	z-index: 2;
     	border-radius: 5px;
-    	/*border: 4px black solid;*/
     	position: relative;
     	height: 90vh;
     	width: 80vw;
     	left: 10vw;
     	top: 5vh;
     	background: rgba(42, 42, 150, .6);
-    	/*background: url("../assets/congruent_outline.png");*/
     	box-shadow: 10px 10px 25px black;
     }
 
@@ -296,6 +319,55 @@ html {
     	height: 50vh;
     }
 
+	.bulle {
+		padding: 2em;
+		border: 1px grey solid;
+		background: rgba(66,52,36,.9);
+		background: rgba(220,220,220,.9);
+		width: 35vw;
+		height:40vh;
+		position: absolute;
+		z-index: 98;
+		top:23vh;
+		left: 45vw;
+    	box-shadow: 10px 10px 25px black;
+		margin-right: 100px;
+	}
+
+#buttonbulle {
+	position: absolute;
+	color: white;
+	font-weight: bold;
+	font-size: 1.4em;
+	z-index: 98;
+	left:97vw;
+	top: 29vh;
+	background: #13386a;
+	width: 3vw;
+	height: 6vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#buttonbulle:hover {
+	cursor: pointer;
+}
+
+#close {
+	color:white;
+    float:right;
+	font-weight: bold;
+    display:inline-block;
+    padding:2px 7px;
+    background:#13386a;
+}
+
+#close:hover {
+	cursor: pointer;
+	box-shadow: 2px 2px 6	px 0px black;
+	transition: .2s
+}
 
     /* ----------------- */
 
@@ -307,8 +379,8 @@ html {
 */
 
 .budget {
-	height: 1vh;
-	width: 1vw;
+    height: 1vh;
+    width: 1vw;
 }
 
 .postit {
@@ -399,43 +471,60 @@ html {
 */
 
 .mission {
-	background-image: url('http://placehold.it/350x150/ffffff/?text=+');
-	font-size: 1.2vw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	padding: 2vw;
-	margin: 1vw;
-	border: black solid;
-	border-radius: .5vw;
-	width: 10vw;
-	height: 14.14vw;
-	opacity: 1;
-	transform: rotateX(0deg);
-	transition: .4s;
+    background-image: url('http://placehold.it/350x150/ffffff/?text=+');
+    font-size: 1.05vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2vw;
+    margin: 1vw;
+    border: black solid;
+    border-radius: .5vw;
+    width: 12vw;
+    height: 31.5vh;
+    opacity: 1;
+    transform: rotateX(0deg);
+    transition: .4s;
+    text-align: center;
 }
+
+
 .mission.choosedmission {
-	background-image: url('http://placehold.it/350x150/dddddd/?text=+');
-	border: white solid;
-	opacity: 1;
-	transform: rotateX(180deg);
-	flex-direction: column-reverse;
-	transition: .3s, 'background-image' 0s;
+    background-image: url('http://placehold.it/350x150/dddddd/?text=+');
+    border: white solid;
+    opacity: 1;
+    transform: rotateX(180deg);
+    flex-direction: column-reverse;
+    transition: .3s, 'background-image' 0s;
 }
-.mission.choosedmission>p, .mission.choosedmission>h3, .mission.choosedmission>button {
-	transform: rotateX(180deg);
-	transition: .15s;
+
+.mission.choosedmission>p,
+.mission.choosedmission>h3,
+.mission.choosedmission>h5,
+.mission.choosedmission>button {
+    transform: rotateX(180deg);
+    transition: .15s;
 }
+
+.mission.choosedmission>p,
+.mission.choosedmission>h3,
+.mission.choosedmission>h5,
+.mission.choosedmission>button {
+    transform: rotateX(180deg);
+    transition: .15s;
+}
+
 .missionchoose {
-	width: 5.656vw;
-	height: 4vw;
-	font-size: 1.1vw;
+    width: 7vw;
+    height: 2vw;
+    font-size: 1.1vw;
 }
+
 #missions div.flexmission {
-	display: flex;
-	justify-content: space-around;
-	flex-flow: wrap row;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap row;
 }
 
 
@@ -444,7 +533,11 @@ html {
 * FIN MISSIONS
 *
 */
+
+
 /* puzzle */
+
+
 /*
 #my_frame {
 border: 2em solid red;
@@ -452,11 +545,27 @@ height: 100%;
 background: rgba(0,255,0,.5)
 }*/
 
+.leaflet-tile.leaflet-tile-loaded {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* puzzle */
+
+
+/*
+#my_frame {
+border: 2em solid red;
+height: 100%;
+background: rgba(0,255,0,.5)
+}*/
 
 .leaflet-tile.leaflet-tile-loaded {
     height: 100%;
     width: 100%;
 }
+
 
 /*
 *
@@ -465,11 +574,12 @@ background: rgba(0,255,0,.5)
 */
 
 #bullecontainer {
-	display: none;
-	position: absolute;
-	top: 65vh;
-	left: 60vw;
+    display: none;
+    position: absolute;
+    top: 65vh;
+    left: 60vw;
 }
+
 
 /*
 *

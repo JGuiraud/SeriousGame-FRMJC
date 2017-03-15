@@ -1,5 +1,28 @@
 $(document).ready(function () {
     var layer;
+    $(".bulle").fadeOut();
+    function chargement() {
+        setTimeout(function () {
+            $("#loadingPage").fadeOut("slow");
+        }, 1000);
+    }
+    chargement();
+
+    $("#buttonbulle").hide();
+
+    $("#close").click(function () {
+        $(".bulle").fadeOut("slow")
+        $("#buttonbulle").fadeIn("slow")
+    })
+
+    $("#buttonbulle").click(function () {
+        $("#buttonbulle").fadeOut("slow")
+        $(".bulle").fadeIn("slow")
+    })
+
+    setTimeout(function () {
+        $(".bulle").fadeIn('slow')
+    }, 2000);
 
     $("#cvEnabled").hide(); $("#entretienEnabled").hide(); $("#budgetEnabled").hide()
     checkMission()
@@ -108,7 +131,6 @@ $(document).ready(function () {
 
     /* ----- carnet ----- */
 
-
     var $mybook = $('#mybook');
     var $bttn_next = $('#next_page_button');
     var $bttn_prev = $('#prev_page_button');
@@ -117,8 +139,6 @@ $(document).ready(function () {
     var cnt_images = $mybook_images.length;
     var loaded = 0;
 
-
-
     $mybook_images.each(function () {
         var $img = $(this);
         var source = $img.attr('src');
@@ -126,7 +146,7 @@ $(document).ready(function () {
             ++loaded;
             if (loaded == cnt_images) {
                 $loading.hide();
-                $bttn_next.show();
+                $bttn_next.hide();
                 $bttn_prev.show();
                 $mybook.show().booklet({
                     name: null,
@@ -179,44 +199,44 @@ $(document).ready(function () {
         }).attr('src', source);
     });
 
-
-    $(".b-load").click(function () {
-        if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
-            $(".container-carnet").removeClass("carnetleft")
-            $(".container-carnet").addClass("carnetmiddle")
-        } else {
-            $(".container-carnet").addClass("carnetleft")
-            $(".container-carnet").removeClass("carnetmiddle")
-        }
-    })
-
     $("#paysLink").click(function (e) {
+        e.stopPropagation()
+        chargement();
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault()
-        console.log("click pays")
         callQuest("pays")
+        // callQuest("pays")
     })
 
     $("#missionsLink").click(function (e) {
+        e.stopPropagation()
+        chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault()
-        console.log("click missions")
         callQuest("missions")
     })
 
     $("#budgetLink").click(function (e) {
+        e.stopPropagation()
+        chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault()
-        console.log("click budget")
         callQuest("budget")
     })
 
     $("#cvlmLink").click(function (e) {
+        e.stopPropagation()
+        chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault();
-        console.log("click CV LM")
         callQuest("cv")
     })
 
     $("#entretienLink").click(function (e) {
+        e.stopPropagation()
+        chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault();
-        console.log("click entretien")
         callQuest("entretien")
     })
 
@@ -224,8 +244,23 @@ $(document).ready(function () {
         e.stopPropagation();
     })
 
-    function callQuest(quest) {
+    $(".b-load").click(function () {
+        if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
+            $(".container-carnet").removeClass("carnetleft")
+            $(".container-carnet").addClass("carnetmiddle")
+            $("#next_page_button").fadeIn()
+        } else {
+            waitReturnCarnet();
+        }
+    })
 
+    function waitReturnCarnet() {
+        $(".container-carnet").addClass("carnetleft")
+        $(".container-carnet").removeClass("carnetmiddle")
+        $("#next_page_button").fadeOut()
+    }
+
+    function callQuest(quest) {
         $('.quest').each(function () {
             if ($(this).attr('id') == quest && !($(this).attr('class') == "quest queston")) {
                 sessionStorage.setItem("test", quest);
@@ -236,7 +271,6 @@ $(document).ready(function () {
                 $(this).toggleClass('queston');
             }
         })
-
     }
 
     function randbet(min, max) {
@@ -354,11 +388,11 @@ $(document).ready(function () {
     // debut MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //callQuest('missions');
     $('.missionchoose')
-    .toggle('display')
-    .click(function (e) {
-        e.stopPropagation();
-        var missionchoisie = $(this).parent().attr('id')
-        bulletext($(this).parent().attr('id') + '!? très bon choix');
+        .toggle('display')
+        .click(function (e) {
+            e.stopPropagation();
+            var missionchoisie = $(this).parent().attr('id')
+            // bulletext($(this).parent().attr('id') + '!? très bon choix');
             // console.log(missionchoisie)
             sessionStorage.setItem("choixMission", missionchoisie)
             checkMission();
@@ -395,13 +429,6 @@ $(document).ready(function () {
 
     // debut BULLES !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    $('#bullecontainer').toggle();
-    function bulletext(text) {
-        $('#bulletext').html(text);
-        if ($('#bullecontainer').attr('style') == 'display: none;') {
-            $('#bullecontainer').toggle();
-        }
-    }
 
     // fin BULLES !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -745,7 +772,6 @@ $(document).ready(function () {
                                 sessionStorage.setItem("choixCv", true)
                                 checkMission()
                                 // console.log('youpi !');
-                                // if(jqJigsawPuzzle.finishSound != null) jqJigsawPuzzle.finishSound.play();
                             }
                         }
 
