@@ -1,6 +1,5 @@
 #mapdiv {
-	height: 400px;
-	;
+    height: 100%;
 }
 
 
@@ -17,19 +16,20 @@ html {
 }
 
 #container-general {
-	background: url("../assets/map-europe2.jpg") no-repeat center center;
-	background-size: cover;
-	height: 100vh;
-	overflow: hidden;
-	display: flex;
-	position: relative;
-	z-index: 0
+    background: url("../assets/map-europe2.jpg") no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    z-index: 2
 }
 
 .quest {
-	/*position: absolute;*/
-	z-index: 4;
-	display: none;
+    /*position: absolute;*/
+    z-index: -1;
+    display: none;
+
 }
 
 .queston {
@@ -53,14 +53,15 @@ html {
 }
 
 .container-carnet {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	height: 100vh;
-	width: 90vw;
-	z-index: 4;
-	/*padding-right:-100vw;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100vh;
+    width: 90vw;
+    z-index: 100;
+    /*padding-right:-100vw;*/
+
 }
 
 
@@ -435,6 +436,19 @@ html {
 * FIN MISSIONS
 *
 */
+/* puzzle */
+/*
+#my_frame {
+border: 2em solid red;
+height: 100%;
+background: rgba(0,255,0,.5)
+}*/
+
+
+.leaflet-tile.leaflet-tile-loaded {
+    height: 100%;
+    width: 100%;
+}
 
 /*
 *
