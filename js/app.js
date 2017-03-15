@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var layer;
-
+    $(".bulle").fadeOut();
     function chargement() {
         setTimeout(function () {
             $("#loadingPage").fadeOut("slow");
@@ -20,7 +20,9 @@ $(document).ready(function () {
         $(".bulle").fadeIn("slow")
     })
 
-    $(".bulle").show();
+    setTimeout(function () {
+        $(".bulle").fadeIn('slow')
+    }, 2000);
 
     $("#cvEnabled").hide(); $("#entretienEnabled").hide(); $("#budgetEnabled").hide()
     checkMission()
