@@ -1,6 +1,5 @@
 #mapdiv {
-	height: 400px;
-	;
+    height: 100%;
 }
 
 
@@ -17,19 +16,20 @@ html {
 }
 
 #container-general {
-	background: url("../assets/map-europe2.jpg") no-repeat center center;
-	background-size: cover;
-	height: 100vh;
-	overflow: hidden;
-	display: flex;
-	position: relative;
-	z-index: 0
+    background: url("../assets/map-europe2.jpg") no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    z-index: 2
 }
 
 .quest {
-	/*position: absolute;*/
-	z-index: 4;
-	display: none;
+    /*position: absolute;*/
+    z-index: -1;
+    display: none;
+
 }
 
 .queston {
@@ -53,14 +53,15 @@ html {
 }
 
 .container-carnet {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	height: 100vh;
-	width: 90vw;
-	z-index: 4;
-	/*padding-right:-100vw;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100vh;
+    width: 90vw;
+    z-index: 100;
+    /*padding-right:-100vw;*/
+
 }
 
 
@@ -312,65 +313,75 @@ html {
 
 .postit {
 	position: absolute;
-	height: 9vw;
-	width: 9vw;
-	box-shadow: 5px -5px 5px #888888;
+	height: 10vw;
+	width: 10vw;
+	box-shadow: 5px -5px 10px #222;
 	transition: .2s;
 }
 
 .postitcheck {
-	box-shadow: 20px -10px 5px #888888;
-	height: 10vw;
-	width: 10vw;
+    box-shadow: 25px -15px 20px #222;
+    height: 13vw;
+    width: 13vw;
 }
 
 .diagram {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	position: absolute;
-	background-color: #eee;
-	width: 12vw;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    background-color: #efefef;
+    height: 50.7vh;
 }
 
-#budget {
-	top: 60vh;
-	left: 60vw;
+#diagrambudget {
+    top: 19vh;
+    left: 65vw;
+    width: 7vw;
 }
 
-#depenses {
-	top: 50vh;
-	left: 60vw;
-}
-
-#progressdepenses {
-	width: 0.2vw;
-}
-
-#progressbudget {
-	width: 7.4vw;
+#diagramdepenses {
+    top: 19vh;
+    left: 55vw;
+    width: 7vw;
 }
 
 .progressbar {
-	transition: 1s;
-	background-color: green;
-	width: 7.4vw;
-	height: 3vw;
+    border-radius: 3px;
+    transition: 1.75s;
+    background-color: green;
+    height: 7.4vw;
+    width: 3vw;
 }
 
-#textdiagram {
-	position: absolute;
-	display: flex;
-	top: 65vh;
-	left: 65vw;
+#progressdepenses {
+    height: 0.2vw;
+    width:  98%;
 }
 
-#textdiagram ul {
-	width: 175px;
+#progressbudget {
+    height: 48.2vh;
+    width:  98%;
 }
 
-#nonpris {
-	transition: .2s;
+#verif:hover {
+    box-shadow: 5px 0px 10px #222
+}
+
+#verif {
+    border-radius: 3px;
+    color: white;
+    background: linear-gradient( 45deg, #13386A, #15406c);
+    font-size: 2.5vh;
+    border: none;
+    font-weight: bold;
+    position: absolute;
+    top: 72vh;
+    left: 55vw;
+    width: 17vw;
+    height: 3vw;
 }
 
 
@@ -427,11 +438,25 @@ html {
 	flex-flow: wrap row;
 }
 
+
 /*
 *
 * FIN MISSIONS
 *
 */
+/* puzzle */
+/*
+#my_frame {
+border: 2em solid red;
+height: 100%;
+background: rgba(0,255,0,.5)
+}*/
+
+
+.leaflet-tile.leaflet-tile-loaded {
+    height: 100%;
+    width: 100%;
+}
 
 /*
 *
