@@ -8,11 +8,29 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: sans-serif;
 }
 
 html {
 	height: 100vh;
 	overflow: hidden;
+}
+
+#loadingPage {
+	position: absolute;
+	z-index: 102;
+	height: 100vh;
+	width: 100vw;
+	background: lightgrey;
+	transition: .5s;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#load {
+	height : 20vh;
 }
 
 #container-general {
@@ -277,14 +295,12 @@ html {
     .container-game {
     	z-index: 2;
     	border-radius: 5px;
-    	/*border: 4px black solid;*/
     	position: relative;
     	height: 90vh;
     	width: 80vw;
     	left: 10vw;
     	top: 5vh;
     	background: rgba(42, 42, 150, .6);
-    	/*background: url("../assets/congruent_outline.png");*/
     	box-shadow: 10px 10px 25px black;
     }
 
@@ -296,6 +312,55 @@ html {
     	height: 50vh;
     }
 
+	.bulle {
+		padding: 2em;
+		border: 1px grey solid;
+		background: rgba(66,52,36,.9);
+		background: rgba(220,220,220,.9);
+		width: 35vw;
+		height:40vh;
+		position: absolute;
+		z-index: 98;
+		top:23vh;
+		left: 45vw;
+    	box-shadow: 10px 10px 25px black;
+		margin-right: 100px;
+	}
+
+#buttonbulle {
+	position: absolute;
+	color: white;
+	font-weight: bold;
+	font-size: 1.4em;
+	z-index: 98;
+	left:97vw;
+	top: 29vh;
+	background: #13386a;
+	width: 3vw;
+	height: 6vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#buttonbulle:hover {
+	cursor: pointer;
+}
+
+#close {
+	color:white;
+    float:right;
+	font-weight: bold;
+    display:inline-block;
+    padding:2px 7px;
+    background:#13386a;
+}
+
+#close:hover {
+	cursor: pointer;
+	box-shadow: 2px 2px 6	px 0px black;
+	transition: .2s
+}
 
     /* ----------------- */
 

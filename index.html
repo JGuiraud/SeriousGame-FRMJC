@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="css/jqJigsawPuzzle.css" type="text/css" />
     <link rel="stylesheet" href="css/jquery-ui-1.8.22.custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -16,6 +18,19 @@
 
 <body>
     <div id="container-general">
+        <div id="loadingPage">
+            <img id="load" src="assets/loadingspin.gif" alt=""></br>
+            <h2>Loading...</h2>
+        </div>
+        <div class="bulle">
+            <span id='close'>x</span>
+            <h4>Titre test</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor fuga molestiae maxime ab dignissimos modi sunt
+                alias eum! Possimus debitis esse in dolores delectus dolorem sed omnis, perspiciatis cumque provident!</p>
+        </div>
+        <div id="buttonbulle">
+            <div id="fleche">&lt;</div>
+        </div>
         <div class="container-game">
             <!-- <button id="dev">dev</button> -->
             <div class="quest" id="missions">
@@ -96,7 +111,10 @@
                 <div id="my_frame">
                 </div>
             </div>
+            <div class="quest" id="entretien">
+            </div>
         </div>
+
 
         <div class="container-carnet carnetleft">
             <div class="carnet">
@@ -207,10 +225,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="bullecontainer">
-            <img src="http://placehold.it/350x150/dddddd/?text=+" alt="bulle">
-            <p id="bulletext"></p>
         </div>
         <img class="indy" src="./assets/indy2.png" alt="">
 
