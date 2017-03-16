@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var layer;
 
     sessionStorage.setItem("choixCv", true)
@@ -36,8 +36,9 @@ $(document).ready(function () {
 
 
     $(".bulle").fadeOut();
+
     function chargement() {
-        setTimeout(function () {
+        setTimeout(function() {
             $("#loadingPage").fadeOut("slow");
         }, 1000);
     }
@@ -61,14 +62,14 @@ $(document).ready(function () {
         if (e.keyCode == 116) {
             e.preventDefault()
             location.reload(true)
-            // wasPressed = true;
+                // wasPressed = true;
         }
     }
     /* ----- */
 
     $("#buttonbulle").hide();
 
-    $("#container-general").click(function () {
+    $("#container-general").click(function() {
         if ($(".bulle").attr("class") == "cache") {
             return
         } else {
@@ -82,31 +83,34 @@ $(document).ready(function () {
         $(".bulle").fadeOut("slow")
         $("#buttonbulle").fadeIn("slow")
     }
+
     function pasHideBulle() {
         $("#buttonbulle").fadeOut("slow")
         $(".bulle").fadeIn("slow")
     }
 
-    $(".bulle").click(function (e) {
+    $(".bulle").click(function(e) {
         e.stopPropagation()
     });
 
-    $("#close").click(function () {
+    $("#close").click(function() {
         hideBulle()
         $(".bulle").addClass('cache')
     })
 
-    $("#buttonbulle").click(function (e) {
+    $("#buttonbulle").click(function(e) {
         e.stopPropagation();
         pasHideBulle()
         $("#buttonbulle").removeClass("cache")
     })
 
-    setTimeout(function () {
+    setTimeout(function() {
         $(".bulle").fadeIn('slow')
     }, 2000);
 
-    $("#cvEnabled").hide(); $("#entretienEnabled").hide(); $("#budgetEnabled").hide()
+    $("#cvEnabled").hide();
+    $("#entretienEnabled").hide();
+    $("#budgetEnabled").hide()
     checkMission()
 
     if (sessionStorage.getItem("test") == 'pays') {
@@ -133,7 +137,7 @@ $(document).ready(function () {
     }).addTo(map);
 
     // load GeoJSON from an external file
-    $.getJSON("./countries.geojson", function (data) {
+    $.getJSON("./countries.geojson", function(data) {
         // add GeoJSON layer to the map once the file is loaded
         L.geoJson(data).addTo(map);
 
@@ -201,8 +205,10 @@ $(document).ready(function () {
 
     function checkMission() {
         if (sessionStorage.getItem("choixPays") && sessionStorage.getItem("choixMission")) {
-            $("#cvEnabled").show(); $("#budgetEnabled").show()
-            $("#cvDisabled").hide(); $("#budgetDisabled").hide()
+            $("#cvEnabled").show();
+            $("#budgetEnabled").show()
+            $("#cvDisabled").hide();
+            $("#budgetDisabled").hide()
             console.log('pret');
         }
         if (sessionStorage.getItem("choixCv")) {
@@ -221,10 +227,10 @@ $(document).ready(function () {
     var cnt_images = $mybook_images.length;
     var loaded = 0;
 
-    $mybook_images.each(function () {
+    $mybook_images.each(function() {
         var $img = $(this);
         var source = $img.attr('src');
-        $('<img/>').load(function () {
+        $('<img/>').load(function() {
             ++loaded;
             if (loaded == cnt_images) {
                 $loading.hide();
@@ -274,8 +280,8 @@ $(document).ready(function () {
                     shadowTopBackWidth: 166,
                     shadowBtmWidth: 50,
 
-                    before: function () { },
-                    after: function () { }
+                    before: function() {},
+                    after: function() {}
                 });
             }
         }).attr('src', source);
@@ -292,27 +298,27 @@ $(document).ready(function () {
 
     $(".container-game").show()
 
-    $("#paysLink").click(function (e) {
+    $("#paysLink").click(function(e) {
         transitionPage(e)
         callQuest("pays")
     })
 
-    $("#missionsLink").click(function (e) {
+    $("#missionsLink").click(function(e) {
         transitionPage(e)
         callQuest("missions")
     })
 
-    $("#budgetLink").click(function (e) {
+    $("#budgetLink").click(function(e) {
         transitionPage(e)
         callQuest("budget")
     })
 
-    $("#cvlmLink").click(function (e) {
+    $("#cvlmLink").click(function(e) {
         transitionPage(e)
         callQuest("cv")
     })
 
-    $("#entretienLink").click(function (e) {
+    $("#entretienLink").click(function(e) {
         transitionPage(e)
         callQuest("entretien")
     })
@@ -324,7 +330,7 @@ $(document).ready(function () {
         // Get access to the camera!
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             // Not adding `{ audio: true }` since we only want video now
-            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
                 video.src = window.URL.createObjectURL(stream);
                 video.play();
             });
@@ -332,17 +338,17 @@ $(document).ready(function () {
 
         // Legacy code below: getUserMedia
         else if (navigator.getUserMedia) { // Standard
-            navigator.getUserMedia({ video: true }, function (stream) {
+            navigator.getUserMedia({ video: true }, function(stream) {
                 video.src = stream;
                 video.play();
             }, errBack);
         } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
-            navigator.webkitGetUserMedia({ video: true }, function (stream) {
+            navigator.webkitGetUserMedia({ video: true }, function(stream) {
                 video.src = window.webkitURL.createObjectURL(stream);
                 video.play();
             }, errBack);
         } else if (navigator.mozGetUserMedia) { // Mozilla-prefixed
-            navigator.mozGetUserMedia({ video: true }, function (stream) {
+            navigator.mozGetUserMedia({ video: true }, function(stream) {
                 video.src = window.URL.createObjectURL(stream);
                 video.play();
             }, errBack);
@@ -350,43 +356,15 @@ $(document).ready(function () {
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
 
-        const Question = function (ques, res1, res2, res3, res4) {
-            this.ques = ques;
-            this.res1 = res1;
-            this.res2 = res2;
-            this.res3 = res3;
-            this.res4 = res4;
-        }
 
-        var questions = [
-            new Question("Dans quel domaine souhaitez vous exercer votre mission ?",
-                "Culture et loisirs", "Le sport et la jeunesse", "Sauvetage des licornes", "Solidarité"),
-            new Question("A votre avis que peut vous apporter le SVE, à travers cette mission ?",
-                " Acquérir de nouvelles compétences et apprendre de nouvelles langues.", " Me faire de nouveaux amis pour mon facebook.", "Une expérience personnelle et professionnelle de terrain .", "Des rencontres nouvelles et échanger par l’entraide ."),
-            new Question("Vos amis disent de vous que vous êtes plutôt :", "Généreux et altruiste .", "Aventurier et courageux .", "Casanier et indépendant .", "La réponse D."),
-            new Question("Pendant une soirée, un étudiant Erasmus, que vous ne connaissez pas veut engager la conversation avec vous. Problème, vous ne comprenez pas un mot d’espagnol. Quelle est votre attitude ?", "Vous ne cherchez pas a faire d’efforts et l’abandonnez au bout de quelques minutes .", "Vous essayez de comprendre quelques mots et d’en apprendre un peu plus sur lui, malgré la barrière de la langue .", "Vous tentez de continuer la conversation en anglais , ou bien demandez a une personne de faire l’interprète .", "Joker"),
-            new Question("Vous avez l’occasion de partir faire un voyage dans un pays étranger :", "Vous faites quelques visites culturelles .", "Vous restez a l’hôtel pour profiter de la piscine .", "Vous essayez de vous immerger totalement dans la culture du pays et respectez les traditions locales .", "La réponse D"),
-            new Question("Seul, au beau milieu d’une île déserte :", "Vous cherchez un abri pour la nuit .", "Vous essayez de construire un radeau pour rejoindre le continent le           plus proche .", "Vous paniquez et attendez les secours .", "50/50"),
-
-        ];
-        var i = 0;
-        $('#dev').click(function () {
-            var q = questions[i];
-            $('#question').html(q.ques);
-            $('#r1').html('<input type="radio">' + q.res1);
-            $('#r2').html('<input type="radio">' + q.res2);
-            $('#r3').html('<input type="radio">' + q.res3);
-            $('#r4').html('<input type="radio">' + q.res4);
-            i++;
-        })
 
     }
 
-    $('.disabledquest').click(function (e) {
+    $('.disabledquest').click(function(e) {
         e.stopPropagation();
     })
 
-    $(".b-load").click(function () {
+    $(".b-load").click(function() {
         if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
             $(".container-carnet").removeClass("carnetleft")
             $(".container-carnet").addClass("carnetmiddle")
@@ -404,7 +382,7 @@ $(document).ready(function () {
 
 
     function callQuest(quest) {
-        $('.quest').each(function () {
+        $('.quest').each(function() {
             if ($(this).attr('id') == quest && !($(this).attr('class') == "quest queston")) {
                 sessionStorage.setItem("test", quest);
                 $(this).toggleClass('queston');
@@ -454,11 +432,11 @@ $(document).ready(function () {
             .css('transform', "rotate(" + rot + ")");
         // console.log('coucoupotit')
     }
-    $('.postit').each(function (e) {
+    $('.postit').each(function(e) {
         melangepostits(e, this);
     })
 
-    $('.postit').click(function (e) {
+    $('.postit').click(function(e) {
         $(this).toggleClass('postitcheck');
         id = ($(this).attr('id')).slice(6);
         console.log($("#progressbudget").attr('style'))
@@ -500,8 +478,8 @@ $(document).ready(function () {
             $('#progressdepenses').css("background-color", "green");
         }
     })
-    setTimeout(function () {
-        $('#verif').click(function (e) {
+    setTimeout(function() {
+        $('#verif').click(function(e) {
             $('.postit').unbind('click');
             $('#progressbudget').css("height", 40 + .2 + "vh");
             $('#progressdepenses').css("height", 8 + .2 + "vh");
@@ -509,8 +487,9 @@ $(document).ready(function () {
             $('#progressdepenses').css("background-color", "green");
             sessionStorage.setItem("choixBudget", true)
             checkMission()
-            var rightres = 0, wrongres = 0;
-            $('.postit').each(function (e) {
+            var rightres = 0,
+                wrongres = 0;
+            $('.postit').each(function(e) {
                 correc = postitstabl[e].prisencharge;
                 if ($(this).attr("class") == 'postit') {
                     res = true;
@@ -534,22 +513,22 @@ $(document).ready(function () {
     //callQuest('missions');
     $('.missionchoose')
         .toggle('display')
-        .click(function (e) {
+        .click(function(e) {
             e.stopPropagation();
             var missionchoisie = $(this).parent().attr('id')
-            // bulletext($(this).parent().attr('id') + '!? très bon choix');
-            // console.log(missionchoisie)
+                // bulletext($(this).parent().attr('id') + '!? très bon choix');
+                // console.log(missionchoisie)
             sessionStorage.setItem("choixMission", missionchoisie)
             checkMission();
 
         });
     $('.missiondescription').toggle();
     $('.mission')
-        .click(function () {
+        .click(function() {
             var timeout1;
             var timeout2;
             var id = $(this).attr('id');
-            $('.mission').each(function () {
+            $('.mission').each(function() {
                 if ($(this).attr('id') == id) {
                     $(this).toggleClass('choosedmission')
                     $(this).children('.missionchoose')
@@ -558,8 +537,7 @@ $(document).ready(function () {
                         .toggle();
                     $(this).children('.missionpreview')
                         .toggle();
-                }
-                else if ($(this).attr('class') == 'mission choosedmission') {
+                } else if ($(this).attr('class') == 'mission choosedmission') {
                     $(this).toggleClass('choosedmission')
                     $(this).children('.missionchoose')
                         .toggle();
@@ -570,7 +548,7 @@ $(document).ready(function () {
                 }
             })
         })
-    // fin MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // fin MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // debut BULLES !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -634,7 +612,7 @@ $(document).ready(function () {
      * @return {Array} An array with the type of each piece.
      */
 
-    jqJigsawPuzzle.randomPieceTypes = function (rows, columns) {
+    jqJigsawPuzzle.randomPieceTypes = function(rows, columns) {
         var res = new Array();
 
         // Format used for represent a piece type as a binary number of four digits (dcba)
@@ -701,7 +679,7 @@ $(document).ready(function () {
      * @param {object} options An associative array with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit'.
      */
 
-    jqJigsawPuzzle.shufflePieces = function (containerSelector, options) {
+    jqJigsawPuzzle.shufflePieces = function(containerSelector, options) {
         // Process parameters.
         var divPuzzle = jQuery(containerSelector).find('div.puzzle');
         var rightLimit = (options != null && !isNaN(options.rightLimit)) ? options.rightLimit : 0;
@@ -713,7 +691,7 @@ $(document).ready(function () {
 
         // Move the pieces.
 
-        jQuery(containerSelector).find('div.piece').each(function (index, piece) {
+        jQuery(containerSelector).find('div.piece').each(function(index, piece) {
             var pieceWidth = jQuery(this).width();
             var pieceHeight = jQuery(this).height();
 
@@ -730,7 +708,7 @@ $(document).ready(function () {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.createPuzzleFromURL = function (containerSelector, imageUrl, options) {
+    jqJigsawPuzzle.createPuzzleFromURL = function(containerSelector, imageUrl, options) {
         // Add image to the container.
         var imgId = 'img_' + new Date().getTime();
         jQuery(containerSelector).append('<img src="' + imageUrl + '" id="' + imgId + '" alt=""/>');
@@ -746,7 +724,7 @@ $(document).ready(function () {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.createPuzzleFromImage = function (imageSelector, options) {
+    jqJigsawPuzzle.createPuzzleFromImage = function(imageSelector, options) {
         // Verify if the image exists.
         if (jQuery(imageSelector).size() > 0) {
             // Verify if the image has been fully loaded.
@@ -759,7 +737,7 @@ $(document).ready(function () {
 
                 // Add event for when the puzzle is created.
 
-                jQuery(imageSelector).load(function () {
+                jQuery(imageSelector).load(function() {
                     if (!puzzleCreated) {
                         puzzleCreated = true;
                         jqJigsawPuzzle.imageToPuzzle(imageSelector, options);
@@ -782,7 +760,7 @@ $(document).ready(function () {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.imageToPuzzle = function (imageSelector, options) {
+    jqJigsawPuzzle.imageToPuzzle = function(imageSelector, options) {
         // Process parameters.
         var img = jQuery(imageSelector);
         if (img.size() > 1) img = img.find(':first');
@@ -868,7 +846,7 @@ $(document).ready(function () {
                 // Add draggable behavior.
                 jQuery("#" + id).draggable({
 
-                    start: function (event, ui) {
+                    start: function(event, ui) {
                         // Verify if the piece is not already positioned.
                         var posX = parseInt(jQuery(this).attr('data-posX'), 10);
                         var posY = parseInt(jQuery(this).attr('data-posY'), 10);
@@ -891,7 +869,7 @@ $(document).ready(function () {
 
                         return true;
                     },
-                    stop: function (event, ui) {
+                    stop: function(event, ui) {
                         // Verify if the piece has been droped close to his correct position.
                         var posX = parseInt(jQuery(this).attr('data-posX'), 10);
                         var posY = parseInt(jQuery(this).attr('data-posY'), 10);
@@ -908,7 +886,7 @@ $(document).ready(function () {
 
                             // Change the color of the border for a quarter of a second.
                             piecesContainer.addClass('highlight');
-                            setTimeout(function () { piecesContainer.removeClass('highlight'); }, 250);
+                            setTimeout(function() { piecesContainer.removeClass('highlight'); }, 250);
 
                             // Increase the number of pieces located.
                             var piecesLocated = parseInt(piecesContainer.data('pieces-located'), 10);
@@ -920,7 +898,7 @@ $(document).ready(function () {
                                 jqJigsawPuzzle.stopTimerCounter(piecesContainer);
                                 sessionStorage.setItem("choixCv", true)
                                 checkMission()
-                                // console.log('youpi !');
+                                    // console.log('youpi !');
 
                             }
                         }
@@ -938,7 +916,7 @@ $(document).ready(function () {
 
         // Assign behavior to shuffle button.
 
-        jQuery("#" + puzzleId + "_shuffle").click(function () {
+        jQuery("#" + puzzleId + "_shuffle").click(function() {
             piecesContainer.data('pieces-located', 0);
             piecesContainer.removeClass('highlight');
             piecesContainer.removeClass('resolved');
@@ -953,7 +931,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.resetCounters = function (piecesContainer) {
+    jqJigsawPuzzle.resetCounters = function(piecesContainer) {
         // Resets timer counter.
         jqJigsawPuzzle.stopTimerCounter(piecesContainer);
         jqJigsawPuzzle.setTimerCounter(piecesContainer, 0);
@@ -968,7 +946,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.increaseMovementCounter = function (piecesContainer) {
+    jqJigsawPuzzle.increaseMovementCounter = function(piecesContainer) {
         var count = parseInt(jQuery(piecesContainer).find(".movement_compter").html(), 10);
         jQuery(piecesContainer).find(".movement_compter").html((count + 1) + '');
     };
@@ -979,7 +957,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.startTimerCounter = function (piecesContainer) {
+    jqJigsawPuzzle.startTimerCounter = function(piecesContainer) {
         // Verify if the timer has not already been started.
         if (jQuery(piecesContainer).data('timer-status') != 'running') {
             // Change status and set initial time.
@@ -988,7 +966,7 @@ $(document).ready(function () {
 
             // Refresh timer each second.
 
-            var interval = setInterval(function () {
+            var interval = setInterval(function() {
                 jqJigsawPuzzle.refreshTimerCounter(piecesContainer);
             }, 1000);
             jQuery(piecesContainer).data('timer-interval', interval);
@@ -1001,7 +979,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.stopTimerCounter = function (piecesContainer) {
+    jqJigsawPuzzle.stopTimerCounter = function(piecesContainer) {
         // Verify if the timer has not already been stoped.
         if (jQuery(piecesContainer).data('timer-status') != 'stopped') {
             jQuery(piecesContainer).data('timer-status', 'stopped');
@@ -1015,7 +993,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.refreshTimerCounter = function (piecesContainer) {
+    jqJigsawPuzzle.refreshTimerCounter = function(piecesContainer) {
         var currentTime = new Date().getTime();
         jqJigsawPuzzle.setTimerCounter(piecesContainer, currentTime - jQuery(piecesContainer).data('timer-value'));
     };
@@ -1027,7 +1005,7 @@ $(document).ready(function () {
      * @param {int} time The time passed in milliseconds
      */
 
-    jqJigsawPuzzle.setTimerCounter = function (piecesContainer, time) {
+    jqJigsawPuzzle.setTimerCounter = function(piecesContainer, time) {
         time = (time > 0) ? time / 1000 : 0;
         var seconds = parseInt(time % 60, 10);
         var minutes = parseInt((time / 60) % 60, 10);
@@ -1052,29 +1030,7 @@ $(document).ready(function () {
      * Configure SoundManager.
      */
 
-    soundManager.setup({
-        url: 'swf/',
-        flashVersion: 9,
-        useFlashBlock: false,
-        onready: function () {
-            // Initialize sounds.
-            jqJigsawPuzzle.pieceSound = soundManager.createSound({
-                id: 'piece',
-                url: 'mp3/tom1.mp3'
-                //, onload: function() {}
-            });
-            jqJigsawPuzzle.finishSound = soundManager.createSound({
-                id: 'finish',
-                url: 'mp3/large_crowd_applause.mp3'
-                //, onload: function() {}
-            });
-        },
-        ontimeout: function () {
-            // The library has not successfully initialized.
-        }
-    });
-
-    const Question = function (ques, res1, res2, res3, res4, key) {
+    const Question = function(ques, res1, res2, res3, res4) {
         this.ques = ques;
         this.res1 = res1;
         this.res2 = res2;
@@ -1082,7 +1038,7 @@ $(document).ready(function () {
         this.res4 = res4;
     }
 
-    var questions = [
+    var questions = ["", "",
         new Question("Dans quel domaine souhaitez vous exercer votre mission ?",
             "Culture et loisirs", "Le sport et la jeunesse", "Sauvetage des licornes", "Solidarité"),
         new Question("A votre avis que peut vous apporter le SVE, à travers cette mission ?",
@@ -1093,7 +1049,7 @@ $(document).ready(function () {
         new Question("Seul, au beau milieu d’une île déserte :", "Vous cherchez un abri pour la nuit .", "Vous essayez de construire un radeau pour rejoindre le continent le           plus proche .", "Vous paniquez et attendez les secours .", "50/50"),
     ];
 
-    var questionsEn = [
+    var questionsEn = ["", "",
         new Question("What is your mission thematic ?",
             "Culture and hobbies", "Youth and sport", "Unicorns rescue", "Solidarity"),
         new Question("In your opinion, which benefits will you gain from the EVS?",
@@ -1104,26 +1060,141 @@ $(document).ready(function () {
         new Question("You are alone on a desertic island :", "You look for a shelter for the night", "You try to build a raft to join the nearest continent", " You panic and wait for the rescuers", "50/50"),
 
     ];
-    var i = 0;
-    $('#dev').click(function () {
+    var i = 2;
+
+    console.log(i);
+
+    var lang = "fr";
+    console.log("langue en global :", lang)
+    $('.lang').click(function() {
+        lang = $(this).attr('id'); // obtain language id
+        console.log("langue drapeau :", lang)
+        console.log(lang)
+            // translate all translatable elements
+        $('.tr').each(function(i) {
+            $(this).text(aLangKeys[lang][$(this).attr('key')]);
+        });
+    });
+
+    $('#dev').click(function(ques) {
+        console.log("langue voulue :", lang)
         if (lang === "fr") {
             var q = questions[i];
 
             $('#question').html(q.ques).attr('key', "Q" + i);
-            $('#r1').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res1);
-            $('#r2').html('<input class="tr" key="Q' + i + 'R1" type=R"radio">' + q.res2);
-            $('#r3').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res3);
-            $('#r4').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res4);
-        } else {
+            $('#receverR1').html('<input type="radio"><label id="R1" class="tr" key="Q' + i + 'R1"> ' + q.res1 + '</label>');
+            $('#receverR2').html('<input type="radio"><label id="R2" class="tr" key="Q' + i + 'R2"> ' + q.res2 + '</label>');
+            $('#receverR3').html('<input type="radio"><label id="R3" class="tr" key="Q' + i + 'R3"> ' + q.res3 + '</label>');
+            $('#receverR4').html('<input type="radio"><label id="R4" class="tr" key="Q' + i + 'R4"> ' + q.res4 + '</label>');
+        } else if (lang === "uk") {
             var q = questionsEn[i];
 
             $('#question').html(q.ques).attr('key', "Q" + i);
-            $('#r1').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res1);
-            $('#r2').html('<input class="tr" key="Q' + i + 'R1" type=R"radio">' + q.res2);
-            $('#r3').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res3);
-            $('#r4').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res4);
+            $('#receverR1').html('<input type="radio"><label id="R1" class="tr" key="Q' + i + 'R1"> ' + q.res1 + '</label>');
+            $('#receverR2').html('<input type="radio"><label id="R2" class="tr" key="Q' + i + 'R2"> ' + q.res2 + '</label>');
+            $('#receverR3').html('<input type="radio"><label id="R3" class="tr" key="Q' + i + 'R3"> ' + q.res3 + '</label>');
+            $('#receverR4').html('<input type="radio"><label id="R4" class="tr" key="Q' + i + 'R4"> ' + q.res4 + '</label>');
         }
         i++;
     });
-});
 
+
+
+
+    var aLangKeys = new Array();
+    aLangKeys['fr'] = new Array();
+    aLangKeys['uk'] = new Array();
+    // Page de début
+    aLangKeys['fr']['presentation'] = "Salut, moi c'est Indy. Je vais te guider a la découverte du service volontaire européen(SVE). Tout d'abord, une petite présentation avant de commencer. Une fois que tu es prêt, cliques sur le bouton 'Démarrez'.";
+    aLangKeys['uk']['presentation'] = "Hi ! My name is Indy. I will guide you through the discovery of the European Voluntary Service (EVS). First of all, take a look at the definition before beginning. Once you're ready, click on the 'start' button.";
+    // Définition du SVE
+    aLangKeys['fr']['definition'] = "Le Service Volontaire Européen (SVE) permet de partir dans un pays étranger pour travailler dans une organisation à but non lucratif en tant que volontaire. Ce séjour permet de découvrir une autre culture et d'acquérir de nouvelles compétences. C’est un moyen de se sentir citoyen de l'Europe et se mettre au service d'un projet d'intérêt général.";
+    aLangKeys['uk']['definition'] = "The european Voluntary Service allows you to travel to a foreign country to work for a non-profit organisation as a volunteer. During this journey, you will discover other cultures and learn new skills. It's a way to feel as an european citizen and work for a project of general interest."
+        // Démarrage du jeu
+    aLangKeys['fr']['intro'] = "Voici ton carnet de bord récapitulant toutes les étapes de ton aventure. Tu peux y retourner à tout moment pour suivre ton évolution. Pour commencer, je te propose de choisir entre une mission ou un pays.";
+    aLangKeys['uk']['intro'] = "Take a look at your log book. It sums up each step of you're adventure. You can go back to it at any time to follow your progression. Now that you're ready, just choose between a mission or a country.";
+    // choix pays
+    aLangKeys['fr']['pays'] = "Voici la carte d’Europe sur laquelle tu peux choisir le pays dans lequel tu veux faire ton service européen. clique sur le pays de ton choix.";
+    aLangKeys['uk']['pays'] = "Think about which country you would like to do your EVS in. Then select it on the map";
+    // choix mission
+    aLangKeys['fr']['missions'] = "Voici une sélection de missions dans divers pays. Regarde bien les thèmatiques et clique sur la mission de ton choix";
+    aLangKeys['uk']['missions'] = "Here's a selection of missions in various countries. Explore the different thematics and click on one to choose it.";
+    // Après choix de la mission ou du Pays
+    aLangKeys['fr']['start'] = "Très bon choix ! C’est parti !";
+    aLangKeys['uk']['start'] = "Very good choice ! Let's start !";
+    // Budget
+    aLangKeys['fr']['budget'] = "Comment allons nous financer ce projet ? Je te propose de faire une sélection de toutes les dépenses que tu penses être amené à devoir payer.";
+    aLangKeys['uk']['budget'] = "How are we gonna finance this project ? Let's make a selection of all the costs you'll will certainly face during your trip.";
+    // Lettre de motivation
+    aLangKeys['fr']['motiv'] = "Un bon CV et une lettre de motivation sont des clés essentielles pour réaliser ton Service Volontaire Européen. Tu va devoir reconstituer ce puzzle pour obtenir ton CV et ta lettre de motivation. Conseil: Un CV et une lettre de motivation rédigés en anglais auront plus d’impact pour la sélection de ta candidature.";
+    aLangKeys['uk']['motiv'] = "A good CV and a cover letter are essentials to obtain a mission within the EVS. If you want to see how to structure those documents, try to reconstruct the jigsaw above. Tip: A CV and a cover letter written in english will have a greater impact on your candidacy."; //aplication???
+    // Entretien Skype
+    aLangKeys['fr']['skype'] = "Nous allons maintenant simuler un entretien. Cet entretien sera sous forme de QCM, il te suffit donc de cocher la bonne réponse. Bonne chance !";
+    aLangKeys['uk']['skype'] = "We are now going to simulate an interview. Our referent abroad will ask you a few questions under a MCQ form, tick the answer which suits you best. Good luck!";
+    // Page de fin
+    aLangKeys['fr']['end'] = "Félicitations ! Toutes les conditions sont remplies pour effectuer ta mission de Service Volontaire Européen. Maintenant que tu sais tout, lance-toi et monte un projet concret !";
+    aLangKeys['uk']['end'] = "Congratulations! All the requirements to prepare your European Voluntary Service are met. Now that you know everything, why don't you make a try and plan a concrete project?";
+    // Questionnaire
+    aLangKeys['fr']['Q1'] = "Pour quelles raisons veux-tu faire un SVE?";
+    aLangKeys['uk']['Q1'] = "For which reasons do you want to make an European Voluntary Service ?";
+    aLangKeys['fr']['Q1R1'] = "Découvrir d’autres cultures.";
+    aLangKeys['uk']['Q1R1'] = "To discover other cultures.";
+    aLangKeys['fr']['Q1R2'] = "Résoudre les problèmes d’environnement.";
+    aLangKeys['uk']['Q1R2'] = "To solve environnemental problems.";
+    aLangKeys['fr']['Q1R3'] = "Aider les populations les plus défavorisées.";
+    aLangKeys['uk']['Q1R3'] = "To help the disadvandaged people.";
+    aLangKeys['fr']['Q1R4'] = "Faire la fête.";
+    aLangKeys['uk']['Q1R4'] = "To party!!!";
+    aLangKeys['fr']['Q2'] = "Dans quel domaine souhaites-tu exercer ta mission ?";
+    aLangKeys['uk']['Q2'] = "What is your mission thematic ?"; //In whiwh field to you feel the most comfortable?
+    aLangKeys['fr']['Q2R1'] = "Culture et loisirs";
+    aLangKeys['uk']['Q2R1'] = "Culture and hobbies";
+    aLangKeys['fr']['Q2R2'] = "Le sport et la jeunesse";
+    aLangKeys['uk']['Q2R2'] = "Youth and sport";
+    aLangKeys['fr']['Q2R3'] = "Sauvetage des licornes";
+    aLangKeys['uk']['Q2R3'] = "Unicorns rescue";
+    aLangKeys['fr']['Q2R4'] = "La solidarité";
+    aLangKeys['uk']['Q2R4'] = "Solidarity";
+    aLangKeys['fr']['Q3'] = "A ton avis que peut t'apporter le Service Volontaire Européen ?";
+    aLangKeys['uk']['Q3'] = "In your opinion, which benefits will you gain from the EVS?";
+    aLangKeys['fr']['Q3R1'] = "Acquérir de nouvelles compétences et apprendre de nouvelles langues";
+    aLangKeys['uk']['Q3R1'] = "Gain new skills and learn new languages";
+    aLangKeys['fr']['Q3R2'] = "Me faire de nouveaux amis pour mon facebook";
+    aLangKeys['uk']['Q3R2'] = "To make new friends for my Facebook";
+    aLangKeys['fr']['Q3R3'] = "Une expérience personnelle et professionnelle de terrain.";
+    aLangKeys['uk']['Q3R3'] = "Personnal development and a professional experience";
+    aLangKeys['fr']['Q3R4'] = "Une rencontre et une ouverture aux autres par l’entraide";
+    aLangKeys['uk']['Q3R4'] = "Meeting other people and opening my mind through mutual aid";
+    aLangKeys['fr']['Q4'] = "Tes amis disent de toi que tu es plutôt :";
+    aLangKeys['uk']['Q4'] = "Your friends would tell that you are rather :";
+    aLangKeys['fr']['Q4R1'] = "Généreux et altruiste.";
+    aLangKeys['uk']['Q4R1'] = "Generous and altruistic";
+    aLangKeys['fr']['Q4R2'] = "Aventurier et courageux";
+    aLangKeys['uk']['Q4R2'] = "Adventurous and couragous";
+    aLangKeys['fr']['Q4R3'] = "Casanier et indépendant";
+    aLangKeys['uk']['Q4R3'] = "Homebody and independant";
+    aLangKeys['fr']['Q4R4'] = "Réponse D";
+    aLangKeys['uk']['Q4R4'] = "Answer D";
+    aLangKeys['fr']['Q5'] = "Pendant une soirée, un étudiant Erasmus, que tu ne connais pas veut engager la conversation avec toi. Problème, tu ne comprends pas pas un mot d’espagnol. Quelle est ton attitude ?";
+    aLangKeys['uk']['Q5'] = "During a party, an unknown Erasmus student want to talk to you. Problem, you don't understand a word. How do you react?";
+    aLangKeys['fr']['Q5R1'] = "Tu ne cherches pas à faire d’efforts et l’abandonnes au bout de quelques minutes";
+    aLangKeys['uk']['Q5R1'] = "You don't make any effort and go away after a few minutes";
+    aLangKeys['fr']['Q5R2'] = "Tu essayes de comprendre quelques mots et d’en apprendre un peu plus sur lui/elle";
+    aLangKeys['uk']['Q5R2'] = "You try to learn a few things about them with the words you've managed to understand.";
+    aLangKeys['fr']['Q5R3'] = "Tu tentes de continuer la conversation en anglais, ou bien demande à une personne de faire l’interprète";
+    aLangKeys['uk']['Q5R3'] = "You keep speaking english or you ask a person to translate";
+    aLangKeys['fr']['Q5R4'] = "Réponse D";
+    aLangKeys['uk']['Q5R4'] = "Answer D";
+    aLangKeys['fr']['Q6'] = "Tu as l’occasion de partir faire un voyage dans un pays étranger :";
+    aLangKeys['uk']['Q6'] = "You travel in a foreign country, what are your activities ?";
+    aLangKeys['fr']['Q6R1'] = "Tu fais quelques visites culturelles";
+    aLangKeys['uk']['Q6R1'] = "You make some cultural visits";
+    aLangKeys['fr']['Q6R2'] = "tu restes à l’hôtel pour profiter de la piscine";
+    aLangKeys['uk']['Q6R2'] = "You stay at the hotel and enjoy the pool";
+    aLangKeys['fr']['Q6R3'] = "Tu t'immerges totalement dans la culture du pays et respectes les traditions locales";
+    aLangKeys['uk']['Q6R3'] = "You immers yourself in the culture of the country and you respect the local traditions";
+    aLangKeys['fr']['Q6R4'] = "Réponse D";
+    aLangKeys['uk']['Q6R4'] = "Answer D";
+    aLangKeys['fr']['Q7'] = "Merci d'avoir répondu à nos questions ! Vous semblez prêt à partir !";
+    aLangKeys['uk']['Q7'] = "Thanks for your answers ! It seems you're ready to go !";
+});
