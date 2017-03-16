@@ -1,5 +1,8 @@
 $(document).ready(function () {
     var layer;
+
+    sessionStorage.setItem("choixCv", true)
+
     $(".bulle").fadeOut();
     function chargement() {
         setTimeout(function () {
@@ -7,6 +10,10 @@ $(document).ready(function () {
         }, 1000);
     }
     chargement();
+    // console.log(sessionStorage.getItem("test"))
+    if (sessionStorage.getItem("test") == "entretien") {
+        cam()
+    }
 
     /* control of F5 reload to ctrl+F5 instead */
     document.onkeydown = fkey;
@@ -278,6 +285,75 @@ $(document).ready(function () {
         callQuest("entretien")
     })
 
+    function cam() {
+        console.log("yo")
+        var video = document.getElementById('video');
+
+        // Get access to the camera!
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            // Not adding `{ audio: true }` since we only want video now
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+                video.src = window.URL.createObjectURL(stream);
+                video.play();
+            });
+        }
+
+        // Legacy code below: getUserMedia
+        else if (navigator.getUserMedia) { // Standard
+            navigator.getUserMedia({ video: true }, function (stream) {
+                video.src = stream;
+                video.play();
+            }, errBack);
+        } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
+            navigator.webkitGetUserMedia({ video: true }, function (stream) {
+                video.src = window.webkitURL.createObjectURL(stream);
+                video.play();
+            }, errBack);
+        } else if (navigator.mozGetUserMedia) { // Mozilla-prefixed
+            navigator.mozGetUserMedia({ video: true }, function (stream) {
+                video.src = window.URL.createObjectURL(stream);
+                video.play();
+            }, errBack);
+        }
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        const Question = function (ques, res1, res2, res3, res4) {
+            this.ques = ques;
+            this.res1 = res1;
+            this.res2 = res2;
+            this.res3 = res3;
+            this.res4 = res4;
+        }
+
+        var questions = [
+            new Question("Dans quel domaine souhaitez vous exercer votre mission ?",
+                "Culture et loisirs", "Le sport et la jeunesse", "Sauvetage des licornes", "Solidarité"),
+            new Question("A votre avis que peut vous apporter le SVE, à travers cette mission ?",
+                " Acquérir de nouvelles compétences et apprendre de nouvelles langues.", " Me faire de nouveaux amis pour mon facebook.", "Une expérience personnelle et professionnelle de terrain .", "Des rencontres nouvelles et échanger par l’entraide ."),
+            new Question("Vos amis disent de vous que vous êtes plutôt :", "Généreux et altruiste .", "Aventurier et courageux .", "Casanier et indépendant .", "La réponse D."),
+            new Question("Pendant une soirée, un étudiant Erasmus, que vous ne connaissez pas veut engager la conversation avec vous. Problème, vous ne comprenez pas un mot d’espagnol. Quelle est votre attitude ?", "Vous ne cherchez pas a faire d’efforts et l’abandonnez au bout de quelques minutes .", "Vous essayez de comprendre quelques mots et d’en apprendre un peu plus sur lui, malgré la barrière de la langue .", "Vous tentez de continuer la conversation en anglais , ou bien demandez a une personne de faire l’interprète .", "Joker"),
+            new Question("Vous avez l’occasion de partir faire un voyage dans un pays étranger :", "Vous faites quelques visites culturelles .", "Vous restez a l’hôtel pour profiter de la piscine .", "Vous essayez de vous immerger totalement dans la culture du pays et respectez les traditions locales .", "La réponse D"),
+            new Question("Seul, au beau milieu d’une île déserte :", "Vous cherchez un abri pour la nuit .", "Vous essayez de construire un radeau pour rejoindre le continent le           plus proche .", "Vous paniquez et attendez les secours .", "50/50"),
+
+        ];
+        var i = 0;
+        $('#dev').click(function () {
+            var q = questions[i];
+            $('#question').html(q.ques);
+            $('#r1').html('<input type="radio">' + q.res1);
+            $('#r2').html('<input type="radio">' + q.res2);
+            $('#r3').html('<input type="radio">' + q.res3);
+            $('#r4').html('<input type="radio">' + q.res4);
+            i++;
+        })
+
+    }
+
+    $('.disabledquest').click(function (e) {
+        e.stopPropagation();
+    })
+
     $(".b-load").click(function () {
         if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
             $(".container-carnet").removeClass("carnetleft")
@@ -294,6 +370,7 @@ $(document).ready(function () {
         $("#next_page_button").fadeOut()
     }
 
+
     function callQuest(quest) {
         $('.quest').each(function () {
             if ($(this).attr('id') == quest && !($(this).attr('class') == "quest queston")) {
@@ -307,6 +384,7 @@ $(document).ready(function () {
             }
         })
     }
+
 
     function randbet(min, max) {
         return Math.floor((Math.random() * (max - min)) + min);
@@ -324,12 +402,12 @@ $(document).ready(function () {
     }
 
     var postitstabl = [
-        new Postits('Billet allé+retour', 20, true, 58, 10),
-        new Postits('Manger', 10, true, 35, 10),
-        new Postits('Dépenses quotidiennes', 5, false, 12, 10),
-        new Postits('Téléphone', 10, true, 58, 30),
-        new Postits('Transport sur place', 15, true, 35, 30),
-        new Postits('Logement', 20, true, 12, 30)
+        new Postits('Billet allé+retour', 20, true, 65, 10),
+        new Postits('Manger', 10, true, 39, 10),
+        new Postits('Dépenses quotidiennes', 5, false, 9, 10),
+        new Postits('Téléphone', 10, true, 65, 35),
+        new Postits('Transport sur place', 15, true, 39, 35),
+        new Postits('Logement', 20, true, 9, 35)
     ];
     var prisencharge = [];
     var nonpris = ["Billet allé+retour", "Manger", "Dépenses quotidiennes", "Téléphone", "Transport sur place", "Logement"];
@@ -348,7 +426,7 @@ $(document).ready(function () {
         melangepostits(e, this);
     })
 
-    $('.postit').click(function () {
+    $('.postit').click(function (e) {
         $(this).toggleClass('postitcheck');
         id = ($(this).attr('id')).slice(6);
         console.log($("#progressbudget").attr('style'))
@@ -377,8 +455,8 @@ $(document).ready(function () {
                 .append($('<li/>')
                     .text(nonpris[i]));
         }
-        $('#progressbudget').css("width", nonpris.length * 1.2 + .2 + "vw");
-        $('#progressdepenses').css("width", prisencharge.length * 1.2 + .2 + "vw");
+        $('#progressbudget').css("height", nonpris.length * 8 + .2 + "vh");
+        $('#progressdepenses').css("height", prisencharge.length * 8 + .2 + "vh");
         if (nonpris.length < 2) {
             $('#progressbudget').css("background-color", "red");
             $('#progressdepenses').css("background-color", "red");
@@ -390,28 +468,34 @@ $(document).ready(function () {
             $('#progressdepenses').css("background-color", "green");
         }
     })
-
-    $('#verrif').click(function () {
-        sessionStorage.setItem("choixBudget", true)
-        checkMission()
-        var rightres = 0, wrongres = 0;
-        $('.postit').each(function (e) {
-            correc = postitstabl[e].prisencharge;
-            if ($(this).attr("class") == 'postit') {
-                res = true;
-            } else {
-                res = false;
-            }
-            if (res == correc) {
-                // console.log('ok '+ postitstabl[e].name);
-                rightres++;
-            } else {
-                // console.log('nope '+ postitstabl[e].name);
-                wrongres++;
-            }
+    setTimeout(function () {
+        $('#verif').click(function (e) {
+            $('.postit').unbind('click');
+            $('#progressbudget').css("height", 40 + .2 + "vh");
+            $('#progressdepenses').css("height", 8 + .2 + "vh");
+            $('#progressbudget').css("background-color", "green");
+            $('#progressdepenses').css("background-color", "green");
+            sessionStorage.setItem("choixBudget", true)
+            checkMission()
+            var rightres = 0, wrongres = 0;
+            $('.postit').each(function (e) {
+                correc = postitstabl[e].prisencharge;
+                if ($(this).attr("class") == 'postit') {
+                    res = true;
+                } else {
+                    res = false;
+                }
+                if (res == correc) {
+                    // console.log('ok '+ postitstabl[e].name);
+                    rightres++;
+                } else {
+                    // console.log('nope '+ postitstabl[e].name);
+                    wrongres++;
+                }
+            })
+            console.log("vous avez " + Math.floor((rightres * 100) / 6) + "% de bonnes réponses");
         })
-        console.log("vous avez " + Math.floor((rightres * 100) / 6) + "% de bonnes réponses");
-    })
+    }, 5000);
     // fin BUDGET !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // debut MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -958,4 +1042,56 @@ $(document).ready(function () {
         }
     });
 
+    const Question = function (ques, res1, res2, res3, res4, key) {
+        this.ques = ques;
+        this.res1 = res1;
+        this.res2 = res2;
+        this.res3 = res3;
+        this.res4 = res4;
+    }
+
+    var questions = [
+        new Question("Dans quel domaine souhaitez vous exercer votre mission ?",
+            "Culture et loisirs", "Le sport et la jeunesse", "Sauvetage des licornes", "Solidarité"),
+        new Question("A votre avis que peut vous apporter le SVE, à travers cette mission ?",
+            " Acquérir de nouvelles compétences et apprendre de nouvelles langues.", " Me faire de nouveaux amis pour mon facebook.", "Une expérience personnelle et professionnelle de terrain .", "Des rencontres nouvelles et échanger par l’entraide ."),
+        new Question("Vos amis disent de vous que vous êtes plutôt :", "Généreux et altruiste .", "Aventurier et courageux .", "Casanier et indépendant .", "La réponse D."),
+        new Question("Pendant une soirée, un étudiant Erasmus, que vous ne connaissez pas veut engager la conversation avec vous. Problème, vous ne comprenez pas un mot d’espagnol. Quelle est votre attitude ?", "Vous ne cherchez pas a faire d’efforts et l’abandonnez au bout de quelques minutes .", "Vous essayez de comprendre quelques mots et d’en apprendre un peu plus sur lui, malgré la barrière de la langue .", "Vous tentez de continuer la conversation en anglais , ou bien demandez a une personne de faire l’interprète .", "Joker"),
+        new Question("Vous avez l’occasion de partir faire un voyage dans un pays étranger :", "Vous faites quelques visites culturelles .", "Vous restez a l’hôtel pour profiter de la piscine .", "Vous essayez de vous immerger totalement dans la culture du pays et respectez les traditions locales .", "La réponse D"),
+        new Question("Seul, au beau milieu d’une île déserte :", "Vous cherchez un abri pour la nuit .", "Vous essayez de construire un radeau pour rejoindre le continent le           plus proche .", "Vous paniquez et attendez les secours .", "50/50"),
+    ];
+
+    var questionsEn = [
+        new Question("What is your mission thematic ?",
+            "Culture and hobbies", "Youth and sport", "Unicorns rescue", "Solidarity"),
+        new Question("In your opinion, which benefits will you gain from the EVS?",
+            "gain new skills and learn new languages", "to make new friends for my Facebook", "Personnal development and a professional experience", "Meeting other people and opening my mind through mutual aid"),
+        new Question("Your friends would tell that you are rather :", "Generous and altruistic", "Adventurous and couragous", "Homebody and independant", "Answer D."),
+        new Question("During a party, an unknown Erasmus student want to talk to you. Problem, you don't understand a word. How do you react ?", "You don't make any effort and go away after a few minuts", "You try to learn a few things about him with the words you've managed to understand.", "You keep speaking english or you ask a person to translate", "Joker"),
+        new Question("You travel in a foreign country, what are your activities ?", "You make some cultural visits", "You stay at the hotel to enjoy the pool", "You immers yourself in the culture of the country and you respect the local traditions", "Answer D"),
+        new Question("You are alone on a desertic island :", "You look for a shelter for the night", "You try to build a raft to join the nearest continent", " You panic and wait for the rescuers", "50/50"),
+
+    ];
+    var i = 0;
+    $('#dev').click(function () {
+        if (lang === "fr") {
+            var q = questions[i];
+
+            $('#question').html(q.ques).attr('key', "Q" + i);
+            $('#r1').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res1);
+            $('#r2').html('<input class="tr" key="Q' + i + 'R1" type=R"radio">' + q.res2);
+            $('#r3').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res3);
+            $('#r4').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res4);
+        } else {
+            var q = questionsEn[i];
+
+            $('#question').html(q.ques).attr('key', "Q" + i);
+            $('#r1').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res1);
+            $('#r2').html('<input class="tr" key="Q' + i + 'R1" type=R"radio">' + q.res2);
+            $('#r3').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res3);
+            $('#r4').html('<input class="tr" key="Q' + i + 'R1" type="radio">' + q.res4);
+        }
+        i++;
+    });
 });
+

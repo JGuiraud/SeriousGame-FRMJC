@@ -2,283 +2,306 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/jqJigsawPuzzle.css" type="text/css" />
-    <link rel="stylesheet" href="css/jquery-ui-1.8.22.custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <link rel="stylesheet" href="css/jqJigsawPuzzle.css" type="text/css" />
+  <link rel="stylesheet" href="css/jquery-ui-1.8.22.custom.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 
-    <link href="./css/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="./css/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
 
 
 </head>
 
 <body>
-    <div id="container-general">
-        <div id="loadingPage">
-            <img id="load" src="assets/loadingspin.gif" alt=""></br>
-            <h2>Loading...</h2>
-        </div>
-        <div class="bulle">
-            <span id='close'>x</span>
-            <h4>Titre test</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor fuga molestiae maxime ab dignissimos modi sunt
-                alias eum! Possimus debitis esse in dolores delectus dolorem sed omnis, perspiciatis cumque provident!</p>
-        </div>
-        <div id="buttonbulle">
-            <div id="fleche">&lt;</div>
-        </div>
+  <div id="container-general">
+    <div id="loadingPage">
+      <img id="load" src="assets/loadingspin.gif" alt=""></br>
+      <h2>Loading...</h2>
+    </div>
 
-        <button id="fr" class="lang"><img src="assets/frenchflag.png"></button>
-        <button id="uk" class="lang"><img src="assets/englishflag.png"></button>
-        <div class="container-game">
-            <!-- <button id="dev">dev</button> -->
-            <div class="quest" id="missions">
-                <div class="flexmission">
-                    <!-- (div.mission#mission$>(h3.missionname{mission$}+p.missionpreview{Preview}+p.missiondescription{Lorem}+btn.missionchoose#missionchoose${choisir cette mission}))*8 -->
-                    <div class="mission" id="mission1">
-                        <h5 class="missionname">Mission1</h5>
-                        <p class="missionpreview"></p>
-                        <h3>Protection animale</h3>
-                        <p class="missiondescription">Participe au sauvetage des tortues marines. <br>Il faut avoir au moins 18 ans, être capable de communiquer
-                            en anglais. Il faut apporter son propre matériel de camping.</p>
-                        <button class="missionchoose" id="missionchoose1"> Choisir </button>
-                    </div>
+    <div class="bulle">
+      <span id='close'>x</span>
+      <h4>Titre test</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor fuga molestiae maxime ab dignissimos modi sunt alias
+        eum! Possimus debitis esse in dolores delectus dolorem sed omnis, perspiciatis cumque provident!
+      </p>
+    </div>
 
-                    <div class="mission" id="mission2">
-                        <h5 class="missionname">Mission2</h5>
-                        <p class="missionpreview">
-                            <h3>Aide aux populations</h3>
-                        </p>
-                        <p class="missiondescription">Aide aux populations en difficulté dans un contexte de solidarité européenne. Aide administrative,
-                            réalisation reportage photo/vidéo. Animations d'ateliers en faveur des jeunes.</p>
-                        <button class="missionchoose" id="missionchoose2"> Choisir </button>
-                    </div>
+    <div id="buttonbulle">
+      <div id="fleche">&lt;</div>
+    </div>
 
-                    <div class="mission" id="mission3">
-                        <h5 class="missionname">Mission3</h5>
-                        <p class="missionpreview">
-                            <h3>Education</h3>
-                        </p>
-                        <p class="missiondescription">Appui au programme voyageurs du code.</br>Formation et aide à l'animation autour de l'éducation numérique
-                            à partir de la plateforme Codakademy.</br>En vue de favoriser l'apprentissage du code.</p>
-                        <button class="missionchoose" id="missionchoose3"> Choisir </button>
-                    </div>
 
-                    <div class="mission" id="mission4">
-                        <h5 class="missionname">Mission4</h5>
-                        <p class="missionpreview">
-                            <h3>Environnement</h3>
-                        </p>
-                        <p class="missiondescription">Permaculture et jardinage bio durable.<br>Mission de promotion et d'organisation d'un travail actif
-                            sur la préservation et l’amélioration de l'état de l'environnement. Personne aimant la nature,
-                            le jardinage et la fabrication de produits faits maison.</p>
-                        <button class="missionchoose" id="missionchoose4"> Choisir </button>
-                    </div>
+    <button id="fr" class="lang"><img src="assets/frenchflag.png"></button>
+    <button id="uk" class="lang"><img src="assets/englishflag.png"></button>
 
-                    <div class="mission" id="mission5">
-                        <h5 class="missionname">Mission5</h5>
-                        <p class="missionpreview">
-                            <h3>Education Jeunesse</h3>
-                        </p>
-                        <p class="missiondescription">Dans une équipe internationale de 11 personnes participer a l'organisation des rencontres internationales
-                            et des actions de communication entres associations locales.</p>
-                        <button class="missionchoose" id="missionchoose5">choisir</button>
-                    </div>
+    <div class="container-game">
+      <!-- <button id="dev">dev</button> -->
+      <div class="quest" id="missions">
+        <div class="flexmission">
+          <!-- (div.mission#mission$>(h3.missionname{mission$}+p.missionpreview{Preview}+p.missiondescription{Lorem}+btn.missionchoose#missionchoose${choisir cette mission}))*8 -->
+          <div class="mission" id="mission1">
+            <h5 class="missionname">Mission1</h5>
+            <p class="missionpreview"></p>
+            <h3>Protection animale</h3>
+            <p class="missiondescription">Participe au sauvetage des tortues marines. <br>Il faut avoir au moins 18 ans, être capable de communiquer en
+              anglais. Il faut apporter son propre matériel de camping.</p>
+            <button class="missionchoose" id="missionchoose1"> Choisir </button>
+          </div>
 
-                    <div class="mission" id="mission6">
-                        <h5 class="missionname">Mission6</h5>
-                        <p class="missionpreview">
-                            <h3>Education</h3>
-                        </p>
-                        <p class="missiondescription">Association pour la jeunesse.<br>Mise en place de projets d'animation, de formation et d'orientation
-                            des jeunes.<br>Elaboration de supports de communication.</p>
-                        <button class="missionchoose" id="missionchoose6">choisir</button>
-                    </div>
-
-                    <div class="mission" id="mission7">
-                        <h5 class="missionname">mission7</h5>
-                        <p class="missionpreview">
-                            <h3>Culture et loisirs</h3>
-                        </p>
-                        <p class="missiondescription">Promotion de la langue et de la culture Française.<br>Interventions au niveau scolaire.<br>Mise en
-                            place d'activités ludiques et récréatives autour de la langue française dans le cadre d'activités
-                            sur les livres. Animation des clubs de discussion. </p>
-                        <button class="missionchoose" id="missionchoose7">choisir</button>
-                    </div>
-
-                    <div class="mission" id="mission8">
-                        <h5 class="missionname">mission8</h5>
-                        <p class="missionpreview">
-                            <h3>Sports</h3>
-                        </p>
-                        <p class="missiondescription">Promotion de l'activité sportive et sportive au niveau européen. Participation à des événements et
-                            projets internationaux.
-                        </p>
-                        <button class="missionchoose" id="missionchoose8">choisir</button>
-                    </div>
-
-                </div>
-            </div>
-            <div class="quest" id="budget">
-                <img class="postit" id="postit0" src="assets/postittraj.png" alt="" />
-                <img class="postit" id="postit1" src="assets/postitmanger.png" alt="" />
-                <img class="postit" id="postit2" src="assets/postitdepenses.png" alt="" />
-                <img class="postit" id="postit3" src="assets/postittel.png" alt="" />
-                <img class="postit" id="postit4" src="assets/postittransports.png" alt="" />
-                <img class="postit" id="postit5" src="assets/postitlogement.png" alt="" />
-                <div class="diagram" id="budget">
-                    <h4>Budget</h4>
-                    <img id="progressbudget" class="progressbar" src="assets/progressb.png" />
-                </div>
-                <div class="diagram" id="depenses">
-                    <h4>Dépenses</h4>
-                    <img id="progressdepenses" class="progressbar" src="assets/progressb.png" />
-                </div>
-                <button id="verrif">Verrifier ?</button>
-            </div>
-            <div class="quest" id="pays">
-                <div id="mapdiv"></div>
-            </div>
-            <div class="quest" id="cv">
-                <div id="my_frame">
-                </div>
-            </div>
-            <div class="quest" id="entretien">
-            </div>
+          <h5 class="missionname">Mission1</h5>
+          <h3>Protection animale</h3>
+          <p class="missiondescription">Participe au sauvetage des tortues marines. <br>Il faut avoir au moins 18 ans, être capable de communiquer en anglais.
+            Il faut apporter son propre matériel de camping.
+          </p>
+          <button class="missionchoose" id="missionchoose1"> Choisir </button>
         </div>
 
-
-        <div class="container-carnet carnetleft">
-            <div class="carnet">
-                <div class="book_wrapper">
-                    <a id="next_page_button"></a>
-                    <a id="prev_page_button"></a>
-                    <div id="loading" class="loading">Loading pages...
-
-                    </div>
-                    <div id="mybook">
-                        <div class="b-load">
-                            <div>
-                                <h1>Préparation SVE pour partir</h1>
-                                <img id="imgpageone" src="./assets/sve.png" alt="" />
-                                <ul>
-                                    <li id="countryEnabled"><a id="paysLink" href="">Choix du pays</a></li>
-
-                                    <li id="missionEnabled"><a id="missionsLink" href="">Choix de la mission</a></li>
-                                    <li id="budgetEnabled"><a id="budgetLink" href="">Budget</a></li>
-                                    <li id="budgetDisabled">Budget</li>
-                                    <li id="cvEnabled"><a id="cvlmLink" href="">Curriculum Vitae/Lettre de Motivation</a></li>
-                                    <li id="cvDisabled">Curriculum Vitae/Lettre de Motivation</li>
-                                    <li id="entretienEnabled"><a id="entretienLink" href="">Entretien</a></li>
-                                    <li id="entretienDisabled">Entretien</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h1>Choisir sa mission</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias nobis ad et illo, temporibus
-                                    hic nihil voluptates, consectetur fugit consequatur sed beatae natus recusandae commodi
-                                    nisi, quaerat dicta pariatur neque maiores. Sapiente distinctio beatae enim debitis voluptas.
-                                    Suscipit architecto est, necessitatibus ipsum maxime libero, ab nemo quam et dolorem
-                                    quibusdam consectetur debitis deleniti amet ea cum, error quasi explicabo rerum beatae.
-                                    Veniam pariatur in impedit eum quibusdam soluta, magnam enim vero est illo magni sed
-                                    modi nemo ut vitae mollitia, alias quam earum. Nihil dolores doloribus atque aut itaque,
-                                    rem exercitationem, esse, quas ipsa repudiandae accusamus error provident reprehenderit,
-                                    autem.
-                                </p>
-                                <a href="http://tympanus.net/codrops/2010/11/14/animated-portfolio-gallery/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnimatedPortfolioGallery/" target="_blank" class="demo">Demo</a>
-                            </div>
-                            <div>
-                                <!--<img src="./a" alt="" />-->
-                                <h1>Choisir son pays</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, beatae eligendi voluptatum
-                                    qui. Debitis reiciendis dolorem quae voluptas. Animi error voluptatem ipsa maiores officiis
-                                    quia quod odit tempore, dolorum qui nisi dolor facilis optio delectus! Blanditiis dicta
-                                    aperiam repudiandae aspernatur corrupti magni eum ipsum, doloremque est, consequatur
-                                    facilis numquam saepe quo eaque aut quia sapiente, modi voluptatum, pariatur qui provident
-                                    praesentium! At excepturi suscipit, nulla amet? Eveniet alias doloremque omnis vel similique
-                                    ipsum aut iste perferendis ratione nihil blanditiis quae fuga voluptates eligendi delectus
-                                    ut saepe debitis incidunt rem, adipisci in mollitia sapiente ex ducimus? Sapiente nostrum
-                                    exercitationem nulla eius!
-                                </p>
-                                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
-                            </div>
-                            <div>
-                                <!--<img src="./a" alt="" />-->
-                                <h1>Préparer son CV et Lettre de Motivation</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laborum consequatur consectetur,
-                                    deleniti tenetur, dolore officia ullam possimus quae, eveniet sunt delectus! Nihil sequi
-                                    aut, deleniti voluptatum explicabo quaerat illum ex minus aliquam tempore repellat ut
-                                    neque itaque enim. Omnis numquam vitae voluptatibus maxime tempore. Ab quidem illum voluptas
-                                    minima, molestiae deserunt exercitationem a perspiciatis. Repudiandae officia accusantium,
-                                    quos repellat quaerat voluptatum itaque cupiditate fugit fugiat sed neque fuga vero aperiam
-                                    consequatur consequuntur perspiciatis doloribus reprehenderit esse sint! Nihil saepe
-                                    illum quis ipsa optio nobis voluptas soluta numquam, velit molestiae, quos consequuntur
-                                    dignissimos vitae provident eligendi. Sequi dicta fugit amet?
-                                </p>
-                                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
-                            </div>
-                            <div>
-                                <!--<img src="./a" alt="" />-->
-                                <h1>Penser son budget</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum autem nam sed at mollitia,
-                                    saepe cumque minima magni quas suscipit. Quasi atque ipsum fugit eos placeat cum enim
-                                    praesentium blanditiis nam magnam provident, possimus, dignissimos veniam, quo consequatur
-                                    obcaecati accusantium harum aspernatur incidunt architecto quos numquam ea! Quae ipsam,
-                                    tenetur, nihil cumque reprehenderit sint pariatur hic quisquam quibusdam corporis beatae
-                                    porro doloribus dicta alias, animi laudantium culpa aut quos placeat modi nulla suscipit!
-                                    Ad error quibusdam rerum expedita mollitia! Atque minima aliquam quo vero inventore,
-                                    suscipit laudantium, iure a voluptas dolores magni dicta neque beatae nobis. Aperiam,
-                                    quasi, aliquam.
-                                </p>
-                                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
-                            </div>
-                            <div>
-                                <!--<img src="./a" alt="" />-->
-                                <h1>Être prêt pour l'entretien</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum autem nam sed at mollitia,
-                                    saepe cumque minima magni quas suscipit. Quasi atque ipsum fugit eos placeat cum enim
-                                    praesentium blanditiis nam magnam provident, possimus, dignissimos veniam, quo consequatur
-                                    obcaecati accusantium harum aspernatur incidunt architecto quos numquam ea! Quae ipsam,
-                                    tenetur, nihil cumque reprehenderit sint pariatur hic quisquam quibusdam corporis beatae
-                                    porro doloribus dicta alias, animi laudantium culpa aut quos placeat modi nulla suscipit!
-                                    Ad error quibusdam rerum expedita mollitia! Atque minima aliquam quo vero inventore,
-                                    suscipit laudantium, iure a voluptas dolores magni dicta neque beatae nobis. Aperiam,
-                                    quasi, aliquam.
-
-                                </p>
-                                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="mission" id="mission2">
+          <h5 class="missionname">Mission2</h5>
+          <h3>Aide aux populations</h3>
+          <p class="missiondescription">Aide aux populations en difficulté dans un contexte de solidarité européenne. Aide administrative, réalisation
+            reportage photo/vidéo. Animations d'ateliers en faveur des jeunes.
+          </p>
+          <button class="missionchoose" id="missionchoose2"> Choisir </button>
         </div>
-        <img class="indy" src="./assets/indy2.png" alt="">
+
+        <div class="mission" id="mission3">
+          <h5 class="missionname">Mission3</h5>
+          <h3>Education</h3>
+          <p class="missiondescription">Appui au programme voyageurs du code.</br>Formation et aide à l'animation autour de l'éducation numérique à partir
+            de la plateforme Codakademy.</br>En vue de favoriser l'apprentissage du code.
+          </p>
+          <button class="missionchoose" id="missionchoose3"> Choisir </button>
+        </div>
+
+        <div class="mission" id="mission4">
+          <h5 class="missionname">Mission4</h5>
+          <h3>Environnement</h3>
+          <p class="missiondescription">Permaculture et jardinage bio durable.<br>Mission de promotion et d'organisation d'un travail actif sur la préservation
+            et l’amélioration de l'état de l'environnement. Personne aimant la nature, le jardinage et la fabrication de
+            produits faits maison.
+          </p>
+          <button class="missionchoose" id="missionchoose4"> Choisir </button>
+        </div>
+
+        <div class="mission" id="mission5">
+          <h5 class="missionname">Mission5</h5>
+          <h3>Education Jeunesse</h3>
+          <p class="missiondescription">Dans une équipe internationale de 11 personnes participer a l'organisation des rencontres internationales et des
+            actions de communication entres associations locales.
+          </p>
+          <button class="missionchoose" id="missionchoose5">choisir</button>
+        </div>
+
+        <div class="mission" id="mission6">
+          <h5 class="missionname">Mission6</h5>
+          <h3>Education</h3>
+          <p class="missiondescription">Association pour la jeunesse.<br>Mise en place de projets d'animation, de formation et d'orientation des jeunes.<br>Elaboration
+            de supports de communication.
+          </p>
+          <button class="missionchoose" id="missionchoose6">choisir</button>
+        </div>
+
+        <div class="mission" id="mission7">
+          <h5 class="missionname">mission7</h5>
+          <h3>Culture et loisirs</h3>
+          <p class="missiondescription">Promotion de la langue et de la culture Française.<br>Interventions au niveau scolaire.<br>Mise en place d'activités
+            ludiques et récréatives autour de la langue française dans le cadre d'activités sur les livres. Animation des
+            clubs de discussion.
+          </p>
+          <button class="missionchoose" id="missionchoose7">choisir</button>
+        </div>
+
+        <div class="mission" id="mission8">
+          <h5 class="missionname">mission8</h5>
+          <p class="missionpreview">
+            <h3>Sports</h3>
+          </p>
+          <p class="missiondescription">Promotion de l'activité sportive et sportive au niveau européen. Participation à des événements et projets internationaux.
+          </p>
+          <button class="missionchoose" id="missionchoose8">choisir</button>
+        </div>
+
+      </div>
+
+      <div class="quest" id="budget">
+        <img class="postit" id="postit0" src="assets/postittraj.png" alt="" />
+        <img class="postit" id="postit1" src="assets/postitmanger.png" alt="" />
+        <img class="postit" id="postit2" src="assets/postitdepenses.png" alt="" />
+        <img class="postit" id="postit3" src="assets/postittel.png" alt="" />
+        <img class="postit" id="postit4" src="assets/postittransports.png" alt="" />
+        <img class="postit" id="postit5" src="assets/postitlogement.png" alt="" />
+        <div class="diagram" id="diagrambudget">
+          <h4>Budget</h4>
+          <img id="progressbudget" class="progressbar" src="assets/progressb.png" />
+        </div>
+        <div class="diagram" id="diagramdepenses">
+          <h4>Dépenses</h4>
+          <img id="progressdepenses" class="progressbar" src="assets/progressb.png" />
+        </div>
+        <button id="verif">Vérifier ?</button>
+      </div>
+
+      <div class="quest" id="pays">
+        <div id="mapdiv"></div>
+      </div>
+
+      <div class="quest" id="cv">
+        <div id="my_frame">
+        </div>
+      </div>
+
+      <div class="quest" id="entretien">
+        <div class="cadre">
+          <div id="containerQuestion">
+            <span id="question" class='tr' key='Q1'>Expliquez pourquoi vous voulez faire un SVE ?
+            </span>
+            <div id="r1" class="tr" key='Q1R1'><input type="radio">Découvrir d’autres cultures.</div>
+            <div id="r2" class="tr" key='Q1R2'><input type="radio">Résoudre les problèmes d’environnement.</div>
+            <div id="r3" class="tr" key='Q1R3'><input type="radio">Aider les populations les plus défavorisées.</div>
+            <div id="r4" class="tr" key='Q1R4'><input type="radio">Faire la fête.</div>
+          </div>
+          <button id="dev">Valider</button>
+          <div id="cam">
+            <video id="video" width="200" height="150" autoplay></video>
+            <canvas id="canvas" width="200" height="150"></canvas>
+          </div>
+        </div>
+      </div>
 
     </div>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>-->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
-    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
-    <script type="text/javascript" src="js/jquery-ui-1.8.22.custom.min.js"></script>
-    <script src="./js/turn.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" type="text/javascript"></script>
-    <script src="./js/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
 
-    <script src="js/translate.js"></script>
-    <script src="js/app.js"></script>
-    <script type="text/javascript" src="js/jqJigsawPuzzle.js"></script>
+    <div class="container-carnet carnetleft">
+      <div class="carnet">
+        <div class="book_wrapper">
+          <a id="next_page_button"></a>
+          <a id="prev_page_button"></a>
+          <div id="loading" class="loading">Loading pages...
+
+
+          </div>
+          <div id="mybook">
+            <div class="b-load">
+              <div>
+                <h1>Préparation SVE pour partir</h1>
+
+                <img id="imgpageone" src="./assets/sve.png" alt="" />
+                <ul id="listcarnet">
+                  <li id="countryEnabled">- <a class="questlink" id="paysLink" href="">Choix du pays</a></li>
+
+                  <li id="missionEnabled">- <a class="questlink" id="missionsLink" href="">Choix de la mission</a></li>
+
+                  <li id="budgetEnabled">- <a class="questlink" id="budgetLink" href="">Budget</a></li>
+                  <li id="budgetDisabled" class="disabledquest">- Budget</li>
+
+                  <li id="cvEnabled">- <a class="questlink" id="cvlmLink" href="">Curriculum Vitae/Lettre de Motivation</a></li>
+                  <li id="cvDisabled" class="disabledquest">- Curriculum Vitae/Lettre de Motivation</li>
+
+                  <li id="entretienEnabled">- <a class="questlink" id="entretienLink" href="">- Entretien</a></li>
+                  <li id="entretienDisabled" class="disabledquest">- Entretien</li>
+                </ul>
+              </div>
+              <div>
+                <h1>Choisir sa mission</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias nobis ad et illo, temporibus hic nihil voluptates,
+                  consectetur fugit consequatur sed beatae natus recusandae commodi nisi, quaerat dicta pariatur neque maiores.
+                  Sapiente distinctio beatae enim debitis voluptas. Suscipit architecto est, necessitatibus ipsum maxime
+                  libero, ab nemo quam et dolorem quibusdam consectetur debitis deleniti amet ea cum, error quasi explicabo
+                  rerum beatae. Veniam pariatur in impedit eum quibusdam soluta, magnam enim vero est illo magni sed modi
+                  nemo ut vitae mollitia, alias quam earum. Nihil dolores doloribus atque aut itaque, rem exercitationem,
+                  esse, quas ipsa repudiandae accusamus error provident reprehenderit, autem.
+                </p>
+                <a href="http://tympanus.net/codrops/2010/11/14/animated-portfolio-gallery/" target="_blank" class="article">Article</a>
+                <a href="http://tympanus.net/Tutorials/AnimatedPortfolioGallery/" target="_blank" class="demo">Demo</a>
+              </div>
+              <div>
+                <!--<img src="./a" alt="" />-->
+                <h1>Choisir son pays</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, beatae eligendi voluptatum qui. Debitis
+                  reiciendis dolorem quae voluptas. Animi error voluptatem ipsa maiores officiis quia quod odit tempore,
+                  dolorum qui nisi dolor facilis optio delectus! Blanditiis dicta aperiam repudiandae aspernatur corrupti
+                  magni eum ipsum, doloremque est, consequatur facilis numquam saepe quo eaque aut quia sapiente, modi voluptatum,
+                  pariatur qui provident praesentium! At excepturi suscipit, nulla amet? Eveniet alias doloremque omnis vel
+                  similique ipsum aut iste perferendis ratione nihil blanditiis quae fuga voluptates eligendi delectus ut
+                  saepe debitis incidunt rem, adipisci in mollitia sapiente ex ducimus? Sapiente nostrum exercitationem nulla
+                  eius!
+                </p>
+                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
+                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
+              </div>
+              <div>
+                <!--<img src="./a" alt="" />-->
+                <h1>Préparer son CV et Lettre de Motivation</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laborum consequatur consectetur, deleniti
+                  tenetur, dolore officia ullam possimus quae, eveniet sunt delectus! Nihil sequi aut, deleniti voluptatum
+                  explicabo quaerat illum ex minus aliquam tempore repellat ut neque itaque enim. Omnis numquam vitae voluptatibus
+                  maxime tempore. Ab quidem illum voluptas minima, molestiae deserunt exercitationem a perspiciatis. Repudiandae
+                  officia accusantium, quos repellat quaerat voluptatum itaque cupiditate fugit fugiat sed neque fuga vero
+                  aperiam consequatur consequuntur perspiciatis doloribus reprehenderit esse sint! Nihil saepe illum quis
+                  ipsa optio nobis voluptas soluta numquam, velit molestiae, quos consequuntur dignissimos vitae provident
+                  eligendi. Sequi dicta fugit amet?
+                </p>
+                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
+                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
+              </div>
+              <div>
+                <!--<img src="./a" alt="" />-->
+                <h1>Penser son budget</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum autem nam sed at mollitia, saepe cumque
+                  minima magni quas suscipit. Quasi atque ipsum fugit eos placeat cum enim praesentium blanditiis nam magnam
+                  provident, possimus, dignissimos veniam, quo consequatur obcaecati accusantium harum aspernatur incidunt
+                  architecto quos numquam ea! Quae ipsam, tenetur, nihil cumque reprehenderit sint pariatur hic quisquam
+                  quibusdam corporis beatae porro doloribus dicta alias, animi laudantium culpa aut quos placeat modi nulla
+                  suscipit! Ad error quibusdam rerum expedita mollitia! Atque minima aliquam quo vero inventore, suscipit
+                  laudantium, iure a voluptas dolores magni dicta neque beatae nobis. Aperiam, quasi, aliquam.
+                </p>
+                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
+                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
+              </div>
+              <div>
+                <!--<img src="./a" alt="" />-->
+                <h1>Être prêt pour l'entretien</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum autem nam sed at mollitia, saepe cumque
+                  minima magni quas suscipit. Quasi atque ipsum fugit eos placeat cum enim praesentium blanditiis nam magnam
+                  provident, possimus, dignissimos veniam, quo consequatur obcaecati accusantium harum aspernatur incidunt
+                  architecto quos numquam ea! Quae ipsam, tenetur, nihil cumque reprehenderit sint pariatur hic quisquam
+                  quibusdam corporis beatae porro doloribus dicta alias, animi laudantium culpa aut quos placeat modi nulla
+                  suscipit! Ad error quibusdam rerum expedita mollitia! Atque minima aliquam quo vero inventore, suscipit
+                  laudantium, iure a voluptas dolores magni dicta neque beatae nobis. Aperiam, quasi, aliquam.
+
+                </p>
+                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
+                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <img class="indy" src="./assets/indy2.png" alt="">
+
+  </div>
+
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>-->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+  <script type="text/javascript" src="js/jquery-ui-1.8.22.custom.min.js"></script>
+  <script src="./js/turn.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" type="text/javascript"></script>
+  <script src="./js/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
+
+  <script src="js/translate.js"></script>
+  <script src="js/app.js"></script>
+  <script type="text/javascript" src="js/jqJigsawPuzzle.js"></script>
 
 
 </body>
