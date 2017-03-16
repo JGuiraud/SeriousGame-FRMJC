@@ -95,8 +95,9 @@ html {
     list-style: none;
 }
 
-/*.questlink:hover {
-}*/
+.questlink {
+    
+}
 .carnetleft {
    margin-left: -60vw;
    transform: rotate(10deg);
