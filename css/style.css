@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+
+
 #mapdiv {
     height: 100%;
+    transition: .5s;
 }
 
 
@@ -8,7 +13,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
+	font-family: 'ubuntu', sans-serif;
 }
 
 html {
@@ -62,11 +67,15 @@ html {
     display: unset;
 }
 
-
+.mission:hover {
+    cursor: pointer;
+}
 /* ------ carnet ------ */
 
 #imgpageone {
-    height: 10vh;
+    /*height: 10vh;*/
+    border: none;
+    box-shadow: none;
 }
 
 .container-carnet.carnetleft {
@@ -461,7 +470,7 @@ html {
 */
 
 .mission {
-    background-image: url('http://placehold.it/350x150/ffffff/?text=+');
+    background-image: url("../assets/subtle_white_feathers.png");
     font-size: 1.05vw;
     display: flex;
     justify-content: center;
@@ -479,9 +488,9 @@ html {
     text-align: center;
 }
 
-
 .mission.choosedmission {
-    background-image: url('http://placehold.it/350x150/dddddd/?text=+');
+    /*background-image: url('http://placehold.it/350x150/dddddd/?text=+');*/
+    background-color: white;
     border: white solid;
     opacity: 1;
     transform: rotateX(180deg);

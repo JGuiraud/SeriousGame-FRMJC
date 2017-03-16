@@ -8,16 +8,59 @@ $(document).ready(function () {
     }
     chargement();
 
+    /* control of F5 reload to ctrl+F5 instead */
+    document.onkeydown = fkey;
+    document.onkeypress = fkey
+    document.onkeyup = fkey;
+
+    var wasPressed = false;
+
+    function fkey(e) {
+        e = e || window.event;
+        if (wasPressed) return;
+
+        if (e.keyCode == 116) {
+            e.preventDefault()
+            location.reload(true)
+            // wasPressed = true;
+        }
+    }
+    /* ----- */
+
     $("#buttonbulle").hide();
 
-    $("#close").click(function () {
-        $(".bulle").fadeOut("slow")
-        $("#buttonbulle").fadeIn("slow")
+    $("#container-general").click(function () {
+        if ($(".bulle").attr("class") == "cache") {
+            return
+        } else {
+            hideBulle()
+        }
     })
 
-    $("#buttonbulle").click(function () {
+
+
+    function hideBulle() {
+        $(".bulle").fadeOut("slow")
+        $("#buttonbulle").fadeIn("slow")
+    }
+    function pasHideBulle() {
         $("#buttonbulle").fadeOut("slow")
         $(".bulle").fadeIn("slow")
+    }
+
+    $(".bulle").click(function (e) {
+        e.stopPropagation()
+    });
+
+    $("#close").click(function () {
+        hideBulle()
+        $(".bulle").addClass('cache')
+    })
+
+    $("#buttonbulle").click(function (e) {
+        e.stopPropagation();
+        pasHideBulle()
+        $("#buttonbulle").removeClass("cache")
     })
 
     setTimeout(function () {
@@ -199,44 +242,39 @@ $(document).ready(function () {
         }).attr('src', source);
     });
 
-    $("#paysLink").click(function (e) {
-        e.stopPropagation()
+    function transitionPage(e) {
+        e.stopPropagation();
         chargement();
-        setTimeout(waitReturnCarnet, 300)
-        e.preventDefault()
+        location.reload()
+        setTimeout(waitReturnCarnet, 300);
+        e.preventDefault();
+        $(".container-game").hide()
+    }
+
+    $(".container-game").show()
+
+    $("#paysLink").click(function (e) {
+        transitionPage(e)
         callQuest("pays")
-        // callQuest("pays")
     })
 
     $("#missionsLink").click(function (e) {
-        e.stopPropagation()
-        chargement()
-        setTimeout(waitReturnCarnet, 300)
-        e.preventDefault()
+        transitionPage(e)
         callQuest("missions")
     })
 
     $("#budgetLink").click(function (e) {
-        e.stopPropagation()
-        chargement()
-        setTimeout(waitReturnCarnet, 300)
-        e.preventDefault()
+        transitionPage(e)
         callQuest("budget")
     })
 
     $("#cvlmLink").click(function (e) {
-        e.stopPropagation()
-        chargement()
-        setTimeout(waitReturnCarnet, 300)
-        e.preventDefault();
+        transitionPage(e)
         callQuest("cv")
     })
 
     $("#entretienLink").click(function (e) {
-        e.stopPropagation()
-        chargement()
-        setTimeout(waitReturnCarnet, 300)
-        e.preventDefault();
+        transitionPage(e)
         callQuest("entretien")
     })
 
@@ -262,6 +300,7 @@ $(document).ready(function () {
                 sessionStorage.setItem("test", quest);
                 $(this).toggleClass('queston');
                 location.reload();
+                chargement()
             }
             if ($(this).attr('id') != quest && $(this).attr('class') == "quest queston") {
                 $(this).toggleClass('queston');
@@ -656,6 +695,10 @@ $(document).ready(function () {
         jQuery('#cv').append(html);
         var piecesContainer = jQuery("#" + puzzleId);
 
+        if (sessionStorage.getItem("choixCv")) {
+            $(".jigsaw").hide()
+        }
+
         // Get the size of the pieces.
         var logicalSize = jqJigsawPuzzle.pieceSizes[piecesSize].logical;
         var realSize = jqJigsawPuzzle.pieceSizes[piecesSize].real;
@@ -762,6 +805,7 @@ $(document).ready(function () {
                                 sessionStorage.setItem("choixCv", true)
                                 checkMission()
                                 // console.log('youpi !');
+
                             }
                         }
 
