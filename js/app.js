@@ -1,10 +1,6 @@
 $(document).ready(function() {
     var layer;
 
-    $("#truc").click(function() {
-        console.log("yooooo")
-    })
-
     sessionStorage.setItem("choixCv", true)
 
     $(".bulle").fadeOut();
@@ -327,6 +323,8 @@ $(document).ready(function() {
         }
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
+
+
 
     }
 
@@ -1046,7 +1044,6 @@ $(document).ready(function() {
         });
     });
 
-
     $('#dev').click(function(ques) {
         console.log("langue voulue :", lang)
         if (lang === "fr") {
@@ -1068,6 +1065,7 @@ $(document).ready(function() {
         }
         i++;
     });
+
 
 
 
