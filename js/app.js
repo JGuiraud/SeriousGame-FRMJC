@@ -1,5 +1,8 @@
 $(document).ready(function () {
     var layer;
+
+    sessionStorage.setItem("choixCv", true)
+
     $(".bulle").fadeOut();
     function chargement() {
         setTimeout(function () {
@@ -1049,20 +1052,3 @@ function randbet(min, max) {
     });
 });
 
-// <div class="quest" id="entretien">
-
-//                                                             <div class="cadre">
-//                                                                 <div id="containerQuestion">
-//                                                                     <span id="question" class='tr' key='Q1'>Expliquez pourquoi vous voulez faire un SVE ?
-//                                                                     </span>
-//                                                                     <div id="r1" class="tr" key='Q1R1'><input type="radio">Découvrir d’autres cultures.</div>
-//                                                                     <div id="r2" class="tr" key='Q1R2'><input type="radio">Résoudre les problèmes d’environnement.</div>
-//                                                                     <div id="r3" class="tr" key='Q1R3'><input type="radio">Aider les populations les plus défavorisées.</div>
-//                                                                     <div id="r4" class="tr" key='Q1R4'><input type="radio">Faire la fête.</div>
-//                                                                 </div>
-//                                                                 <button id="dev">Valider</button>
-//                                                                 <div id="cam">
-//                                                                     <video id="video" width="200" height="150" autoplay></video>
-//                                                                     <canvas id="canvas" width="200" height="150"></canvas>
-//                                                                 </div>
-//                                                             </div>

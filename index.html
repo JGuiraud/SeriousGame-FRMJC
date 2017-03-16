@@ -22,7 +22,6 @@
       <img id="load" src="assets/loadingspin.gif" alt=""></br>
       <h2>Loading...</h2>
     </div>
-    
     <div class="bulle">
       <span id='close'>x</span>
       <h4>Titre test</h4>
@@ -30,22 +29,21 @@
         alias eum! Possimus debitis esse in dolores delectus dolorem sed omnis, perspiciatis cumque provident!
       </p>
     </div>
-    
     <div id="buttonbulle">
       <div id="fleche">&lt;</div>
     </div>
 
     <button id="fr" class="lang"><img src="assets/frenchflag.png"></button>
     <button id="uk" class="lang"><img src="assets/englishflag.png"></button>
-
     <div class="container-game">
       <!-- <button id="dev">dev</button> -->
       <div class="quest" id="missions">
         <div class="flexmission">
           <!-- (div.mission#mission$>(h3.missionname{mission$}+p.missionpreview{Preview}+p.missiondescription{Lorem}+btn.missionchoose#missionchoose${choisir cette mission}))*8 -->
           <div class="mission" id="mission1">
+
             <h5 class="missionname">Mission1</h5>
-            <h3 class="missionpreview">Protection animale</h3>
+            <h3>Protection animale</h3>
             <p class="missiondescription">Participe au sauvetage des tortues marines. <br>Il faut avoir au moins 18 ans, être capable de communiquer
               en anglais. Il faut apporter son propre matériel de camping.
             </p>
@@ -54,7 +52,7 @@
 
           <div class="mission" id="mission2">
             <h5 class="missionname">Mission2</h5>
-            <h3 class="missionpreview">Aide aux populations</h3>
+            <h3>Aide aux populations</h3>
             <p class="missiondescription">Aide aux populations en difficulté dans un contexte de solidarité européenne. Aide administrative,
               réalisation reportage photo/vidéo. Animations d'ateliers en faveur des jeunes.
             </p>
@@ -63,7 +61,7 @@
 
           <div class="mission" id="mission3">
             <h5 class="missionname">Mission3</h5>
-            <h3 class="missionpreview">Education</h3>
+            <h3>Education</h3>
             <p class="missiondescription">Appui au programme voyageurs du code.</br>Formation et aide à l'animation autour de l'éducation numérique
               à partir de la plateforme Codakademy.</br>En vue de favoriser l'apprentissage du code.
             </p>
@@ -72,7 +70,7 @@
 
           <div class="mission" id="mission4">
             <h5 class="missionname">Mission4</h5>
-            <h3 class="missionpreview">Environnement</h3>
+            <h3>Environnement</h3>
             <p class="missiondescription">Permaculture et jardinage bio durable.<br>Mission de promotion et d'organisation d'un travail actif
               sur la préservation et l’amélioration de l'état de l'environnement. Personne aimant la nature,
               le jardinage et la fabrication de produits faits maison.
@@ -82,7 +80,7 @@
 
           <div class="mission" id="mission5">
             <h5 class="missionname">Mission5</h5>
-            <h3 class="missionpreview">Education Jeunesse</h3>
+            <h3>Education Jeunesse</h3>
             <p class="missiondescription">Dans une équipe internationale de 11 personnes participer a l'organisation des rencontres internationales
               et des actions de communication entres associations locales.
             </p>
@@ -91,7 +89,7 @@
 
           <div class="mission" id="mission6">
             <h5 class="missionname">Mission6</h5>
-            <h3 class="missionpreview">Education</h3>
+            <h3>Education</h3>
             <p class="missiondescription">Association pour la jeunesse.<br>Mise en place de projets d'animation, de formation et d'orientation
               des jeunes.<br>Elaboration de supports de communication.
             </p>
@@ -100,7 +98,7 @@
 
           <div class="mission" id="mission7">
             <h5 class="missionname">mission7</h5>
-            <h3 class="missionpreview">Culture et loisirs</h3>
+            <h3>Culture et loisirs</h3>
             <p class="missiondescription">Promotion de la langue et de la culture Française.<br>Interventions au niveau scolaire.<br>Mise en
               place d'activités ludiques et récréatives autour de la langue française dans le cadre d'activités
               sur les livres. Animation des clubs de discussion.
@@ -108,13 +106,11 @@
             <button class="missionchoose" id="missionchoose7">choisir</button>
           </div>
 
-
-
           <div class="mission" id="mission8">
             <h5 class="missionname">mission8</h5>
-            
-            <h3 class="missionpreview">Sports</h3>
-            
+            <p class="missionpreview">
+              <h3>Sports</h3>
+            </p>
             <p class="missiondescription">Promotion de l'activité sportive et sportive au niveau européen. Participation à des événements et
               projets internationaux.
             </p>
@@ -123,7 +119,6 @@
 
         </div>
       </div>
-      
       <div class="quest" id="budget">
         <img class="postit" id="postit0" src="assets/postittraj.png" alt="" />
         <img class="postit" id="postit1" src="assets/postitmanger.png" alt="" />
@@ -141,16 +136,13 @@
         </div>
         <button id="verif">Vérifier ?</button>
       </div>
-      
       <div class="quest" id="pays">
         <div id="mapdiv"></div>
       </div>
-      
       <div class="quest" id="cv">
         <div id="my_frame">
         </div>
       </div>
-      
       <div class="quest" id="entretien">
         <div class="cadre">
           <div id="containerQuestion">
@@ -166,9 +158,8 @@
             <video id="video" width="200" height="150" autoplay></video>
             <canvas id="canvas" width="200" height="150"></canvas>
           </div>
-        </div>
-      </div>
-
+        </div>  
+      </div>  
     </div>
 
 
@@ -185,19 +176,19 @@
               <div>
                 <h1>Préparation SVE pour partir</h1>
                 <img id="imgpageone" src="./assets/circle.png" alt="" />
-                <ul>
-                  <li id="countryEnabled"><a id="paysLink" href="">Choix du pays</a></li>
+                <ul id="listcarnet">
+                  <li id="countryEnabled">- <a class="questlink" id="paysLink" href="">Choix du pays</a></li>
 
-                  <li id="missionEnabled"><a id="missionsLink" href="">Choix de la mission</a></li>
+                  <li id="missionEnabled">- <a class="questlink" id="missionsLink" href="">Choix de la mission</a></li>
 
-                  <li id="budgetEnabled"><a id="budgetLink" href="">Budget</a></li>
-                  <li id="budgetDisabled" class="disabledquest">Budget</li>
+                  <li id="budgetEnabled">- <a class="questlink" id="budgetLink" href="">Budget</a></li>
+                  <li id="budgetDisabled" class="disabledquest">- Budget</li>
 
-                  <li id="cvEnabled"><a id="cvlmLink" href="">Curriculum Vitae/Lettre de Motivation</a></li>
-                  <li id="cvDisabled" class="disabledquest">Curriculum Vitae/Lettre de Motivation</li>
+                  <li id="cvEnabled">- <a class="questlink" id="cvlmLink" href="">Curriculum Vitae/Lettre de Motivation</a></li>
+                  <li id="cvDisabled" class="disabledquest">- Curriculum Vitae/Lettre de Motivation</li>
 
-                  <li id="entretienEnabled"><a id="entretienLink" href="">Entretien</a></li>
-                  <li id="entretienDisabled" class="disabledquest">Entretien</li>
+                  <li id="entretienEnabled">- <a class="questlink" id="entretienLink" href="">- Entretien</a></li>
+                  <li id="entretienDisabled" class="disabledquest">- Entretien</li>
                 </ul>
               </div>
               <div>
@@ -285,11 +276,9 @@
         </div>
       </div>
     </div>
-    
     <img class="indy" src="./assets/indy2.png" alt="">
 
   </div>
-
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>-->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
