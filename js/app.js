@@ -204,32 +204,43 @@ $(document).ready(function () {
     });
 
     $("#paysLink").click(function (e) {
+        e.stopPropagation()
         chargement();
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault()
-        setTimeout(callQuest("pays"), 0.9)
+        callQuest("pays")
         // callQuest("pays")
     })
 
     $("#missionsLink").click(function (e) {
+        e.stopPropagation()
         chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault()
         callQuest("missions")
     })
 
     $("#budgetLink").click(function (e) {
+        e.stopPropagation()
         chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault()
         callQuest("budget")
     })
 
     $("#cvlmLink").click(function (e) {
+        e.stopPropagation()
         chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault();
         callQuest("cv")
     })
 
     $("#entretienLink").click(function (e) {
-        chargement();
+
+        e.stopPropagation()
+        chargement()
+        setTimeout(waitReturnCarnet, 300)
         e.preventDefault();
         callQuest("entretien")
     })
@@ -299,17 +310,25 @@ $('#dev').click(function(){
 
 }
 
+$('.disabledquest').click(function(e){
+    e.stopPropagation();
+})
+
 $(".b-load").click(function () {
     if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
         $(".container-carnet").removeClass("carnetleft")
         $(".container-carnet").addClass("carnetmiddle")
         $("#next_page_button").fadeIn()
     } else {
-        $(".container-carnet").addClass("carnetleft")
-        $(".container-carnet").removeClass("carnetmiddle")
-        $("#next_page_button").fadeOut()
+        waitReturnCarnet();
     }
 })
+
+function waitReturnCarnet() {
+    $(".container-carnet").addClass("carnetleft")
+    $(".container-carnet").removeClass("carnetmiddle")
+    $("#next_page_button").fadeOut()
+}
 
 function callQuest(quest) {
     $('.quest').each(function () {
@@ -317,13 +336,14 @@ function callQuest(quest) {
             sessionStorage.setItem("test", quest);
             $(this).toggleClass('queston');
             location.reload();
-
         }
         if ($(this).attr('id') != quest && $(this).attr('class') == "quest queston") {
             $(this).toggleClass('queston');
         }
     })
 }
+
+
 
 function randbet(min, max) {
     return Math.floor((Math.random() * (max - min)) + min);
@@ -341,12 +361,12 @@ function randbet(min, max) {
     }
 
     var postitstabl = [
-    new Postits('Billet allé+retour', 20, true, 58, 10),
-    new Postits('Manger', 10, true, 35, 10),
-    new Postits('Dépenses quotidiennes', 5, false, 12, 10),
-    new Postits('Téléphone', 10, true, 58, 30),
-    new Postits('Transport sur place', 15, true, 35, 30),
-    new Postits('Logement', 20, true, 12, 30)
+    new Postits('Billet allé+retour', 20, true, 65, 10),
+    new Postits('Manger', 10, true, 39, 10),
+    new Postits('Dépenses quotidiennes', 5, false, 9, 10),
+    new Postits('Téléphone', 10, true, 65, 35),
+    new Postits('Transport sur place', 15, true, 39, 35),
+    new Postits('Logement', 20, true, 9, 35)
     ];
     var prisencharge = [];
     var nonpris = ["Billet allé+retour", "Manger", "Dépenses quotidiennes", "Téléphone", "Transport sur place", "Logement"];
@@ -365,7 +385,7 @@ function randbet(min, max) {
         melangepostits(e, this);
     })
 
-    $('.postit').click(function () {
+    $('.postit').click(function (e) {
         $(this).toggleClass('postitcheck');
         id = ($(this).attr('id')).slice(6);
         console.log($("#progressbudget").attr('style'))
@@ -394,8 +414,8 @@ function randbet(min, max) {
             .append($('<li/>')
                 .text(nonpris[i]));
         }
-        $('#progressbudget').css("width", nonpris.length * 1.2 + .2 + "vw");
-        $('#progressdepenses').css("width", prisencharge.length * 1.2 + .2 + "vw");
+        $('#progressbudget').css("height", nonpris.length * 8 + .2 + "vh");
+        $('#progressdepenses').css("height", prisencharge.length * 8 + .2 + "vh");
         if (nonpris.length < 2) {
             $('#progressbudget').css("background-color", "red");
             $('#progressdepenses').css("background-color", "red");
@@ -407,19 +427,24 @@ function randbet(min, max) {
             $('#progressdepenses').css("background-color", "green");
         }
     })
-
-    $('#verrif').click(function () {
-        sessionStorage.setItem("choixBudget", true)
-        checkMission()
-        var rightres = 0, wrongres = 0;
-        $('.postit').each(function (e) {
-            correc = postitstabl[e].prisencharge;
-            if ($(this).attr("class") == 'postit') {
-                res = true;
-            } else {
-                res = false;
-            }
-            if (res == correc) {
+    setTimeout(function(){
+        $('#verif').click(function (e) {
+            $('.postit').unbind('click');
+            $('#progressbudget').css("height", 40 + .2 + "vh");
+            $('#progressdepenses').css("height", 8 + .2 + "vh");
+            $('#progressbudget').css("background-color", "green");
+            $('#progressdepenses').css("background-color", "green");
+            sessionStorage.setItem("choixBudget", true)
+            checkMission()
+            var rightres = 0, wrongres = 0;
+            $('.postit').each(function (e) {
+                correc = postitstabl[e].prisencharge;
+                if ($(this).attr("class") == 'postit') {
+                    res = true;
+                } else {
+                    res = false;
+                }
+                if (res == correc) {
                 // console.log('ok '+ postitstabl[e].name);
                 rightres++;
             } else {
@@ -427,8 +452,9 @@ function randbet(min, max) {
                 wrongres++;
             }
         })
-        console.log("vous avez " + Math.floor((rightres * 100) / 6) + "% de bonnes réponses");
-    })
+            console.log("vous avez " + Math.floor((rightres * 100) / 6) + "% de bonnes réponses");
+        })
+    }, 5000);
     // fin BUDGET !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // debut MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1023,5 +1049,20 @@ function randbet(min, max) {
     });
 });
 
+// <div class="quest" id="entretien">
 
-
+//                                                             <div class="cadre">
+//                                                                 <div id="containerQuestion">
+//                                                                     <span id="question" class='tr' key='Q1'>Expliquez pourquoi vous voulez faire un SVE ?
+//                                                                     </span>
+//                                                                     <div id="r1" class="tr" key='Q1R1'><input type="radio">Découvrir d’autres cultures.</div>
+//                                                                     <div id="r2" class="tr" key='Q1R2'><input type="radio">Résoudre les problèmes d’environnement.</div>
+//                                                                     <div id="r3" class="tr" key='Q1R3'><input type="radio">Aider les populations les plus défavorisées.</div>
+//                                                                     <div id="r4" class="tr" key='Q1R4'><input type="radio">Faire la fête.</div>
+//                                                                 </div>
+//                                                                 <button id="dev">Valider</button>
+//                                                                 <div id="cam">
+//                                                                     <video id="video" width="200" height="150" autoplay></video>
+//                                                                     <canvas id="canvas" width="200" height="150"></canvas>
+//                                                                 </div>
+//                                                             </div>

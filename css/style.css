@@ -384,66 +384,76 @@ html {
 }
 
 .postit {
-    position: absolute;
-    height: 8vw;
-    width: 8vw;
-    box-shadow: 5px -5px 5px #888888;
-    transition: .2s;
+	position: absolute;
+	height: 10vw;
+	width: 10vw;
+	box-shadow: 5px -5px 10px #222;
+	transition: .2s;
 }
 
 .postitcheck {
-    box-shadow: 20px -10px 5px #888888;
-    height: 9vw;
-    width: 9vw;
+    box-shadow: 25px -15px 20px #222;
+    height: 13vw;
+    width: 13vw;
 }
 
 .diagram {
+    border-radius: 3px;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
     position: absolute;
-    background-color: #eee;
-    width: 12vw;
+    background-color: #efefef;
+    height: 50.7vh;
 }
 
-#budget {
-    top: 60vh;
-    left: 60vw;
+#diagrambudget {
+    top: 19vh;
+    left: 65vw;
+    width: 7vw;
 }
 
-#depenses {
-    top: 50vh;
-    left: 60vw;
-}
-
-#progressdepenses {
-    width: 0.2vw;
-}
-
-#progressbudget {
-    width: 7.4vw;
+#diagramdepenses {
+    top: 19vh;
+    left: 55vw;
+    width: 7vw;
 }
 
 .progressbar {
-    transition: 1s;
+    border-radius: 3px;
+    transition: 1.75s;
     background-color: green;
-    width: 7.4vw;
-    height: 3vw;
+    height: 7.4vw;
+    width: 3vw;
 }
 
-#textdiagram {
+#progressdepenses {
+    height: 0.2vw;
+    width:  98%;
+}
+
+#progressbudget {
+    height: 48.2vh;
+    width:  98%;
+}
+
+#verif:hover {
+    box-shadow: 5px 0px 10px #222
+}
+
+#verif {
+    border-radius: 3px;
+    color: white;
+    background: linear-gradient( 45deg, #13386A, #15406c);
+    font-size: 2.5vh;
+    border: none;
+    font-weight: bold;
     position: absolute;
-    display: flex;
-    top: 65vh;
-    left: 65vw;
-}
-
-#textdiagram ul {
-    width: 175px;
-}
-
-#nonpris {
-    transition: .2s;
+    top: 72vh;
+    left: 55vw;
+    width: 17vw;
+    height: 3vw;
 }
 
 
@@ -472,7 +482,7 @@ html {
     border: black solid;
     border-radius: .5vw;
     width: 12vw;
-    height: 16vw;
+    height: 31.5vh;
     opacity: 1;
     transform: rotateX(0deg);
     transition: .4s;
