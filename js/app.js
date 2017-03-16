@@ -2,6 +2,38 @@ $(document).ready(function () {
     var layer;
 
     sessionStorage.setItem("choixCv", true)
+    sessionStorage.setItem("choixBudget", true)
+    sessionStorage.setItem("choixMission", true)
+    sessionStorage.setItem("choixPays", true)
+
+    /* fin jeu */
+    $("#fusee").hide();
+
+    $(".dev").click(function () {
+        $(".indy").fadeOut("fast");
+        var fusee = $("#fusee")
+        fusee.fadeIn(200)
+        setTimeout(function () {
+            fusee.css("top", "-100vh")
+        }, 2000)
+
+        // $("#fusee").removeClass("fuseeDown")
+        // $("#fusee").addClass("fuseeUp")
+        console.log("fin")
+    })
+
+
+    // if (sessionStorage.getItem("choixCv") && sessionStorage.getItem("choixBudget") && sessionStorage.getItem("choixMission") && sessionStorage.getItem("choixPays"))
+
+    // if (true) {
+    //     $(".indy").fadeOut("fast");
+    //     $("#fusee").fadeIn("fast").css("top", "-100vh")
+    //     // $("#fusee").removeClass("fuseeDown")
+    //     // $("#fusee").addClass("fuseeUp")
+    //     console.log("fin")
+    // }
+
+
 
     $(".bulle").fadeOut();
     function chargement() {

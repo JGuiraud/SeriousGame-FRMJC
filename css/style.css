@@ -327,10 +327,21 @@ html {
    .indy {
        z-index: 3;
        position: absolute;
-       left: 85vw;
+       left: 89vw;
        top: 60vh;
        height: 50vh;
    }
+
+
+#fusee {
+    transition: 2s;
+    position: absolute;
+    z-index: 5;
+    width: 20vw;
+    left: 80vw;
+    top: 60vh;
+}
+
 
    .bulle {
       padding: 2em;
@@ -342,8 +353,8 @@ html {
       position: absolute;
       z-index: 98;
       top:23vh;
-      left: 45vw;
-      box-shadow: 10px 10px 25px black;
+      left: 47vw;
+      box-shadow: 5px 5px 25px black;
       margin-right: 100px;
   }
 
