@@ -1,5 +1,28 @@
 $(document).ready(function () {
     var layer;
+    $(".bulle").fadeOut();
+    function chargement() {
+        setTimeout(function () {
+            $("#loadingPage").fadeOut("slow");
+        }, 1000);
+    }
+    chargement();
+
+    $("#buttonbulle").hide();
+
+    $("#close").click(function () {
+        $(".bulle").fadeOut("slow")
+        $("#buttonbulle").fadeIn("slow")
+    })
+
+    $("#buttonbulle").click(function () {
+        $("#buttonbulle").fadeOut("slow")
+        $(".bulle").fadeIn("slow")
+    })
+
+    setTimeout(function () {
+        $(".bulle").fadeIn('slow')
+    }, 2000);
 
     $("#cvEnabled").hide(); $("#entretienEnabled").hide(); $("#budgetEnabled").hide()
     checkMission()
@@ -108,7 +131,6 @@ $(document).ready(function () {
 
     /* ----- carnet ----- */
 
-
     var $mybook = $('#mybook');
     var $bttn_next = $('#next_page_button');
     var $bttn_prev = $('#prev_page_button');
@@ -117,8 +139,6 @@ $(document).ready(function () {
     var cnt_images = $mybook_images.length;
     var loaded = 0;
 
-
-
     $mybook_images.each(function () {
         var $img = $(this);
         var source = $img.attr('src');
@@ -126,7 +146,7 @@ $(document).ready(function () {
             ++loaded;
             if (loaded == cnt_images) {
                 $loading.hide();
-                $bttn_next.show();
+                $bttn_next.hide();
                 $bttn_prev.show();
                 $mybook.show().booklet({
                     name: null,
@@ -179,50 +199,68 @@ $(document).ready(function () {
         }).attr('src', source);
     });
 
+    $("#paysLink").click(function (e) {
+        e.stopPropagation()
+        chargement();
+        setTimeout(waitReturnCarnet, 300)
+        e.preventDefault()
+        callQuest("pays")
+        // callQuest("pays")
+    })
+
+    $("#missionsLink").click(function (e) {
+        e.stopPropagation()
+        chargement()
+        setTimeout(waitReturnCarnet, 300)
+        e.preventDefault()
+        callQuest("missions")
+    })
+
+    $("#budgetLink").click(function (e) {
+        e.stopPropagation()
+        chargement()
+        setTimeout(waitReturnCarnet, 300)
+        e.preventDefault()
+        callQuest("budget")
+    })
+
+    $("#cvlmLink").click(function (e) {
+        e.stopPropagation()
+        chargement()
+        setTimeout(waitReturnCarnet, 300)
+        e.preventDefault();
+        callQuest("cv")
+    })
+
+    $("#entretienLink").click(function (e) {
+        e.stopPropagation()
+        chargement()
+        setTimeout(waitReturnCarnet, 300)
+        e.preventDefault();
+        callQuest("entretien")
+    })
+
+    $('.disabledquest').click(function(e){
+        e.stopPropagation();
+    })
 
     $(".b-load").click(function () {
         if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
             $(".container-carnet").removeClass("carnetleft")
             $(".container-carnet").addClass("carnetmiddle")
+            $("#next_page_button").fadeIn()
         } else {
-            $(".container-carnet").addClass("carnetleft")
-            $(".container-carnet").removeClass("carnetmiddle")
+            waitReturnCarnet();
         }
     })
 
-    $("#paysLink").click(function (e) {
-        e.preventDefault()
-        console.log("click pays")
-        callQuest("pays")
-    })
-
-    $("#missionsLink").click(function (e) {
-        e.preventDefault()
-        console.log("click missions")
-        callQuest("missions")
-    })
-
-    $("#budgetLink").click(function (e) {
-        e.preventDefault()
-        console.log("click budget")
-        callQuest("budget")
-    })
-
-    $("#cvlmLink").click(function (e) {
-        e.preventDefault();
-        console.log("click CV LM")
-        callQuest("cv")
-    })
-
-    $("#entretienLink").click(function (e) {
-        e.preventDefault();
-        console.log("click entretien")
-        callQuest("entretien")
-    })
-
+    function waitReturnCarnet() {
+        $(".container-carnet").addClass("carnetleft")
+        $(".container-carnet").removeClass("carnetmiddle")
+        $("#next_page_button").fadeOut()
+    }
 
     function callQuest(quest) {
-
         $('.quest').each(function () {
             if ($(this).attr('id') == quest && !($(this).attr('class') == "quest queston")) {
                 sessionStorage.setItem("test", quest);
@@ -233,7 +271,6 @@ $(document).ready(function () {
                 $(this).toggleClass('queston');
             }
         })
-
     }
 
     function randbet(min, max) {
@@ -252,12 +289,12 @@ $(document).ready(function () {
     }
 
     var postitstabl = [
-        new Postits('Billet allé+retour', 20, true, 58, 10),
-        new Postits('Manger', 10, true, 35, 10),
-        new Postits('Dépenses quotidiennes', 5, false, 12, 10),
-        new Postits('Téléphone', 10, true, 58, 30),
-        new Postits('Transport sur place', 15, true, 35, 30),
-        new Postits('Logement', 20, true, 12, 30)
+    new Postits('Billet allé+retour', 20, true, 65, 10),
+    new Postits('Manger', 10, true, 39, 10),
+    new Postits('Dépenses quotidiennes', 5, false, 9, 10),
+    new Postits('Téléphone', 10, true, 65, 35),
+    new Postits('Transport sur place', 15, true, 39, 35),
+    new Postits('Logement', 20, true, 9, 35)
     ];
     var prisencharge = [];
     var nonpris = ["Billet allé+retour", "Manger", "Dépenses quotidiennes", "Téléphone", "Transport sur place", "Logement"];
@@ -267,16 +304,16 @@ $(document).ready(function () {
         posy = postitstabl[e].posy;
         rot = randbet(-10, 10) + "deg";
         $(celuila)
-            .css('top', (randbet(posx, posx + $(window).width() / 200)) + "%")
-            .css('left', (randbet(posy, posy + $(window).width() / 150)) + "%")
-            .css('transform', "rotate(" + rot + ")");
+        .css('top', (randbet(posx, posx + $(window).width() / 200)) + "%")
+        .css('left', (randbet(posy, posy + $(window).width() / 150)) + "%")
+        .css('transform', "rotate(" + rot + ")");
         // console.log('coucoupotit')
     }
     $('.postit').each(function (e) {
         melangepostits(e, this);
     })
 
-    $('.postit').click(function () {
+    $('.postit').click(function (e) {
         $(this).toggleClass('postitcheck');
         id = ($(this).attr('id')).slice(6);
         console.log($("#progressbudget").attr('style'))
@@ -296,17 +333,17 @@ $(document).ready(function () {
         $('#prisencharge').html('<h3>Non pris en charge</h3>');
         for (var i = 0; i < prisencharge.length; i++) {
             $('#prisencharge')
-                .append($('<li/>')
-                    .text(prisencharge[i]));
+            .append($('<li/>')
+                .text(prisencharge[i]));
         }
         $('#nonpris').html('<h3>Pris en charge</h3>');
         for (var i = 0; i < nonpris.length; i++) {
             $('#nonpris')
-                .append($('<li/>')
-                    .text(nonpris[i]));
+            .append($('<li/>')
+                .text(nonpris[i]));
         }
-        $('#progressbudget').css("width", nonpris.length * 1.2 + .2 + "vw");
-        $('#progressdepenses').css("width", prisencharge.length * 1.2 + .2 + "vw");
+        $('#progressbudget').css("height", nonpris.length * 8 + .2 + "vh");
+        $('#progressdepenses').css("height", prisencharge.length * 8 + .2 + "vh");
         if (nonpris.length < 2) {
             $('#progressbudget').css("background-color", "red");
             $('#progressdepenses').css("background-color", "red");
@@ -318,19 +355,24 @@ $(document).ready(function () {
             $('#progressdepenses').css("background-color", "green");
         }
     })
-
-    $('#verrif').click(function () {
-        sessionStorage.setItem("choixBudget", true)
-        checkMission()
-        var rightres = 0, wrongres = 0;
-        $('.postit').each(function (e) {
-            correc = postitstabl[e].prisencharge;
-            if ($(this).attr("class") == 'postit') {
-                res = true;
-            } else {
-                res = false;
-            }
-            if (res == correc) {
+    setTimeout(function(){
+        $('#verif').click(function (e) {
+            $('.postit').unbind('click');
+            $('#progressbudget').css("height", 40 + .2 + "vh");
+            $('#progressdepenses').css("height", 8 + .2 + "vh");
+            $('#progressbudget').css("background-color", "green");
+            $('#progressdepenses').css("background-color", "green");
+            sessionStorage.setItem("choixBudget", true)
+            checkMission()
+            var rightres = 0, wrongres = 0;
+            $('.postit').each(function (e) {
+                correc = postitstabl[e].prisencharge;
+                if ($(this).attr("class") == 'postit') {
+                    res = true;
+                } else {
+                    res = false;
+                }
+                if (res == correc) {
                 // console.log('ok '+ postitstabl[e].name);
                 rightres++;
             } else {
@@ -338,8 +380,9 @@ $(document).ready(function () {
                 wrongres++;
             }
         })
-        console.log("vous avez " + Math.floor((rightres * 100) / 6) + "% de bonnes réponses");
-    })
+            console.log("vous avez " + Math.floor((rightres * 100) / 6) + "% de bonnes réponses");
+        })
+    }, 5000);
     // fin BUDGET !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // debut MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -349,7 +392,7 @@ $(document).ready(function () {
         .click(function (e) {
             e.stopPropagation();
             var missionchoisie = $(this).parent().attr('id')
-            bulletext($(this).parent().attr('id') + '!? très bon choix');
+            // bulletext($(this).parent().attr('id') + '!? très bon choix');
             // console.log(missionchoisie)
             sessionStorage.setItem("choixMission", missionchoisie)
             checkMission();
@@ -357,42 +400,35 @@ $(document).ready(function () {
         });
     $('.missiondescription').toggle();
     $('.mission')
-        .click(function () {
-            var timeout1;
-            var timeout2;
-            var id = $(this).attr('id');
-            $('.mission').each(function () {
-                if ($(this).attr('id') == id) {
-                    $(this).toggleClass('choosedmission')
-                    $(this).children('.missionchoose')
-                        .toggle();
-                    $(this).children('.missiondescription')
-                        .toggle();
-                    $(this).children('.missionpreview')
-                        .toggle();
-                }
-                else if ($(this).attr('class') == 'mission choosedmission') {
-                    $(this).toggleClass('choosedmission')
-                    $(this).children('.missionchoose')
-                        .toggle();
-                    $(this).children('.missiondescription')
-                        .toggle();
-                    $(this).children('.missionpreview')
-                        .toggle();
-                }
-            })
+    .click(function () {
+        var timeout1;
+        var timeout2;
+        var id = $(this).attr('id');
+        $('.mission').each(function () {
+            if ($(this).attr('id') == id) {
+                $(this).toggleClass('choosedmission')
+                $(this).children('.missionchoose')
+                .toggle();
+                $(this).children('.missiondescription')
+                .toggle();
+                $(this).children('.missionpreview')
+                .toggle();
+            }
+            else if ($(this).attr('class') == 'mission choosedmission') {
+                $(this).toggleClass('choosedmission')
+                $(this).children('.missionchoose')
+                .toggle();
+                $(this).children('.missiondescription')
+                .toggle();
+                $(this).children('.missionpreview')
+                .toggle();
+            }
         })
+    })
     // fin MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // debut BULLES !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    $('#bullecontainer').toggle();
-    function bulletext(text) {
-        $('#bulletext').html(text);
-        if ($('#bullecontainer').attr('style') == 'display: none;') {
-            $('#bullecontainer').toggle();
-        }
-    }
 
     // fin BULLES !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -420,12 +456,12 @@ $(document).ready(function () {
     /**
      * Declare the namespace for the library.
      */
-    jqJigsawPuzzle = new Object();
+     jqJigsawPuzzle = new Object();
 
     /**
      * The array 'pieceSizes' defines the logical and the real sizes of the three sizes of pieces (small, normal and big).
      */
-    jqJigsawPuzzle.pieceSizes = {
+     jqJigsawPuzzle.pieceSizes = {
         small: {
             logical: 25,
             real: 43
@@ -453,7 +489,7 @@ $(document).ready(function () {
      * @return {Array} An array with the type of each piece.
      */
 
-    jqJigsawPuzzle.randomPieceTypes = function (rows, columns) {
+     jqJigsawPuzzle.randomPieceTypes = function (rows, columns) {
         var res = new Array();
 
         // Format used for represent a piece type as a binary number of four digits (dcba)
@@ -507,8 +543,8 @@ $(document).ready(function () {
                 res[i][j] = value;
             }
 
-        return res;
-    }
+            return res;
+        }
 
     /**
      * Shuffle the pieces of a puzzle.
@@ -520,7 +556,7 @@ $(document).ready(function () {
      * @param {object} options An associative array with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit'.
      */
 
-    jqJigsawPuzzle.shufflePieces = function (containerSelector, options) {
+     jqJigsawPuzzle.shufflePieces = function (containerSelector, options) {
         // Process parameters.
         var divPuzzle = jQuery(containerSelector).find('div.puzzle');
         var rightLimit = (options != null && !isNaN(options.rightLimit)) ? options.rightLimit : 0;
@@ -549,7 +585,7 @@ $(document).ready(function () {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.createPuzzleFromURL = function (containerSelector, imageUrl, options) {
+     jqJigsawPuzzle.createPuzzleFromURL = function (containerSelector, imageUrl, options) {
         // Add image to the container.
         var imgId = 'img_' + new Date().getTime();
         jQuery(containerSelector).append('<img src="' + imageUrl + '" id="' + imgId + '" alt=""/>');
@@ -565,7 +601,7 @@ $(document).ready(function () {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.createPuzzleFromImage = function (imageSelector, options) {
+     jqJigsawPuzzle.createPuzzleFromImage = function (imageSelector, options) {
         // Verify if the image exists.
         if (jQuery(imageSelector).size() > 0) {
             // Verify if the image has been fully loaded.
@@ -601,7 +637,7 @@ $(document).ready(function () {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.imageToPuzzle = function (imageSelector, options) {
+     jqJigsawPuzzle.imageToPuzzle = function (imageSelector, options) {
         // Process parameters.
         var img = jQuery(imageSelector);
         if (img.size() > 1) img = img.find(':first');
@@ -618,15 +654,15 @@ $(document).ready(function () {
         var imgSrc = img.attr("src");
 
         var html = '<div class="jigsaw" id="' + puzzleId + '" style="left:' + (imgPosX - borderWidth) + 'px; top:' + (imgPosY - borderWidth) + 'px; width:' + (imgWidth) + 'px; min-height:' + (imgHeight) + 'px; border-width:' + borderWidth + 'px;">' +
-            '<div class="puzzle" style="width:' + imgWidth + 'px; height:' + imgHeight + 'px; background-image:url(\'' + imgSrc + '\');"></div>' +
-            '<div class="menu" style="width:' + (imgWidth) + 'px;">' +
-            '<table class="menu"><tr>' +
-            '<td><a href="#" class="button" id="' + puzzleId + '_shuffle" title="Shuffle">Shuffle</a></td>' +
-            '<td>Movements: <span class="movement_compter" id="' + puzzleId + '_movements"></span></td>' +
-            '<td>Time: <span class="time_compter" id="' + puzzleId + '_time"></span></td>' +
-            '</tr></table>' +
-            '</div>' +
-            '</div>';
+        '<div class="puzzle" style="width:' + imgWidth + 'px; height:' + imgHeight + 'px; background-image:url(\'' + imgSrc + '\');"></div>' +
+        '<div class="menu" style="width:' + (imgWidth) + 'px;">' +
+        '<table class="menu"><tr>' +
+        '<td><a href="#" class="button" id="' + puzzleId + '_shuffle" title="Shuffle">Shuffle</a></td>' +
+        '<td>Movements: <span class="movement_compter" id="' + puzzleId + '_movements"></span></td>' +
+        '<td>Time: <span class="time_compter" id="' + puzzleId + '_time"></span></td>' +
+        '</tr></table>' +
+        '</div>' +
+        '</div>';
         jQuery('#cv').append(html);
         var piecesContainer = jQuery("#" + puzzleId);
 
@@ -665,16 +701,16 @@ $(document).ready(function () {
 
                 // Add html element.
                 html = '<div id="' + id + '" ' +
-                    'class="piece ' + piecesSize + ' ' + clase + '" ' +
-                    'data-posX="' + posX + '" ' +
-                    'data-posY="' + posY + '" ' +
-                    'style="background-image: url(\'' + imgSrc + '\');' +
-                    'background-position: ' + backgroundPosX + 'px ' + backgroundPosY + 'px;' +
-                    'left: ' + posX + 'px; ' +
-                    'top: ' + posY + 'px; ' +
-                    'width: ' + realSize + 'px; ' +
-                    'height: ' + realSize + 'px;">' +
-                    '</div>';
+                'class="piece ' + piecesSize + ' ' + clase + '" ' +
+                'data-posX="' + posX + '" ' +
+                'data-posY="' + posY + '" ' +
+                'style="background-image: url(\'' + imgSrc + '\');' +
+                'background-position: ' + backgroundPosX + 'px ' + backgroundPosY + 'px;' +
+                'left: ' + posX + 'px; ' +
+                'top: ' + posY + 'px; ' +
+                'width: ' + realSize + 'px; ' +
+                'height: ' + realSize + 'px;">' +
+                '</div>';
                 piecesContainer.append(html);
 
                 // Set initial z-index.
@@ -736,7 +772,6 @@ $(document).ready(function () {
                                 sessionStorage.setItem("choixCv", true)
                                 checkMission()
                                 // console.log('youpi !');
-                                // if(jqJigsawPuzzle.finishSound != null) jqJigsawPuzzle.finishSound.play();
                             }
                         }
 
@@ -768,7 +803,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.resetCounters = function (piecesContainer) {
+     jqJigsawPuzzle.resetCounters = function (piecesContainer) {
         // Resets timer counter.
         jqJigsawPuzzle.stopTimerCounter(piecesContainer);
         jqJigsawPuzzle.setTimerCounter(piecesContainer, 0);
@@ -783,7 +818,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.increaseMovementCounter = function (piecesContainer) {
+     jqJigsawPuzzle.increaseMovementCounter = function (piecesContainer) {
         var count = parseInt(jQuery(piecesContainer).find(".movement_compter").html(), 10);
         jQuery(piecesContainer).find(".movement_compter").html((count + 1) + '');
     };
@@ -794,7 +829,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.startTimerCounter = function (piecesContainer) {
+     jqJigsawPuzzle.startTimerCounter = function (piecesContainer) {
         // Verify if the timer has not already been started.
         if (jQuery(piecesContainer).data('timer-status') != 'running') {
             // Change status and set initial time.
@@ -816,7 +851,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.stopTimerCounter = function (piecesContainer) {
+     jqJigsawPuzzle.stopTimerCounter = function (piecesContainer) {
         // Verify if the timer has not already been stoped.
         if (jQuery(piecesContainer).data('timer-status') != 'stopped') {
             jQuery(piecesContainer).data('timer-status', 'stopped');
@@ -830,7 +865,7 @@ $(document).ready(function () {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.refreshTimerCounter = function (piecesContainer) {
+     jqJigsawPuzzle.refreshTimerCounter = function (piecesContainer) {
         var currentTime = new Date().getTime();
         jqJigsawPuzzle.setTimerCounter(piecesContainer, currentTime - jQuery(piecesContainer).data('timer-value'));
     };
@@ -842,7 +877,7 @@ $(document).ready(function () {
      * @param {int} time The time passed in milliseconds
      */
 
-    jqJigsawPuzzle.setTimerCounter = function (piecesContainer, time) {
+     jqJigsawPuzzle.setTimerCounter = function (piecesContainer, time) {
         time = (time > 0) ? time / 1000 : 0;
         var seconds = parseInt(time % 60, 10);
         var minutes = parseInt((time / 60) % 60, 10);
@@ -856,18 +891,18 @@ $(document).ready(function () {
     /**
      * Define the sound object, created by SoundManager, used for reproduce a sound when a piece is put.
      */
-    jqJigsawPuzzle.pieceSound = null;
+     jqJigsawPuzzle.pieceSound = null;
 
     /**
      * Define the sound object, created by SoundManager, used for reproduce a sound when the puzzle is solve.
      */
-    jqJigsawPuzzle.finishSound = null;
+     jqJigsawPuzzle.finishSound = null;
 
     /**
      * Configure SoundManager.
      */
 
-    soundManager.setup({
+     soundManager.setup({
         url: 'swf/',
         flashVersion: 9,
         useFlashBlock: false,
@@ -889,4 +924,4 @@ $(document).ready(function () {
         }
     });
 
-});
+ });
