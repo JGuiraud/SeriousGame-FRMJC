@@ -23,9 +23,29 @@ $(document).ready(function () {
 
     if (lang == "uk") {
         $("#tampon").attr("src", "./assets/tamponE.png")
+        $("#postit0").attr("src", "assets/Return.png")
     } else {
         $("#tampon").attr("src", "./assets/tampon.png")
     }
+
+    $("#uk").click(function () {
+        console.log("yopp")
+        $("#postit0").attr("src", "assets/Return.png")
+        $("#postit1").attr("src", "assets/food.png")
+        $("#postit2").attr("src", "assets/expenses.png")
+        $("#postit3").attr("src", "assets/phone.png")
+        $("#postit4").attr("src", "assets/transportation.png")
+        $("#postit5").attr("src", "assets/accomodation.png")
+    })
+    $("#fr").click(function () {
+        console.log("yopp")
+        $("#postit0").attr("src", "assets/postittraj.png")
+        $("#postit1").attr("src", "assets/postitmanger.png")
+        $("#postit2").attr("src", "assets/postitdepenses.png")
+        $("#postit3").attr("src", "assets/postittel.png")
+        $("#postit4").attr("src", "assets/postittransports.png")
+        $("#postit5").attr("src", "assets/postitlogement.png")
+    })
 
     $("#buttonfinito").click(function () {
         // video.stop()
@@ -682,6 +702,14 @@ $(document).ready(function () {
     $("#suivantboutonBudget").click(function () {
         $(".container-carnet").attr('class', "container-carnet carnetmiddle")
     })
+
+
+    if (lang == "uk") {
+        console.log("youu")
+        $("#postit0").attr("src", "assets/Return.png")
+    } else {
+        $("#postit0").attr("src", "assets/postittraj.png")
+    }
 
     // fin BUDGET !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
