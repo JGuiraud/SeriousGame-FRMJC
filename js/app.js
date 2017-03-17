@@ -1120,7 +1120,7 @@ $(document).ready(function () {
                                 $(".bulle").fadeIn();
                                 $('#cvintro').hide();
                                 $("#cvfini").show();
-                                $('#suivantboutonCV').hide()
+                                $('#suivantboutonCV').show()
 
 
                                 console.log('endgame')
@@ -1416,13 +1416,13 @@ $(document).ready(function () {
     aLangKeys['fr']['start'] = "Très bon choix ! C’est parti !";
     aLangKeys['uk']['start'] = "Very good choice ! Let's start !";
     // Budget
-    aLangKeys['fr']['budget'] = "Comment allons nous financer ce projet ? Je te propose de faire une sélection de toutes les dépenses que tu penses être amené à devoir payer.";
-    aLangKeys['uk']['budget'] = "How are we gonna finance this project ? Let's make a selection of all the costs you'll will certainly face during your trip.";
+    aLangKeys['fr']['budget'] = "Comment vas-tu financer ce projet ? Je te propose de faire une sélection de toutes les dépenses que tu penses être amené à devoir payer. Vérifie ensuite si tu as juste.";
+    aLangKeys['uk']['budget'] = "How are you going to finance this project ? Let's make a selection of all the costs you'll will certainly face during your trip and check if you are right.";
     aLangKeys['fr']['budgetverif'] = "La subvention de l’Union européenne est versée directement à la structure qui coordonne le projet. Elle doit aider à couvrir les frais de transport, d’hébergement, de nourriture et d’activités du projet SVE. Les jeunes volontaires reçoivent de l’argent de poche et leur protection sociale est assurée. Ils bénéficient également d’un soutien linguistique et d’un tutorat tout au long de leur projet SVE.";
     aLangKeys['uk']['budgetverif'] = "The european grant is payed directly to the organisation that coordinates the project. It must help to cover the transportation, accomodation, food and activity fees of the EVS project. The youths who are volunteers receive a monthly allowance. Their health care is ensured. They also have acess to linguitic courses and tutoring during their contract.";
     // Lettre de motivation
     aLangKeys['fr']['motiv'] = "Un bon CV et une lettre de motivation sont des clés essentielles pour réaliser ton Service Volontaire Européen. Tu va devoir reconstituer ce puzzle pour obtenir ton CV et ta lettre de motivation. Conseil: Un CV et une lettre de motivation rédigés en anglais auront plus d’impact pour la sélection de ta candidature.";
-    aLangKeys['uk']['motiv'] = "A good CV and a cover letter are essentials to obtain a mission within the EVS. If you want to see how to structure those documents, try to reconstruct the jigsaw above. Tip: A CV and a cover letter written in english will have a greater impact on your candidacy."; //aplication???
+    aLangKeys['uk']['motiv'] = "A good CV and a cover letter are essentials to obtain a mission within the EVS. If you want to see how to structure those documents, try to reconstruct the jigsaw. Tip: A CV and a cover letter written in english will have a greater impact on your candidacy."; //aplication???
     // Entretien Skype
     aLangKeys['fr']['skypetitle'] = "Entretien de motivation";
     aLangKeys['uk']['skypetitle'] = "Motivation interview";
@@ -1430,7 +1430,7 @@ $(document).ready(function () {
     aLangKeys['uk']['skype'] = "We are now going to simulate an interview. Our referent abroad will ask you a few questions under a MCQ form, tick the answer which suits you best. Good luck!";
     // Page de fin
     aLangKeys['fr']['end'] = "L'entretien n'est pas un piège, mais un moyen supplémentaire de jauger ton intérêt pour la mission et l'associatif. Aucune raison, donc, d'appréhender cette étape si tu es sûr(e) de tes motivations. Si tu obtiens un entretien, prépare-toi à présenter tes motivations. Félicitations ! Toutes les conditions sont maintenant remplies pour effectuer ta mission de Service Volontaire Européen. Lance-toi et monte un projet concret ! Clique sur le bouton pour terminer le jeu.";
-    aLangKeys['uk']['end'] = "The interview in not a trap but a way to know your interest in the mission and in the voluntary sector. No need to be afraid of this necessary step if you are certain of what drives you. If you get an interview, be prepared to present your motivations. Congratulations! All the requirements to prepare your European Voluntary Service are met. Now that you know everything, why don't you make a try and plan a concrete project? Click on the button below to end the game.";
+    aLangKeys['uk']['end'] = "The interview is not a trap but a way to know your interest in the mission and in the voluntary sector. No need to be afraid of this necessary step if you are certain of what drives you. If you get an interview, be prepared to present your motivations. Congratulations! All the requirements to prepare your European Voluntary Service are met. Now that you know everything, why don't you make a try and plan a concrete project? Click on the button below to end the game.";
     aLangKeys['fr']['buttonfinito'] = "Suivant";
     aLangKeys['uk']['buttonfinito'] = "Next";
     aLangKeys['fr']['buttonRestart'] = "Recommencer la partie";
@@ -1454,23 +1454,23 @@ $(document).ready(function () {
     aLangKeys['uk']['Mission3p'] = "Support to the program code travelers. Training and animation on the digital education based on the codecademy website, in order to promote the learning of code development ";
     aLangKeys['fr']['Mission4h3'] = "Environnement";
     aLangKeys['uk']['Mission4h3'] = "Environment";
-    aLangKeys['fr']['Mission4p'] = "Permaculture et jardinage bio durable.Mission de promotion et d\'organisation d\'un travail actif sur la préservation et l\’amélioration de l'état de l'environnement. Personne aimant la nature, le jardinage et la fabrication de produits faits maison.";
+    aLangKeys['fr']['Mission4p'] = "Permaculture et jardinage bio durable.Mission de promotion et de préservation de l'environnement. Personne aimant la nature, le jardinage et la fabrication de produits faits maison.";
     aLangKeys['uk']['Mission4p'] = "Permaculture and sustainable organic gardening. Promotion and organization of an active work in order to preserve and improve the environment. We nedd someone who loves nature, gardening and the making of home-made products.";
-    aLangKeys['fr']['Mission5h3'] = "Education Jeunesse";
-    aLangKeys['uk']['Mission5h3'] = "Youth and education";
+    aLangKeys['fr']['Mission5h3'] = "Jeunesse";
+    aLangKeys['uk']['Mission5h3'] = "Youth";
     aLangKeys['fr']['Mission5p'] = "Dans une équipe internationale de 11 personnes participer a l\'organisation des rencontres internationales et des actions de communication entres associations locales.";
     aLangKeys['uk']['Mission5p'] = "As a member of an international team of 11 persons, involvment in the organisation of international meetings and in communication actions between local associations";
     aLangKeys['fr']['Mission6h3'] = "Education";
     aLangKeys['uk']['Mission6h3'] = "Education";
-    aLangKeys['fr']['Mission6p'] = "Association pour la jeunesse. Mise en place de projets d\'animation, de formation et d\'orientation des jeunes. Elaboration de supports de communication.";
+    aLangKeys['fr']['Mission6p'] = "Association pour la jeunesse. Mise en place de projets d\'animations, de formations et d\'orientation des jeunes. Elaboration de supports de communication.";
     aLangKeys['uk']['Mission6p'] = "Youth association. Implementation of animation, training and orientation projects for the youths. Creation of communication mediums";
     aLangKeys['fr']['Mission7h3'] = "Culture et loisirs";
     aLangKeys['uk']['Mission7h3'] = "Culture and leisure";
-    aLangKeys['fr']['Mission7p'] = "Promotion de la langue et de la culture Française. Interventions au niveau scolaire. Mise en place d'activités ludiques et récréatives autour de la langue française dans le cadre d'activités sur les livres. Animation clubs de discussion.";
-    aLangKeys['uk']['Mission7p'] = "Promotion of french culture and language. Intervention at a school level. Implementation of recreationnal activities around french language within activities on books. Animation of discussion boards ";
+    aLangKeys['fr']['Mission7p'] = "Promotion de la langue et de la culture Française. Mise en place d'activités ludiques et récréatives autour de la langue française dans le cadre d'activités sur les livres. Animation clubs de discussion.";
+    aLangKeys['uk']['Mission7p'] = "Advocacy of french culture and language. Implementation of recreationnal activities around french language within activities on books. Animation of discussion boards.";
     aLangKeys['fr']['Mission8h3'] = "Sports";
     aLangKeys['uk']['Mission8h3'] = "Sports";
-    aLangKeys['fr']['Mission8p'] = "Promotion de l'activité sportive au niveau européen. Participation à des événements et projets internationaux.";
+    aLangKeys['fr']['Mission8p'] = "Promotion de l'activité physique et sportive au niveau européen. Participation à des événements et projets internationaux.";
     aLangKeys['uk']['Mission8p'] = "Promotion of physical activities at a european scale. Participation at european events and projects";
     aLangKeys['fr']['choix'] = "choisir";
     aLangKeys['uk']['choix'] = "Choose";

@@ -652,12 +652,12 @@ button {
 
 .mission {
     background-image: url("../assets/subtle_white_feathers.png");
-    font-size: 1.05vw;
+    font-size: .95vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2vw;
+    padding: 1vw;
     margin: 1vw;
     border: black solid;
     border-radius: .5vw;
