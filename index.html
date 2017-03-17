@@ -26,11 +26,115 @@
 
         <div class="bulle">
             <span class="close" id='closeBubble'>x</span>
+            <div id="presentationBulle">
+                <h4>Introduction</h4>
+                <br>
+                <p class="tr" key="presentation">Salut, moi c'est Indy. Je vais te guider a la découverte du service volontaire européen(SVE).</p>
+                <br>
+                <p class="tr" key="intro">Ton carnet de bord, situé sur la gauche de l'écran, récapitule toutes les étapes de ton aventure. Tu peux
+                    y retourner à tout moment pour suivre ton évolution. Pour commencer, je te propose de choisir entre une
+                    mission ou un pays. Clique sur le bouton 'Démarrer' pour commencer ton aventure.</p>
+                </p>
+                <br>
+                <button id="start" class="tr" key="staart">Démarrer</button>
+            </div>
+            <div id="missionBulle">
+                <h4>Missions</h4>
+                <br>
+                <p class="tr" key="missions" id="missionintro">Voici une sélection de missions dans divers pays. Regarde bien les thèmatiques et clique sur la mission de
+                    ton choix.
+                </p>
+                <br>
+                <p id="missionchoisie">
+                    <p id="missionbonchoix" key="carnetMissionp1" class="tr">
+                        Ton parcours de volontaire commence ici ! Faire du volontariat dans un autre pays est un excellent moyen de découvrir d'autres
+                        cultures et de te faire des amis, tout en aidant les autres et en acquérant des compétences qui pourront
+                        t'être utiles par la suite. Sur ce site:
+                    </p>
+                    <a class="lienmission" href="https://europa.eu/youth/volunteering_fr" target="_blank">https://europa.eu/youth/volunteering_fr</a>
+                    <a class="lienmission" href="http://europa.eu/youth/volunteering/evs-organisation_fr" target="_blank">http://europa.eu/youth/volunteering/evs-organisation_fr</a>
+                    <br> <button key="buttonfinito" class=" tr" id="suivantboutonMissions">Suivant</button>
+
+                </p>
+            </div>
+            <div id="paysBulle">
+                <h4 class="tr" key="paystitle">Pays</h4>
+                <br>
+                <p class="tr" key="pays" id="paysintro">Voici la carte d’Europe sur laquelle tu peux choisir le pays dans lequel tu veux faire ton service européen.
+                    clique sur le pays de ton choix.
+                </p>
+                <br>
+                <p id="payschoisi">
+                    <p id="paysbonchoix" key="paysbonchoix" class="tr">
+                        Très bon choix ! La mission SVE se déroule dans un pays membre ou partenaire de l'Union européenne (pays de l'Espace économique
+                        européen (EEE), pays candidat à l'adhésion à l'Union européenne, pays ou régions partenaires de l'Union
+                        européenne).
+                    </p>
+                    <button key="buttonfinito" class="suivant tr" id="suivantboutonPays">Suivant</button>
+
+                </p>
+            </div>
+            <div id="budgetBulle">
+                <h4>Budget</h4>
+                <br>
+                <p class="tr" key="budget" id="budgetintro">Comment allons nous financer ce projet ? Je te propose de faire une sélection de toutes les dépenses que
+                    tu penses être amené à devoir payer.
+                </p>
+                <br>
+                <p id="budgetverif" key="budgetverif" class="tr">
+                    La subvention de l’Union européenne est versée directement à la structure qui coordonne le projet. Elle doit aider à couvrir
+                    les frais de transport, d’hébergement, de nourriture et d’activités du projet SVE. Les jeunes volontaires
+                    reçoivent de l’argent de poche et leur protection sociale est assurée. Ils bénéficient également d’un
+                    soutien linguistique en ligne et d’un tutorat tout au long de leur projet SVE. </p>
+                <button key="buttonfinito" class="suivant tr" id="suivantboutonBudget">Suivant</button>
+
+
+
+            </div>
+            <div id="cvBulle">
+                <h4>CV</h4>
+                <br>
+                <p id="cvintro" class="tr" key="motiv">Un bon CV et une lettre de motivation sont des clés essentielles pour réaliser ton Service Volontaire Européen.
+                    Tu va devoir reconstituer ce puzzle pour obtenir ton CV et ta lettre de motivation. Conseil: Un CV et
+                    une lettre de motivation rédigés en anglais auront plus d’impact pour la sélection de ta candidature.
+                </p>
+                <p id="cvfini" key="cvfini" class="tr">
+                    Ce sont les savoirs-être et la motivation qui comptent avant tout. Nul besoin, en effet, de fournir un curriculum vitæ exceptionnel
+                    ou de justifier d'un quelconque niveau d'étude. N'oublie pas de te concentrer sur la rédaction de la
+                    lettre de motivation de préférence en anglais.
+                    <button key="buttonfinito" class="suivant tr" id="suivantboutonCV">Suivant</button>
+                </p>
+            </div>
+            <div id="entretienBulle">
+                <h4 class="tr" key="skypetitle">Entretien de motivation</h4>
+                <br>
+                <p id="entretienintro" class="tr" key="skype">Nous allons maintenant simuler un entretien. Cet entretien sera sous forme de QCM, il te suffit donc de cocher
+                    la bonne réponse. Bonne chance
+                </p>
+                <br>
+
+                <p id="entretienfini" key="end" class="tr">L'entretien n'est pas un piège, mais un moyen supplémentaire de jauger ton intérêt pour la mission et l'associatif.
+                    Aucune raison, donc, d'appréhender cette étape si tu es sûr(e) de tes motivations. Si tu obtiens un entretien,
+                    prépare-toi à présenter tes motivations. Félicitations ! Toutes les conditions sont maintenant remplies
+                    pour effectuer ta mission de Service Volontaire Européen. Lance-toi et monte un projet concret ! Clique
+                    sur le bouton pour terminer le jeu.
+                </p>
+
+
+                <br>
+                <button id="buttonfinito" key="buttonfinito" class="tr">Suivant</button>
+
+            </div>
+
+        </div>
+
+        <!--<div class="bulle">
+            <span class="close" id='closeBubble'>x</span>
             <h4>Titre test</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor fuga molestiae maxime ab dignissimos modi sunt
                 alias eum! Possimus debitis esse in dolores delectus dolorem sed omnis, perspiciatis cumque provident!
             </p>
-        </div>
+        </div>-->
 
         <div id="buttonbulle">
             <div id="fleche">&lt;</div>
@@ -42,83 +146,83 @@
         </div>
 
         <div class="container-game">
+
             <div class="quest" id="missions">
                 <div class="flexmission">
 
                     <div class="mission" id="mission1">
                         <h5 class="missionname">Mission1</h5>
-                        <h3>Protection animale</h3>
-                        <p class="missiondescription">Participe au sauvetage des tortues marines. <br>Il faut avoir au moins 18 ans, être capable de communiquer
+                        <h3 class="tr" key="Mission1h3">Protection animale</h3>
+                        <p class="missiondescription tr" key="Mission1p">Participe au sauvetage des tortues marines. Il faut avoir au moins 18 ans, être capable de communiquer
                             en anglais. Il faut apporter son propre matériel de camping.
                         </p>
-                        <button class="missionchoose" id="missionchoose1"> Choisir </button>
+                        <button class="missionchoose tr" key="choix" id="missionchoose1"> Choisir </button>
                     </div>
 
                     <div class="mission" id="mission2">
                         <h5 class="missionname">Mission2</h5>
-                        <h3>Aide aux populations</h3>
-                        <p class="missiondescription">Aide aux populations en difficulté dans un contexte de solidarité européenne. Aide administrative,
-                            réalisation reportage photo/vidéo. Animations d'ateliers en faveur des jeunes.
+                        <h3 class="tr" key="Mission2h3">Aide aux populations</h3>
+                        <p class="missiondescription tr" key="Mission2p">Aide aux populations en difficulté dans un contexte de solidarité européenne: aide administrative,
+                            réalisation reportage photo/vidéo, animations d'ateliers en faveur des jeunes.
                         </p>
-                        <button class="missionchoose" id="missionchoose2"> Choisir </button>
+                        <button class="missionchoose tr" key="choix" id="missionchoose2"> Choisir </button>
                     </div>
 
                     <div class="mission" id="mission3">
                         <h5 class="missionname">Mission3</h5>
-                        <h3>Education</h3>
-                        <p class="missiondescription">Appui au programme voyageurs du code.</br>Formation et aide à l'animation autour de l'éducation numérique
-                            à partir de la plateforme Codakademy.</br>En vue de favoriser l'apprentissage du code.
+                        <h3 class="tr" key="Mission3h3">Education</h3>
+                        <p class="missiondescription tr" key="Mission3p">Appui au programme voyageurs du code. Formation et aide à l'animation autour de l'éducation numérique
+                            à partir de la plateforme Codakademy. En vue de favoriser l'apprentissage du code.
                         </p>
-                        <button class="missionchoose" id="missionchoose3"> Choisir </button>
+                        <button class="missionchoose tr" key="choix" id="missionchoose3"> Choisir </button>
                     </div>
 
                     <div class="mission" id="mission4">
                         <h5 class="missionname">Mission4</h5>
-                        <h3>Environnement</h3>
-                        <p class="missiondescription">Permaculture et jardinage bio durable.<br>Mission de promotion et d'organisation d'un travail actif
+                        <h3 class="tr" key="Mission4h3">Environnement</h3>
+                        <p class="missiondescription tr" key="Mission4p">Permaculture et jardinage bio durable.<br>Mission de promotion et d'organisation d'un travail actif
                             sur la préservation et l’amélioration de l'état de l'environnement. Personne aimant la nature,
                             le jardinage et la fabrication de produits faits maison.
                         </p>
-                        <button class="missionchoose" id="missionchoose4"> Choisir </button>
+                        <button class="missionchoose tr" key="choix" id="missionchoose4"> Choisir </button>
                     </div>
 
                     <div class="mission" id="mission5">
                         <h5 class="missionname">Mission5</h5>
-                        <h3>Education Jeunesse</h3>
-                        <p class="missiondescription">Dans une équipe internationale de 11 personnes participer a l'organisation des rencontres internationales
+                        <h3 class="tr" key="Mission5h3">Education Jeunesse</h3>
+                        <p class="missiondescription tr" key="Mission5p">Dans une équipe internationale de 11 personnes participer a l'organisation des rencontres internationales
                             et des actions de communication entres associations locales.
                         </p>
-                        <button class="missionchoose" id="missionchoose5">choisir</button>
+                        <button class="missionchoose tr" key="choix" id="missionchoose5">choisir</button>
                     </div>
 
                     <div class="mission" id="mission6">
                         <h5 class="missionname">Mission6</h5>
-                        <h3>Education</h3>
-                        <p class="missiondescription">Association pour la jeunesse.<br>Mise en place de projets d'animation, de formation et d'orientation
+                        <h3 class="tr" key="Mission6h3">Education</h3>
+                        <p class="missiondescription tr" key="Mission6p">Association pour la jeunesse.<br>Mise en place de projets d'animation, de formation et d'orientation
                             des jeunes.<br>Elaboration de supports de communication.
                         </p>
-                        <button class="missionchoose" id="missionchoose6">choisir</button>
+                        <button class="missionchoose tr" key="choix" id="missionchoose6">choisir</button>
                     </div>
 
                     <div class="mission" id="mission7">
                         <h5 class="missionname">mission7</h5>
-                        <h3>Culture et loisirs</h3>
-                        <p class="missiondescription">Promotion de la langue et de la culture Française.<br>Interventions au niveau scolaire.<br>Mise en
+                        <h3 class="tr" key="Mission7h3">Culture et loisirs</h3>
+                        <p class="missiondescription tr" key="Mission7p">Promotion de la langue et de la culture Française.<br>Interventions au niveau scolaire.<br>Mise en
                             place d'activités ludiques et récréatives autour de la langue française dans le cadre d'activités
                             sur les livres. Animation des clubs de discussion.
                         </p>
-                        <button class="missionchoose" id="missionchoose7">choisir</button>
+                        <button class="missionchoose tr" key="choix" id="missionchoose7">choisir</button>
                     </div>
 
                     <div class="mission" id="mission8">
                         <h5 class="missionname">mission8</h5>
                         <p class="missionpreview">
-                            <h3>Sports</h3>
+                            <h3 class="tr" key="Mission8h3">Sports</h3>
                         </p>
-                        <p class="missiondescription">Promotion de l'activité sportive et sportive au niveau européen. Participation à des événements et
-                            projets internationaux.
+                        <p class="missiondescription tr" key="Mission8p">Promotion de l'activité sportive au niveau européen. Participation à des événements et projets internationaux.
                         </p>
-                        <button class="missionchoose" id="missionchoose8">choisir</button>
+                        <button class="missionchoose tr" key="choix" id="missionchoose8">choisir</button>
                     </div>
 
                 </div>
@@ -160,8 +264,8 @@
                         <div id="receverR2"><input type="radio"><label class="tr" key="Q1R2">Résoudre les problèmes d’environnement.</label></div>
                         <div id="receverR3"><input type="radio"><label class="tr" key="Q1R3">Aider les populations les plus défavorisées.</label></div>
                         <div id="receverR4"><input type="radio"><label class="tr" key="Q1R4">Faire la fête.</label></div>
+                        <button id="dev">Valider</button>
                     </div>
-                    <button id="dev">Valider</button>
                     <div id="cam">
                         <video id="video" width="200" height="150" autoplay></video>
                         <canvas id="canvas" width="200" height="150"></canvas>
@@ -183,22 +287,22 @@
                     <div id="mybook">
                         <div class="b-load">
                             <div>
-                                <h1>Préparation SVE pour partir</h1>
+                                <h1 key="carnetTitle" class="tr">Préparation SVE pour partir</h1>
 
                                 <img id="imgpageone" src="./assets/sve.png" alt="" />
                                 <ul id="listcarnet">
-                                    <li id="countryEnabled">- <a class="questlink" id="paysLink" href="">Choix du pays</a></li>
+                                    <li id="countryEnabled">- <a class="questlink tr" key="paysCarnet" id="paysLink" href="">Choix du pays</a></li>
 
-                                    <li id="missionEnabled">- <a class="questlink" id="missionsLink" href="">Choix de la mission</a></li>
+                                    <li id="missionEnabled">- <a class="questlink tr" key="missionsCarnet" id="missionsLink" href="">Choix de la mission</a></li>
 
                                     <li id="budgetEnabled">- <a class="questlink" id="budgetLink" href="">Budget</a></li>
                                     <li id="budgetDisabled" class="disabledquest">- Budget</li>
 
-                                    <li id="cvEnabled">- <a class="questlink" id="cvlmLink" href="">Curriculum Vitae/Lettre de Motivation</a></li>
-                                    <li id="cvDisabled" class="disabledquest">- Curriculum Vitae/Lettre de Motivation</li>
+                                    <li id="cvEnabled">- <a class="questlink tr" key="cvCarnet" id="cvlmLink" href="">Curriculum Vitae/Lettre de Motivation</a></li>
+                                    <li id="cvDisabled" class="disabledquest tr" key="cvCarnet">- Curriculum Vitae/Lettre de Motivation</li>
 
-                                    <li id="entretienEnabled">- <a class="questlink" id="entretienLink" href="">- Entretien</a></li>
-                                    <li id="entretienDisabled" class="disabledquest">- Entretien</li>
+                                    <li id="entretienEnabled">- <a class="questlink tr" key="entretienCarnet" id="entretienLink" href="">Entretien</a></li>
+                                    <li id="entretienDisabled" class="disabledquest tr" key="entretienCarnet">- Entretien</li>
                                 </ul>
                             </div>
                             <div>
@@ -246,7 +350,7 @@
                             <div>
                                 <!--<img src="./a" alt="" />-->
                                 <h1 key="carnetEntretienh1" class="tr">Être prêt pour l'entretien</h1>
-                                <p key="carnetEntretienp1" class="tr">L'entretien n'est pas un piège, mais un moyen supplémentaire de jauger votre intérêt pour
+                                <p key="EntretienFini1" class="tr">L'entretien n'est pas un piège, mais un moyen supplémentaire de jauger votre intérêt pour
                                     la mission et l'associatif.<br> Aucune raison, donc, d'appréhender cette étape si vous
                                     êtes sûr(e) de vos motivations.<br>Si vous obtenez un entretien, préparez-vous à présenter
                                     vos motivations à l'oral, votre motivation et votre savoir-être.<br>Comment vous présenter
@@ -277,11 +381,13 @@
             <img class="indy" src="./assets/indy3.png" alt="">
         </div>
 
-        <div class="finalPage">
-            <button class="dev">dev</button>
-
+        <div class="finalPage hidden">
+            <!--<button class="dev">dev</button>-->
             <img class="fusee" id="fusee" src="./assets/rocket.png" alt="Fusée décole">
             <img id="tampon" src="./assets/tampon.png" alt="Tampon Success">
+            <a href="./assets/SVE.pdf" target="_blank"><button class="download endbutton tr" key="buttonDownload">Télécharger Documentation</button></a>
+            <button class="back endbutton tr" key="backButton">Revoir les niveaux</button>
+            <button class="reset endbutton tr" key="buttonRestart">Recommencer la partie</button>
         </div>
 
 

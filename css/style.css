@@ -31,6 +31,10 @@ html {
 
 }
 
+.linethrough {
+    text-decoration: line-through;
+}
+
 .lang {
     /*float: right;*/
     cursor: pointer;
@@ -55,20 +59,42 @@ html {
     justify-content: center;
 }
 
+.endbutton {
+    /*top : 200px;*/
+    background: #13386a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 6px;
+    margin-top: 6px;
+    /*height: 20px;*/
+}
+
 #load {
     height : 20vh;
 }
 
+button {
+    cursor: pointer;
+    background: #13386a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 6px;
+    margin-top: 6px;
+}
+
 .finalPage {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
     z-index: 9999;
     width: 100vw;
     height: 100vh;
-    background: white;
-}
+    background: url("../assets/map-europe2.jpg") no-repeat center center;
+    background-size: cover;}
 
 .dev {
     z-index: 10001;
@@ -130,6 +156,23 @@ html {
 #listcarnet {
     padding-left: 3vw;
     list-style: none;
+}
+
+#listcarnet li {
+    font-size: 20px;
+    line-height: 2em;
+    color: #13386a;
+}
+
+#listcarnet li {
+    /*font-size: 20px;
+    line-height: 2em;*/
+    color: grey;
+}
+
+#listcarnet li a:visited {
+    color: #13386a;
+    text-decoration: line-through;
 }
 
 /*.questlink:hover {
@@ -387,7 +430,7 @@ html {
       border: 1px grey solid;
       background: rgba(255,255,255,.9);
       width: 35vw;
-      height:40vh;
+      height:auto;
       position: absolute;
       z-index: 98;
       top:23vh;
@@ -410,6 +453,30 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#start {
+    background: #13386a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 6px;
+    margin-top: 6px;
+    /*height: 20px;*/
+}
+
+.hidden {
+    display: none;
+}
+
+#buttonfinito {
+    background: #13386a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 6px;
+    margin-top: 6px;
+    /*height: 20px;*/
 }
 
 #buttonbulle:hover {
@@ -557,7 +624,7 @@ html {
     text-align: center;
     color: white;
     width: 100%;
-    height: 20%;
+    height: 25%;
 }
 
 #cam{
@@ -566,10 +633,13 @@ html {
     align-items: flex-end;
 }
 
-#dev{
 
+#dev{
     bottom: 0;
     position: absolute;
+    margin-bottom: 2vh;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 /*FIN SKYPE*/
