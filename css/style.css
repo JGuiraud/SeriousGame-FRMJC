@@ -22,13 +22,24 @@ html {
     overflow: hidden;
 }
 
-.lang {
+.langue {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     position: absolute;
-    z-index: 101;
+        z-index: 101;
+
+}
+
+.lang {
+    /*float: right;*/
+    cursor: pointer;
+    height: 3vh;
+    width: auto;
 }
 
 #uk {
-    margin-left: 9vh;
+    /*margin-right: 5vw;*/
 }
 
 #loadingPage {
@@ -46,6 +57,22 @@ html {
 
 #load {
     height : 20vh;
+}
+
+.finalPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+}
+
+.dev {
+    z-index: 10001;
+    position: absolute;
 }
 
 #container-general {
@@ -324,12 +351,24 @@ html {
        box-shadow: 10px 10px 25px black;
    }
 
-   .indy {
-       z-index: 3;
+    .indycontainer {
+        z-index: 3;
        position: absolute;
-       left: 89vw;
+        height: 80vh;
+        left: 89vw;
        top: 60vh;
+    }
+
+   .indy {
        height: 50vh;
+   }
+
+   #smallbubble {
+       position: absolute;
+       z-index: 4;
+       height: 15vh;
+       top: -5vh;
+       cursor: pointer;
    }
 
 
@@ -338,7 +377,7 @@ html {
     position: absolute;
     z-index: 5;
     width: 20vw;
-    left: 80vw;
+    /*left: 80vw;*/
     top: 60vh;
 }
 
@@ -346,8 +385,7 @@ html {
    .bulle {
       padding: 2em;
       border: 1px grey solid;
-      background: rgba(66,52,36,.9);
-      background: rgba(220,220,220,.9);
+      background: rgba(255,255,255,.9);
       width: 35vw;
       height:40vh;
       position: absolute;
@@ -378,7 +416,7 @@ html {
     cursor: pointer;
 }
 
-#close {
+.close {
     color:white;
     float:right;
     font-weight: bold;
@@ -387,7 +425,7 @@ html {
     background:#13386a;
 }
 
-#close:hover {
+.close:hover {
     cursor: pointer;
     box-shadow: 2px 2px 6   px 0px black;
     transition: .2s

@@ -18,13 +18,14 @@
 
 <body>
     <div id="container-general">
+
         <div id="loadingPage">
             <img id="load" src="assets/loadingspin.gif" alt=""></br>
             <h2>Loading...</h2>
         </div>
 
         <div class="bulle">
-            <span id='close'>x</span>
+            <span class="close" id='closeBubble'>x</span>
             <h4>Titre test</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor fuga molestiae maxime ab dignissimos modi sunt
                 alias eum! Possimus debitis esse in dolores delectus dolorem sed omnis, perspiciatis cumque provident!
@@ -35,12 +36,12 @@
             <div id="fleche">&lt;</div>
         </div>
 
-
-        <button id="fr" class="lang"><img src="assets/frenchflag.png"></button>
-        <button id="uk" class="lang"><img src="assets/englishflag.png"></button>
+        <div class="langue">
+            <img id="fr" class="lang" src="assets/frenchflag.png">
+            <img id="uk" class="lang" src="assets/englishflag.png">
+        </div>
 
         <div class="container-game">
-            <!-- <button id="dev">dev</button> -->
             <div class="quest" id="missions">
                 <div class="flexmission">
 
@@ -154,7 +155,7 @@
                 <div class="cadre">
                     <div id="containerQuestion">
                         <span id="question" class='tr' key="Q1">Pour quelles raisons veux-tu faire un SVE?
-            </span>
+                        </span>
                         <div id="receverR1"><input type="radio"><label class="tr" key="Q1R1">Découvrir d’autres cultures.</label></div>
                         <div id="receverR2"><input type="radio"><label class="tr" key="Q1R2">Résoudre les problèmes d’environnement.</label></div>
                         <div id="receverR3"><input type="radio"><label class="tr" key="Q1R3">Aider les populations les plus défavorisées.</label></div>
@@ -173,6 +174,7 @@
         <div class="container-carnet carnetleft">
             <div class="carnet">
                 <div class="book_wrapper">
+                    <span class="close" id='closeBook'>x</span>
                     <a id="next_page_button"></a>
                     <a id="prev_page_button"></a>
                     <div id="loading" class="loading">Loading pages...
@@ -200,84 +202,69 @@
                                 </ul>
                             </div>
                             <div>
-                                <h1>Choisir sa mission</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias nobis ad et illo, temporibus
-                                    hic nihil voluptates, consectetur fugit consequatur sed beatae natus recusandae commodi
-                                    nisi, quaerat dicta pariatur neque maiores. Sapiente distinctio beatae enim debitis voluptas.
-                                    Suscipit architecto est, necessitatibus ipsum maxime libero, ab nemo quam et dolorem
-                                    quibusdam consectetur debitis deleniti amet ea cum, error quasi explicabo rerum beatae.
-                                    Veniam pariatur in impedit eum quibusdam soluta, magnam enim vero est illo magni sed
-                                    modi nemo ut vitae mollitia, alias quam earum. Nihil dolores doloribus atque aut itaque,
-                                    rem exercitationem, esse, quas ipsa repudiandae accusamus error provident reprehenderit,
-                                    autem.
+                                <h1 key="carnetMissionh1" class="tr">Choisir sa mission</h1>
+                                <p key="carnetMissionp1" class="tr">
+                                    Ton parcours de volontaire commence ici ! Faire du volontariat dans un autre pays est un excellent moyen de découvrir d'autres
+                                    cultures et de te faire des amis, tout en aidant les autres et en acquérant des compétences
+                                    qui pourront t'être utiles par la suite.
                                 </p>
-                                <a href="http://tympanus.net/codrops/2010/11/14/animated-portfolio-gallery/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnimatedPortfolioGallery/" target="_blank" class="demo">Demo</a>
-                            </div>
-                            <div>
-                                <!--<img src="./a" alt="" />-->
-                                <h1>Choisir son pays</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, beatae eligendi voluptatum
-                                    qui. Debitis reiciendis dolorem quae voluptas. Animi error voluptatem ipsa maiores officiis
-                                    quia quod odit tempore, dolorum qui nisi dolor facilis optio delectus! Blanditiis dicta
-                                    aperiam repudiandae aspernatur corrupti magni eum ipsum, doloremque est, consequatur
-                                    facilis numquam saepe quo eaque aut quia sapiente, modi voluptatum, pariatur qui provident
-                                    praesentium! At excepturi suscipit, nulla amet? Eveniet alias doloremque omnis vel similique
-                                    ipsum aut iste perferendis ratione nihil blanditiis quae fuga voluptates eligendi delectus
-                                    ut saepe debitis incidunt rem, adipisci in mollitia sapiente ex ducimus? Sapiente nostrum
-                                    exercitationem nulla eius!
+                                <p key="carnetMissionp2" class="tr">
+                                    Voici quelques liens utiles :
                                 </p>
-                                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
-                            </div>
-                            <div>
-                                <!--<img src="./a" alt="" />-->
-                                <h1>Préparer son CV et Lettre de Motivation</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laborum consequatur consectetur,
-                                    deleniti tenetur, dolore officia ullam possimus quae, eveniet sunt delectus! Nihil sequi
-                                    aut, deleniti voluptatum explicabo quaerat illum ex minus aliquam tempore repellat ut
-                                    neque itaque enim. Omnis numquam vitae voluptatibus maxime tempore. Ab quidem illum voluptas
-                                    minima, molestiae deserunt exercitationem a perspiciatis. Repudiandae officia accusantium,
-                                    quos repellat quaerat voluptatum itaque cupiditate fugit fugiat sed neque fuga vero aperiam
-                                    consequatur consequuntur perspiciatis doloribus reprehenderit esse sint! Nihil saepe
-                                    illum quis ipsa optio nobis voluptas soluta numquam, velit molestiae, quos consequuntur
-                                    dignissimos vitae provident eligendi. Sequi dicta fugit amet?
+                                <a href="https://europa.eu/youth/volunteering_fr" target="_blank">https://europa.eu/youth/volunteering_fr</a>
+                                <a href="http://europa.eu/youth/volunteering/evs-organisation_fr" target="_blank">http://europa.eu/youth/volunteering/evs-organisation_fr</a>
+                                <p key="carnetMissionp3" class="tr">
+                                    Bonne chance !
                                 </p>
-                                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
                             </div>
-                            <div>
-                                <!--<img src="./a" alt="" />-->
-                                <h1>Penser son budget</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum autem nam sed at mollitia,
-                                    saepe cumque minima magni quas suscipit. Quasi atque ipsum fugit eos placeat cum enim
-                                    praesentium blanditiis nam magnam provident, possimus, dignissimos veniam, quo consequatur
-                                    obcaecati accusantium harum aspernatur incidunt architecto quos numquam ea! Quae ipsam,
-                                    tenetur, nihil cumque reprehenderit sint pariatur hic quisquam quibusdam corporis beatae
-                                    porro doloribus dicta alias, animi laudantium culpa aut quos placeat modi nulla suscipit!
-                                    Ad error quibusdam rerum expedita mollitia! Atque minima aliquam quo vero inventore,
-                                    suscipit laudantium, iure a voluptas dolores magni dicta neque beatae nobis. Aperiam,
-                                    quasi, aliquam.
-                                </p>
-                                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
-                            </div>
-                            <div>
-                                <!--<img src="./a" alt="" />-->
-                                <h1>Être prêt pour l'entretien</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum autem nam sed at mollitia,
-                                    saepe cumque minima magni quas suscipit. Quasi atque ipsum fugit eos placeat cum enim
-                                    praesentium blanditiis nam magnam provident, possimus, dignissimos veniam, quo consequatur
-                                    obcaecati accusantium harum aspernatur incidunt architecto quos numquam ea! Quae ipsam,
-                                    tenetur, nihil cumque reprehenderit sint pariatur hic quisquam quibusdam corporis beatae
-                                    porro doloribus dicta alias, animi laudantium culpa aut quos placeat modi nulla suscipit!
-                                    Ad error quibusdam rerum expedita mollitia! Atque minima aliquam quo vero inventore,
-                                    suscipit laudantium, iure a voluptas dolores magni dicta neque beatae nobis. Aperiam,
-                                    quasi, aliquam.
 
+                            <div>
+                                <h1 key="carnetPaysh1" class="tr">Choisir son pays</h1>
+                                <p key="carnetPaysp1" class="tr">La mission se déroulera dans un pays membre ou partenaire de l'Union européenne (pays de
+                                    l'Espace économique européen (EEE), pays candidat à l'adhésion à l'Union européenne,
+                                    pays ou régions partenaires de l'Union européenne).
                                 </p>
-                                <a href="http://tympanus.net/codrops/2010/10/12/annotation-overlay-effect/" target="_blank" class="article">Article</a>
-                                <a href="http://tympanus.net/Tutorials/AnnotationOverlayEffect/" target="_blank" class="demo">Demo</a>
+
+                            </div>
+                            <div>
+                                <h1 key="carnetCVh1" class="tr">Préparer son CV et Lettre de Motivation</h1>
+                                <p key="carnetCVp1" class="tr">Ce sont les savoirs-être et la motivation qui comptent avant tout. Nul besoin, en effet,
+                                    de fournir un curriculum vitæ exceptionnel ou de justifier d'un quelconque niveau d'étude.
+                                    N'oublie pas de te concentrer sur la rédaction de la lettre de motivation de préférence
+                                    en anglais.
+                                </p>
+
+                            </div>
+                            <div>
+                                <h1 key="carnetBudgeth1" class="tr">Penser son budget</h1>
+                                <p key="carnetBudgetp1" class="tr"> Indemnité et prises en charge : En tant que volontaire, tu bénéficies d’une prise en charge
+                                    quasi totale sur place (hébergement, restauration, transport, couverture maladie et responsabilité
+                                    civile). Tu percois en outre une indemnité mensuelle variant selon le pays.
+                                </p>
+
+                            </div>
+                            <div>
+                                <!--<img src="./a" alt="" />-->
+                                <h1 key="carnetEntretienh1" class="tr">Être prêt pour l'entretien</h1>
+                                <p key="carnetEntretienp1" class="tr">L'entretien n'est pas un piège, mais un moyen supplémentaire de jauger votre intérêt pour
+                                    la mission et l'associatif.<br> Aucune raison, donc, d'appréhender cette étape si vous
+                                    êtes sûr(e) de vos motivations.<br>Si vous obtenez un entretien, préparez-vous à présenter
+                                    vos motivations à l'oral, votre motivation et votre savoir-être.<br>Comment vous présenter
+                                    en quelques mots ?<br>Comment vous démarquer des autres candidats ?.<br> Bonne chance
+                                    !
+
+                                    <!--<a href="http://www.eotim.com/Cabinet-de-recrutement-informatique-et-IT-%C3%A0-Paris-et-Caen/entra%C3%AEnez-vous-avec-notre-simulateur-dentretien-gratuit-en-ligne-1460469699595.html" target="_blank">Entrainez vous avec un simulateur en ligne</a><br>-->
+                                </p>
+                            </div>
+                            <div>
+                                <h1 key="carnetVideoh1" class="tr">Vidéos</h1>
+                                <a target="_blank" href="https://www.youtube.com/embed/6wHSU5YxtXk">
+                                    <p>https://www.youtube.com/embed/6wHSU5YxtXk</p>
+                                </a>
+                                <a target="_blank" href="https://www.youtube.com/embed/3hHe95Zy5CY">
+                                    <p>https://www.youtube.com/embed/3hHe95Zy5CY</p>
+                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -285,8 +272,18 @@
             </div>
         </div>
 
-        <img class="indy" src="./assets/indy3.png" alt="">
-        <img class="fusee" id="fusee" src="./assets/rocket.png" alt="Fusée décole">
+        <div class="indycontainer">
+            <img id="smallbubble" src="./assets/smallbubble.png" alt="info bubble">
+            <img class="indy" src="./assets/indy3.png" alt="">
+        </div>
+
+        <div class="finalPage">
+            <button class="dev">dev</button>
+
+            <img class="fusee" id="fusee" src="./assets/rocket.png" alt="Fusée décole">
+            <img id="tampon" src="./assets/tampon.png" alt="Tampon Success">
+        </div>
+
 
     </div>
 

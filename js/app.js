@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var layer;
 
     sessionStorage.setItem("choixCv", true)
@@ -6,16 +6,30 @@ $(document).ready(function() {
     sessionStorage.setItem("choixMission", true)
     sessionStorage.setItem("choixPays", true)
 
+    if (lang == "uk") {
+        $("#tampon").attr("src", "./assets/tamponE.png")
+    } else {
+        $("#tampon").attr("src", "./assets/tampon.png")
+    }
+
+    // $(".finalPage").hide()
+    $("#tampon").hide()
+
     /* fin jeu */
     $("#fusee").hide();
 
-    $(".dev").click(function () {
+    $(".dev").click(function (e) {
+        // e.stopPropagation()
         $(".indy").fadeOut("fast");
+        $("#smallbubble").fadeOut("fast")
         var fusee = $("#fusee")
         fusee.fadeIn(200)
         setTimeout(function () {
             fusee.css("top", "-100vh")
         }, 2000)
+        setTimeout(function () {
+            $("#tampon").fadeIn()
+        }, 3500)
 
         // $("#fusee").removeClass("fuseeDown")
         // $("#fusee").addClass("fuseeUp")
@@ -34,11 +48,18 @@ $(document).ready(function() {
     // }
 
 
+    $("#uk").click(function () {
+        $("#smallbubble").attr("src", "./assets/smallbubbleUk.png")
+    })
+    $("#fr").click(function () {
+        $("#smallbubble").attr("src", "./assets/smallbubble.png")
+    })
+
 
     $(".bulle").fadeOut();
 
     function chargement() {
-        setTimeout(function() {
+        setTimeout(function () {
             $("#loadingPage").fadeOut("slow");
         }, 1000);
     }
@@ -62,14 +83,14 @@ $(document).ready(function() {
         if (e.keyCode == 116) {
             e.preventDefault()
             location.reload(true)
-                // wasPressed = true;
+            // wasPressed = true;
         }
     }
     /* ----- */
 
     $("#buttonbulle").hide();
 
-    $("#container-general").click(function() {
+    $("#container-general").click(function () {
         if ($(".bulle").attr("class") == "cache") {
             return
         } else {
@@ -77,34 +98,36 @@ $(document).ready(function() {
         }
     })
 
-
+    $("#smallbubble").hide()
 
     function hideBulle() {
         $(".bulle").fadeOut("slow")
-        $("#buttonbulle").fadeIn("slow")
+        $("#smallbubble").fadeIn("slow")
     }
 
     function pasHideBulle() {
-        $("#buttonbulle").fadeOut("slow")
+        $("#smallbubble").fadeOut("slow")
         $(".bulle").fadeIn("slow")
     }
 
-    $(".bulle").click(function(e) {
+    $(".bulle").click(function (e) {
         e.stopPropagation()
     });
 
-    $("#close").click(function() {
+    $("#closeBubble").click(function () {
         hideBulle()
         $(".bulle").addClass('cache')
     })
 
-    $("#buttonbulle").click(function(e) {
+
+
+    $("#smallbubble").click(function (e) {
         e.stopPropagation();
         pasHideBulle()
-        $("#buttonbulle").removeClass("cache")
+        $("#smallbubble").removeClass("cache")
     })
 
-    setTimeout(function() {
+    setTimeout(function () {
         $(".bulle").fadeIn('slow')
     }, 2000);
 
@@ -137,7 +160,7 @@ $(document).ready(function() {
     }).addTo(map);
 
     // load GeoJSON from an external file
-    $.getJSON("./countries.geojson", function(data) {
+    $.getJSON("./countries.geojson", function (data) {
         // add GeoJSON layer to the map once the file is loaded
         L.geoJson(data).addTo(map);
 
@@ -219,6 +242,30 @@ $(document).ready(function() {
 
     /* ----- carnet ----- */
 
+    $("#closeBook").fadeOut()
+
+    $("#closeBook").click(function () {
+        if ($(".container-carnet").attr('class') == "container-carnet carnetmiddle") {
+            waitReturnCarnet();
+            $("#closeBook").fadeOut();
+            // $("#closeBook").show()
+        } else {
+
+        }
+    })
+
+    if ($(".container-carnet").attr('class') == "container-carnet carnetmiddle") {
+        alert("yo")
+    }
+
+    // if ($(".container-carnet").attr('class') == "container-carnet carnetmiddle") {
+    //     $("#closeBook").show()
+    // }
+
+
+
+
+
     var $mybook = $('#mybook');
     var $bttn_next = $('#next_page_button');
     var $bttn_prev = $('#prev_page_button');
@@ -227,10 +274,10 @@ $(document).ready(function() {
     var cnt_images = $mybook_images.length;
     var loaded = 0;
 
-    $mybook_images.each(function() {
+    $mybook_images.each(function () {
         var $img = $(this);
         var source = $img.attr('src');
-        $('<img/>').load(function() {
+        $('<img/>').load(function () {
             ++loaded;
             if (loaded == cnt_images) {
                 $loading.hide();
@@ -280,8 +327,8 @@ $(document).ready(function() {
                     shadowTopBackWidth: 166,
                     shadowBtmWidth: 50,
 
-                    before: function() {},
-                    after: function() {}
+                    before: function () { },
+                    after: function () { }
                 });
             }
         }).attr('src', source);
@@ -298,27 +345,27 @@ $(document).ready(function() {
 
     $(".container-game").show()
 
-    $("#paysLink").click(function(e) {
+    $("#paysLink").click(function (e) {
         transitionPage(e)
         callQuest("pays")
     })
 
-    $("#missionsLink").click(function(e) {
+    $("#missionsLink").click(function (e) {
         transitionPage(e)
         callQuest("missions")
     })
 
-    $("#budgetLink").click(function(e) {
+    $("#budgetLink").click(function (e) {
         transitionPage(e)
         callQuest("budget")
     })
 
-    $("#cvlmLink").click(function(e) {
+    $("#cvlmLink").click(function (e) {
         transitionPage(e)
         callQuest("cv")
     })
 
-    $("#entretienLink").click(function(e) {
+    $("#entretienLink").click(function (e) {
         transitionPage(e)
         callQuest("entretien")
     })
@@ -330,7 +377,7 @@ $(document).ready(function() {
         // Get access to the camera!
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             // Not adding `{ audio: true }` since we only want video now
-            navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
                 video.src = window.URL.createObjectURL(stream);
                 video.play();
             });
@@ -338,17 +385,17 @@ $(document).ready(function() {
 
         // Legacy code below: getUserMedia
         else if (navigator.getUserMedia) { // Standard
-            navigator.getUserMedia({ video: true }, function(stream) {
+            navigator.getUserMedia({ video: true }, function (stream) {
                 video.src = stream;
                 video.play();
             }, errBack);
         } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
-            navigator.webkitGetUserMedia({ video: true }, function(stream) {
+            navigator.webkitGetUserMedia({ video: true }, function (stream) {
                 video.src = window.webkitURL.createObjectURL(stream);
                 video.play();
             }, errBack);
         } else if (navigator.mozGetUserMedia) { // Mozilla-prefixed
-            navigator.mozGetUserMedia({ video: true }, function(stream) {
+            navigator.mozGetUserMedia({ video: true }, function (stream) {
                 video.src = window.URL.createObjectURL(stream);
                 video.play();
             }, errBack);
@@ -360,16 +407,18 @@ $(document).ready(function() {
 
     }
 
-    $('.disabledquest').click(function(e) {
+    $('.disabledquest').click(function (e) {
         e.stopPropagation();
     })
 
-    $(".b-load").click(function() {
+    $(".b-load").click(function () {
         if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
+            $("#closeBook").show("slow")
             $(".container-carnet").removeClass("carnetleft")
             $(".container-carnet").addClass("carnetmiddle")
             $("#next_page_button").fadeIn()
         } else {
+            $("#closeBook").fadeOut("slow")
             waitReturnCarnet();
         }
     })
@@ -382,7 +431,7 @@ $(document).ready(function() {
 
 
     function callQuest(quest) {
-        $('.quest').each(function() {
+        $('.quest').each(function () {
             if ($(this).attr('id') == quest && !($(this).attr('class') == "quest queston")) {
                 sessionStorage.setItem("test", quest);
                 $(this).toggleClass('queston');
@@ -432,11 +481,11 @@ $(document).ready(function() {
             .css('transform', "rotate(" + rot + ")");
         // console.log('coucoupotit')
     }
-    $('.postit').each(function(e) {
+    $('.postit').each(function (e) {
         melangepostits(e, this);
     })
 
-    $('.postit').click(function(e) {
+    $('.postit').click(function (e) {
         $(this).toggleClass('postitcheck');
         id = ($(this).attr('id')).slice(6);
         console.log($("#progressbudget").attr('style'))
@@ -478,8 +527,8 @@ $(document).ready(function() {
             $('#progressdepenses').css("background-color", "green");
         }
     })
-    setTimeout(function() {
-        $('#verif').click(function(e) {
+    setTimeout(function () {
+        $('#verif').click(function (e) {
             $('.postit').unbind('click');
             $('#progressbudget').css("height", 40 + .2 + "vh");
             $('#progressdepenses').css("height", 8 + .2 + "vh");
@@ -489,7 +538,7 @@ $(document).ready(function() {
             checkMission()
             var rightres = 0,
                 wrongres = 0;
-            $('.postit').each(function(e) {
+            $('.postit').each(function (e) {
                 correc = postitstabl[e].prisencharge;
                 if ($(this).attr("class") == 'postit') {
                     res = true;
@@ -513,22 +562,22 @@ $(document).ready(function() {
     //callQuest('missions');
     $('.missionchoose')
         .toggle('display')
-        .click(function(e) {
+        .click(function (e) {
             e.stopPropagation();
             var missionchoisie = $(this).parent().attr('id')
-                // bulletext($(this).parent().attr('id') + '!? très bon choix');
-                // console.log(missionchoisie)
+            // bulletext($(this).parent().attr('id') + '!? très bon choix');
+            // console.log(missionchoisie)
             sessionStorage.setItem("choixMission", missionchoisie)
             checkMission();
 
         });
     $('.missiondescription').toggle();
     $('.mission')
-        .click(function() {
+        .click(function () {
             var timeout1;
             var timeout2;
             var id = $(this).attr('id');
-            $('.mission').each(function() {
+            $('.mission').each(function () {
                 if ($(this).attr('id') == id) {
                     $(this).toggleClass('choosedmission')
                     $(this).children('.missionchoose')
@@ -548,7 +597,7 @@ $(document).ready(function() {
                 }
             })
         })
-        // fin MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // fin MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // debut BULLES !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -612,7 +661,7 @@ $(document).ready(function() {
      * @return {Array} An array with the type of each piece.
      */
 
-    jqJigsawPuzzle.randomPieceTypes = function(rows, columns) {
+    jqJigsawPuzzle.randomPieceTypes = function (rows, columns) {
         var res = new Array();
 
         // Format used for represent a piece type as a binary number of four digits (dcba)
@@ -679,7 +728,7 @@ $(document).ready(function() {
      * @param {object} options An associative array with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit'.
      */
 
-    jqJigsawPuzzle.shufflePieces = function(containerSelector, options) {
+    jqJigsawPuzzle.shufflePieces = function (containerSelector, options) {
         // Process parameters.
         var divPuzzle = jQuery(containerSelector).find('div.puzzle');
         var rightLimit = (options != null && !isNaN(options.rightLimit)) ? options.rightLimit : 0;
@@ -691,7 +740,7 @@ $(document).ready(function() {
 
         // Move the pieces.
 
-        jQuery(containerSelector).find('div.piece').each(function(index, piece) {
+        jQuery(containerSelector).find('div.piece').each(function (index, piece) {
             var pieceWidth = jQuery(this).width();
             var pieceHeight = jQuery(this).height();
 
@@ -708,7 +757,7 @@ $(document).ready(function() {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.createPuzzleFromURL = function(containerSelector, imageUrl, options) {
+    jqJigsawPuzzle.createPuzzleFromURL = function (containerSelector, imageUrl, options) {
         // Add image to the container.
         var imgId = 'img_' + new Date().getTime();
         jQuery(containerSelector).append('<img src="' + imageUrl + '" id="' + imgId + '" alt=""/>');
@@ -724,7 +773,7 @@ $(document).ready(function() {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.createPuzzleFromImage = function(imageSelector, options) {
+    jqJigsawPuzzle.createPuzzleFromImage = function (imageSelector, options) {
         // Verify if the image exists.
         if (jQuery(imageSelector).size() > 0) {
             // Verify if the image has been fully loaded.
@@ -737,7 +786,7 @@ $(document).ready(function() {
 
                 // Add event for when the puzzle is created.
 
-                jQuery(imageSelector).load(function() {
+                jQuery(imageSelector).load(function () {
                     if (!puzzleCreated) {
                         puzzleCreated = true;
                         jqJigsawPuzzle.imageToPuzzle(imageSelector, options);
@@ -760,7 +809,7 @@ $(document).ready(function() {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.imageToPuzzle = function(imageSelector, options) {
+    jqJigsawPuzzle.imageToPuzzle = function (imageSelector, options) {
         // Process parameters.
         var img = jQuery(imageSelector);
         if (img.size() > 1) img = img.find(':first');
@@ -846,7 +895,7 @@ $(document).ready(function() {
                 // Add draggable behavior.
                 jQuery("#" + id).draggable({
 
-                    start: function(event, ui) {
+                    start: function (event, ui) {
                         // Verify if the piece is not already positioned.
                         var posX = parseInt(jQuery(this).attr('data-posX'), 10);
                         var posY = parseInt(jQuery(this).attr('data-posY'), 10);
@@ -869,7 +918,7 @@ $(document).ready(function() {
 
                         return true;
                     },
-                    stop: function(event, ui) {
+                    stop: function (event, ui) {
                         // Verify if the piece has been droped close to his correct position.
                         var posX = parseInt(jQuery(this).attr('data-posX'), 10);
                         var posY = parseInt(jQuery(this).attr('data-posY'), 10);
@@ -886,7 +935,7 @@ $(document).ready(function() {
 
                             // Change the color of the border for a quarter of a second.
                             piecesContainer.addClass('highlight');
-                            setTimeout(function() { piecesContainer.removeClass('highlight'); }, 250);
+                            setTimeout(function () { piecesContainer.removeClass('highlight'); }, 250);
 
                             // Increase the number of pieces located.
                             var piecesLocated = parseInt(piecesContainer.data('pieces-located'), 10);
@@ -898,7 +947,7 @@ $(document).ready(function() {
                                 jqJigsawPuzzle.stopTimerCounter(piecesContainer);
                                 sessionStorage.setItem("choixCv", true)
                                 checkMission()
-                                    // console.log('youpi !');
+                                // console.log('youpi !');
 
                             }
                         }
@@ -916,7 +965,7 @@ $(document).ready(function() {
 
         // Assign behavior to shuffle button.
 
-        jQuery("#" + puzzleId + "_shuffle").click(function() {
+        jQuery("#" + puzzleId + "_shuffle").click(function () {
             piecesContainer.data('pieces-located', 0);
             piecesContainer.removeClass('highlight');
             piecesContainer.removeClass('resolved');
@@ -931,7 +980,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.resetCounters = function(piecesContainer) {
+    jqJigsawPuzzle.resetCounters = function (piecesContainer) {
         // Resets timer counter.
         jqJigsawPuzzle.stopTimerCounter(piecesContainer);
         jqJigsawPuzzle.setTimerCounter(piecesContainer, 0);
@@ -946,7 +995,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.increaseMovementCounter = function(piecesContainer) {
+    jqJigsawPuzzle.increaseMovementCounter = function (piecesContainer) {
         var count = parseInt(jQuery(piecesContainer).find(".movement_compter").html(), 10);
         jQuery(piecesContainer).find(".movement_compter").html((count + 1) + '');
     };
@@ -957,7 +1006,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.startTimerCounter = function(piecesContainer) {
+    jqJigsawPuzzle.startTimerCounter = function (piecesContainer) {
         // Verify if the timer has not already been started.
         if (jQuery(piecesContainer).data('timer-status') != 'running') {
             // Change status and set initial time.
@@ -966,7 +1015,7 @@ $(document).ready(function() {
 
             // Refresh timer each second.
 
-            var interval = setInterval(function() {
+            var interval = setInterval(function () {
                 jqJigsawPuzzle.refreshTimerCounter(piecesContainer);
             }, 1000);
             jQuery(piecesContainer).data('timer-interval', interval);
@@ -979,7 +1028,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.stopTimerCounter = function(piecesContainer) {
+    jqJigsawPuzzle.stopTimerCounter = function (piecesContainer) {
         // Verify if the timer has not already been stoped.
         if (jQuery(piecesContainer).data('timer-status') != 'stopped') {
             jQuery(piecesContainer).data('timer-status', 'stopped');
@@ -993,7 +1042,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.refreshTimerCounter = function(piecesContainer) {
+    jqJigsawPuzzle.refreshTimerCounter = function (piecesContainer) {
         var currentTime = new Date().getTime();
         jqJigsawPuzzle.setTimerCounter(piecesContainer, currentTime - jQuery(piecesContainer).data('timer-value'));
     };
@@ -1005,7 +1054,7 @@ $(document).ready(function() {
      * @param {int} time The time passed in milliseconds
      */
 
-    jqJigsawPuzzle.setTimerCounter = function(piecesContainer, time) {
+    jqJigsawPuzzle.setTimerCounter = function (piecesContainer, time) {
         time = (time > 0) ? time / 1000 : 0;
         var seconds = parseInt(time % 60, 10);
         var minutes = parseInt((time / 60) % 60, 10);
@@ -1030,7 +1079,7 @@ $(document).ready(function() {
      * Configure SoundManager.
      */
 
-    const Question = function(ques, res1, res2, res3, res4) {
+    const Question = function (ques, res1, res2, res3, res4) {
         this.ques = ques;
         this.res1 = res1;
         this.res2 = res2;
@@ -1066,17 +1115,18 @@ $(document).ready(function() {
 
     var lang = "fr";
     console.log("langue en global :", lang)
-    $('.lang').click(function() {
+    $('.lang').click(function (e) {
+        e.stopPropagation()
         lang = $(this).attr('id'); // obtain language id
         console.log("langue drapeau :", lang)
         console.log(lang)
-            // translate all translatable elements
-        $('.tr').each(function(i) {
+        // translate all translatable elements
+        $('.tr').each(function (i) {
             $(this).text(aLangKeys[lang][$(this).attr('key')]);
         });
     });
 
-    $('#dev').click(function(ques) {
+    $('#dev').click(function (ques) {
         console.log("langue voulue :", lang)
         if (lang === "fr") {
             var q = questions[i];
@@ -1110,7 +1160,7 @@ $(document).ready(function() {
     // Définition du SVE
     aLangKeys['fr']['definition'] = "Le Service Volontaire Européen (SVE) permet de partir dans un pays étranger pour travailler dans une organisation à but non lucratif en tant que volontaire. Ce séjour permet de découvrir une autre culture et d'acquérir de nouvelles compétences. C’est un moyen de se sentir citoyen de l'Europe et se mettre au service d'un projet d'intérêt général.";
     aLangKeys['uk']['definition'] = "The european Voluntary Service allows you to travel to a foreign country to work for a non-profit organisation as a volunteer. During this journey, you will discover other cultures and learn new skills. It's a way to feel as an european citizen and work for a project of general interest."
-        // Démarrage du jeu
+    // Démarrage du jeu
     aLangKeys['fr']['intro'] = "Voici ton carnet de bord récapitulant toutes les étapes de ton aventure. Tu peux y retourner à tout moment pour suivre ton évolution. Pour commencer, je te propose de choisir entre une mission ou un pays.";
     aLangKeys['uk']['intro'] = "Take a look at your log book. It sums up each step of you're adventure. You can go back to it at any time to follow your progression. Now that you're ready, just choose between a mission or a country.";
     // choix pays
@@ -1197,4 +1247,38 @@ $(document).ready(function() {
     aLangKeys['uk']['Q6R4'] = "Answer D";
     aLangKeys['fr']['Q7'] = "Merci d'avoir répondu à nos questions ! Vous semblez prêt à partir !";
     aLangKeys['uk']['Q7'] = "Thanks for your answers ! It seems you're ready to go !";
+
+    /* Carnet */
+    aLangKeys['fr']['carnetMissionh1'] = "Choisir sa mission";
+    aLangKeys['uk']['carnetMissionh1'] = "Choose your mission";
+    aLangKeys['fr']['carnetMissionp1'] = "Ton parcours de volontaire commence ici ! Faire du volontariat dans un autre pays est un excellent moyen de découvrir d'autres cultures et de te faire des amis, tout en aidant les autres et en acquérant des compétences qui pourront t'être utiles par la suite. Sur ce site:";
+    aLangKeys['uk']['carnetMissionp1'] = "Your adventure as Volunteer starts here! Being a volunteer in another country is a great way to discover other cultures and to make new friends, while helping others and gaining new and useful competences.";
+    aLangKeys['fr']['carnetMissionp2'] = "Voici quelques liens utiles :";
+    aLangKeys['uk']['carnetMissionp2'] = "Here are some usefull links:";
+    aLangKeys['fr']['carnetMissionp3'] = " Bonne chance !";
+    aLangKeys['uk']['carnetMissionp3'] = "Good Luck!";
+    aLangKeys['fr']['carnetPaysh1'] = "Choisir son pays";
+    aLangKeys['uk']['carnetPaysh1'] = "Choose a country";
+    aLangKeys['fr']['carnetPaysp1'] = "La mission se déroule dans un pays membre ou partenaire de l'Union européenne (pays de l'Espace économique européen (EEE), pays candidat à l'adhésion à l'Union européenne, pays ou régions partenaires de l'Union européenne)";
+    aLangKeys['uk']['carnetPaysp1'] = "The mission will happen in a member or partner country of the European Union (European Economic Area countries (EEA), candidate countries for accession to the European Union, partner countries of the EU)";
+    aLangKeys['fr']['carnetCVh1'] = "Préparer son CV et Lettre de Motivation";
+    aLangKeys['uk']['carnetCVh1'] = "Get your CV and cover letter ready";
+    aLangKeys['fr']['carnetCVp1'] = "Ce sont les savoirs-être et la motivation qui comptent avant tout. Nul besoin, en effet, de fournir un curriculum vitæ exceptionnel ou de justifier d'un quelconque niveau d'étude. N'oublie pas de te concentrer sur la rédaction de la lettre de motivation de préférence en anglais.";
+    aLangKeys['uk']['carnetCVp1'] = "Soft-skills and motivation are important. No need to have a long CV. You might want instead to focus on the cover letter.";
+    aLangKeys['fr']['carnetBudgeth1'] = "Penser son budget";
+    aLangKeys['uk']['carnetBudgeth1'] = "Plan the budget";
+    aLangKeys['fr']['carnetBudgetp1'] = "Indemnité et prises en charge : En tant que volontaire, tu bénéficies d’une prise en charge quasi totale sur place (hébergement, restauration, transport, couverture maladie et responsabilité civile). Tu percois en outre une indemnité mensuelle variant selon le pays.";
+    aLangKeys['uk']['carnetBudgetp1'] = "Allowance and other costs : As volunteer, all your cost are mostly taken care of (appartment, food, transportation, health insurance). Additionally, you receive a monthly allowance that might vary from a country to another.";
+    aLangKeys['fr']['carnetEntretienh1'] = "Être prêt pour l'entretien";
+    aLangKeys['uk']['carnetEntretienh1'] = "Get ready for the interview";
+    aLangKeys['fr']['carnetEntretienp1'] = "L'entretien n'est pas un piège, mais un moyen supplémentaire de jauger ton intérêt pour la mission et l'associatif. Aucune raison, donc, d'appréhender cette étape si tu es sûr(e) de tes motivations. Si tu obtiens un entretien, prépare-toi à présenter tes motivations. Bonne chance.";
+    aLangKeys['uk']['carnetEntretienp1'] = "The interview in not a trap but a way to know your interest in the mission and in the voluntary sector. No need to be afraid of this necessary step if you are certain of what drives you. If you get an interview, be prepared to present your motivations. Good luck!";
+    aLangKeys['fr']['carnetVideoh1'] = "Vidéos";
+    aLangKeys['uk']['carnetVideoh1'] = "Videos";
+
+
+
+
+
+
 });
