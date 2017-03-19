@@ -28,7 +28,9 @@ $(document).ready(function() {
         $("#tampon").attr("src", "./assets/tampon.png")
     }
 
+
     $("#uk").click(function() {
+
         console.log("yopp")
         $("#postit0").attr("src", "assets/Return.png")
         $("#postit1").attr("src", "assets/food.png")
@@ -37,7 +39,9 @@ $(document).ready(function() {
         $("#postit4").attr("src", "assets/transportation.png")
         $("#postit5").attr("src", "assets/accomodation.png")
     })
+
     $("#fr").click(function() {
+
         console.log("yopp")
         $("#postit0").attr("src", "assets/postittraj.png")
         $("#postit1").attr("src", "assets/postitmanger.png")
@@ -57,6 +61,7 @@ $(document).ready(function() {
             $('.back').fadeIn("slow")
         }, 4000)
     })
+
     $(".back").click(function() {
         // video.stop()
         $(".finalPage").addClass("hidden")
@@ -90,6 +95,7 @@ $(document).ready(function() {
     }
 
 
+
     $("#start").click(function() {
         $(".container-carnet").attr('class', "container-carnet carnetmiddle")
         hideBulle()
@@ -101,6 +107,7 @@ $(document).ready(function() {
 
     /* fin jeu */
     $("#fusee").hide();
+
 
     $(".reset").click(function() {
         $(".finalPage").hide()
@@ -138,6 +145,7 @@ $(document).ready(function() {
     //     // $("#fusee").addClass("fuseeUp")
     //     console.log("fin")
     // }
+
 
 
     $("#uk").click(function(e) {
@@ -212,10 +220,12 @@ $(document).ready(function() {
         e.stopPropagation()
     });
 
+
     $("#closeBubble").click(function() {
         hideBulle()
         $(".bulle").addClass('cache')
     })
+
 
 
 
@@ -325,6 +335,7 @@ $(document).ready(function() {
 
         $(".bulle").fadeIn();
 
+
         $("#suivantboutonPays").click(function() {
             $(".container-carnet").attr('class', "container-carnet carnetmiddle")
         })
@@ -375,6 +386,7 @@ $(document).ready(function() {
     /* ----- carnet ----- */
 
     $("#closeBook").fadeOut()
+
 
     $("#closeBook").click(function() {
         if ($(".container-carnet").attr('class') == "container-carnet carnetmiddle") {
@@ -664,6 +676,7 @@ $(document).ready(function() {
         }
     })
 
+
     setTimeout(function() {
         $('#verif').click(function(e) {
             e.stopPropagation()
@@ -699,6 +712,7 @@ $(document).ready(function() {
 
     }, 5000);
 
+
     $("#suivantboutonBudget").click(function() {
         $(".container-carnet").attr('class', "container-carnet carnetmiddle")
     })
@@ -726,7 +740,6 @@ $(document).ready(function() {
             $(".bulle").show()
             $("#missionbonchoix").show()
             $(".lienmission").show()
-                // $("#missionchoisie").hide();
 
             // bulletext($(this).parent().attr('id') + '!? très bon choix');
             // console.log(missionchoisie)
@@ -761,6 +774,7 @@ $(document).ready(function() {
                 }
             })
         })
+
 
     $("#suivantboutonMissions").click(function() {
             // console.log("suivant")
@@ -1122,9 +1136,6 @@ $(document).ready(function() {
                                 $("#cvfini").show();
                                 $('#suivantboutonCV').show()
 
-
-                                console.log('endgame')
-                                    // console.log('youpi !');
                             }
                         }
 
@@ -1134,6 +1145,7 @@ $(document).ready(function() {
                 });
             }
         }
+
 
         $('#suivantboutonCV').click(function() {
             $(".container-carnet").attr('class', "container-carnet carnetmiddle")
@@ -1295,6 +1307,7 @@ $(document).ready(function() {
     }
 
 
+
     const Question = function(ques, res1, res2, res3, res4) {
         this.ques = ques;
         this.res1 = res1;
@@ -1328,6 +1341,7 @@ $(document).ready(function() {
 
     var lang = "fr";
     console.log("langue en global :", lang)
+
     $('.lang').click(function(e) {
         e.stopPropagation()
         lang = $(this).attr('id'); // obtain language id
@@ -1338,6 +1352,7 @@ $(document).ready(function() {
             $(this).text(aLangKeys[lang][$(this).attr('key')]);
         });
     });
+
 
     $('#dev').click(function(e, ques) {
         e.stopPropagation();
@@ -1354,10 +1369,12 @@ $(document).ready(function() {
             $("#buttonfinito").show()
         }
         console.log(questions.length)
-            // if (i = 8) {
-            //     alert("8")
-            // }
-            // var i;
+
+        // if (i = 8) {
+        //     alert("8")
+        // }
+        // var i;
+
         console.log("langue voulue :", lang)
         if (lang === "fr") {
             var q = questions[i];
@@ -1397,6 +1414,7 @@ $(document).ready(function() {
         // Démarrage du jeu
     aLangKeys['fr']['intro'] = "Ton carnet de bord, situé sur la gauche de l'écran, récapitule toutes les étapes de ton aventure. Tu peux y retourner à tout moment pour suivre ton évolution. Pour commencer, je te propose de choisir entre une mission ou un pays. Clique sur le bouton 'Démarrer' pour commencer ton aventure.";
     aLangKeys['uk']['intro'] = "Take a look at your log book located on the left side of your screen. It sums up each step of your adventure. You can go back to it at any time to follow your progress. Now that you're ready, just choose between a mission or a country. Click on the 'start' button to begin your adventure.";
+
     // choix pays
     aLangKeys['fr']['paystitle'] = "Pays";
     aLangKeys['uk']['paystitle'] = "Country";
@@ -1419,7 +1437,7 @@ $(document).ready(function() {
     aLangKeys['uk']['budgetverif'] = "The european grant is payed directly to the organisation that coordinates the project. It must help to cover the transportation, accomodation, food and activity fees of the EVS project. The young people who are volunteers receive a monthly allowance. Their health care is ensured. They also have acess to linguitic courses and tutoring during their contract.";
     // Lettre de motivation
     aLangKeys['fr']['motiv'] = "Un bon CV et une lettre de motivation sont des clés essentielles pour réaliser ton Service Volontaire Européen. Tu va devoir reconstituer ce puzzle pour obtenir ton CV et ta lettre de motivation. Conseil: Un CV et une lettre de motivation rédigés en anglais auront plus d’impact pour la sélection de ta candidature.";
-    aLangKeys['uk']['motiv'] = "A good CV and a cover letter are essentials to obtaining a mission within the EVS. If you want to see how to structure those documents, try to reconstruct the jigsaw. Tip: A CV and a cover letter written in english will have a greater impact on your candidacy."; //aplication???
+    aLangKeys['uk']['motiv'] = "A good CV and a cover letter are essentials to obtaining a mission within the EVS. If you want to see how to structure those documents, try to reconstruct the jigsaw. Tip: A CV and a cover letter written in english will have a greater impact on your application."; //aplication???
     // Entretien Skype
     aLangKeys['fr']['skypetitle'] = "Entretien de motivation";
     aLangKeys['uk']['skypetitle'] = "Motivation interview";
@@ -1559,7 +1577,7 @@ $(document).ready(function() {
     aLangKeys['fr']['carnetMissionh1'] = "Choisir sa mission";
     aLangKeys['uk']['carnetMissionh1'] = "Choose your mission";
     aLangKeys['fr']['carnetMissionp1'] = "Ton parcours de volontaire commence ici ! Faire du volontariat dans un autre pays est un excellent moyen de découvrir d'autres cultures et de te faire des amis, tout en aidant les autres et en acquérant des compétences qui pourront t'être utiles par la suite. Sur ce site:";
-    aLangKeys['uk']['carnetMissionp1'] = "Your adventure as Volunteer starts here! Being a volunteer in another country is a great way to discover other cultures and to make new friends, while helping others and gaining new and useful skills.";
+    aLangKeys['uk']['carnetMissionp1'] = "Your adventure as a Volunteer starts here! Being a volunteer in another country is a great way to discover other cultures and to make new friends, while helping others and gaining new and useful skills.";
     aLangKeys['fr']['carnetMissionp2'] = "Voici quelques liens utiles :";
     aLangKeys['uk']['carnetMissionp2'] = "Here are some usefull links:";
     aLangKeys['fr']['carnetMissionp3'] = " Bonne chance !";
