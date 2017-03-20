@@ -1347,7 +1347,7 @@ $(document).ready(function () {
     aLangKeys['fr'] = new Array();
     aLangKeys['uk'] = new Array();
     // Page de début
-    aLangKeys['fr']['presentation'] = "Salut, moi c'est Indy. Je vais te guider a la découverte du service volontaire européen(SVE).";
+    aLangKeys['fr']['presentation'] = "Salut, moi c'est Indy. Je vais te guider à la découverte du service volontaire européen(SVE).";
     aLangKeys['uk']['presentation'] = "Hi ! My name is Indy. I will guide you through the discovery of the European Voluntary Service (EVS).";
     aLangKeys['fr']['staart'] = "Démarrer";
     aLangKeys['uk']['staart'] = "Start";

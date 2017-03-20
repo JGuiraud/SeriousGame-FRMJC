@@ -766,3 +766,11 @@ background: rgba(0,255,0,.5)
 * FIN DES BUBULLES
 *
 */
+
+@media (max-width: 2600px) {
+    .carnetleft {
+       margin-left: -45vw;
+       transform: rotate(10deg);
+       transition: 1s;
+   }
+}
