@@ -29,7 +29,6 @@ $(document).ready(function () {
     }
 
     $("#uk").click(function () {
-        console.log("yopp")
         $("#postit0").attr("src", "assets/Return.png")
         $("#postit1").attr("src", "assets/food.png")
         $("#postit2").attr("src", "assets/expenses.png")
@@ -38,7 +37,6 @@ $(document).ready(function () {
         $("#postit5").attr("src", "assets/accomodation.png")
     })
     $("#fr").click(function () {
-        console.log("yopp")
         $("#postit0").attr("src", "assets/postittraj.png")
         $("#postit1").attr("src", "assets/postitmanger.png")
         $("#postit2").attr("src", "assets/postitdepenses.png")
@@ -121,23 +119,7 @@ $(document).ready(function () {
             $("#tampon").fadeIn()
         }, 3500)
 
-        // $("#fusee").removeClass("fuseeDown")
-        // $("#fusee").addClass("fuseeUp")
-        console.log("fin")
     }
-
-
-
-
-    // if (sessionStorage.getItem("choixCv") && sessionStorage.getItem("choixBudget") && sessionStorage.getItem("choixMission") && sessionStorage.getItem("choixPays"))
-
-    // if (true) {
-    //     $(".indy").fadeOut("fast");
-    //     $("#fusee").fadeIn("fast").css("top", "-100vh")
-    //     // $("#fusee").removeClass("fuseeDown")
-    //     // $("#fusee").addClass("fuseeUp")
-    //     console.log("fin")
-    // }
 
 
     $("#uk").click(function (e) {
@@ -161,7 +143,6 @@ $(document).ready(function () {
         }, 1000);
     }
     chargement();
-    // console.log(sessionStorage.getItem("test"))
     if (sessionStorage.getItem("test") == "entretien") {
         cam()
     }
@@ -336,7 +317,6 @@ $(document).ready(function () {
             $("#paysbonchoix").show();
             $("#suivantboutonPays").show()
 
-            console.log(sessionStorage.getItem("choixPays"));
             $("#payschoisi").html(sessionStorage.getItem("choixPays"))
         }
 
@@ -348,23 +328,12 @@ $(document).ready(function () {
         }
     }
 
-    // if (splitted) {
-    //     console.log(this)
-
-
-    // }
-    // if (splitted2) {
-    //     console.log(this)
-    //     $(".bulle").fadeIn();
-    // }
-
     function checkMission() {
         if (sessionStorage.getItem("choixPays") && sessionStorage.getItem("choixMission")) {
             $("#cvEnabled").show();
             $("#budgetEnabled").show()
             $("#cvDisabled").hide();
             $("#budgetDisabled").hide()
-            console.log('pret');
         }
         if (sessionStorage.getItem("choixCv")) {
             $("#entretienEnabled").show()
@@ -505,9 +474,7 @@ $(document).ready(function () {
     var video = document.getElementById('video');
 
     function cam() {
-        console.log("yo")
 
-        // Get access to the camera!
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             // Not adding `{ audio: true }` since we only want video now
             navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
@@ -615,7 +582,6 @@ $(document).ready(function () {
             .css('top', (randbet(posx, posx + $(window).width() / 200)) + "%")
             .css('left', (randbet(posy, posy + $(window).width() / 150)) + "%")
             .css('transform', "rotate(" + rot + ")");
-        // console.log('coucoupotit')
     }
     $('.postit').each(function (e) {
         melangepostits(e, this);
@@ -624,7 +590,6 @@ $(document).ready(function () {
     $('.postit').click(function (e) {
         $(this).toggleClass('postitcheck');
         id = ($(this).attr('id')).slice(6);
-        console.log($("#progressbudget").attr('style'))
         if (!prisencharge.includes(postitstabl[id].name)) {
             prisencharge.push(postitstabl[id].name);
             $('#progressdepense').val($('#progressdepense').val() + postitstabl[id].prix);
@@ -688,10 +653,8 @@ $(document).ready(function () {
                     res = false;
                 }
                 if (res == correc) {
-                    // console.log('ok '+ postitstabl[e].name);
                     rightres++;
                 } else {
-                    // console.log('nope '+ postitstabl[e].name);
                     wrongres++;
                 }
             })
@@ -705,7 +668,6 @@ $(document).ready(function () {
 
 
     if (lang == "uk") {
-        console.log("youu")
         $("#postit0").attr("src", "assets/Return.png")
     } else {
         $("#postit0").attr("src", "assets/postittraj.png")
@@ -720,16 +682,12 @@ $(document).ready(function () {
         .click(function (e) {
             e.stopPropagation();
             var missionchoisie = $(this).parent().attr('id')
-            console.log(missionchoisie)
             $("#suivantboutonMissions").show()
             $('#missionintro').hide();
             $(".bulle").show()
             $("#missionbonchoix").show()
             $(".lienmission").show()
-            // $("#missionchoisie").hide();
 
-            // bulletext($(this).parent().attr('id') + '!? très bon choix');
-            // console.log(missionchoisie)
             sessionStorage.setItem("choixMission", missionchoisie)
 
             checkMission();
@@ -763,7 +721,6 @@ $(document).ready(function () {
         })
 
     $("#suivantboutonMissions").click(function () {
-        // console.log("suivant")
         $(".container-carnet").attr('class', "container-carnet carnetmiddle")
     })
     // fin MISSIONS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1121,10 +1078,6 @@ $(document).ready(function () {
                                 $('#cvintro').hide();
                                 $("#cvfini").show();
                                 $('#suivantboutonCV').show()
-
-
-                                console.log('endgame')
-                                // console.log('youpi !');
                             }
                         }
 
@@ -1327,15 +1280,12 @@ $(document).ready(function () {
     ];
     var i = 2;
 
-    console.log(i);
 
     var lang = "fr";
-    console.log("langue en global :", lang)
     $('.lang').click(function (e) {
         e.stopPropagation()
         lang = $(this).attr('id'); // obtain language id
-        console.log("langue drapeau :", lang)
-        console.log(lang)
+
         // translate all translatable elements
         $('.tr').each(function (i) {
             $(this).text(aLangKeys[lang][$(this).attr('key')]);
@@ -1344,24 +1294,15 @@ $(document).ready(function () {
 
     $('#dev').click(function (e, ques) {
         e.stopPropagation();
-        // if (i = question.length) {
-        //     alert("fini")
-        // }
-        // console.log(i)
+
         if (questions.length == i) {
-            console.log("ok");
             $(".bulle").fadeIn();
             $("#entretienintro").hide()
             $("#entretienfini").show()
             $("#EntretienFini1").show()
             $("#buttonfinito").show()
         }
-        console.log(questions.length)
-        // if (i = 8) {
-        //     alert("8")
-        // }
-        // var i;
-        console.log("langue voulue :", lang)
+
         if (lang === "fr") {
             var q = questions[i];
 
