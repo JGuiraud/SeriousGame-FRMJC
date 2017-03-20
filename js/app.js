@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var layer;
 
     $("#cvfini").hide()
@@ -28,10 +28,7 @@ $(document).ready(function() {
         $("#tampon").attr("src", "./assets/tampon.png")
     }
 
-
-
-    $("#uk").click(function() {
-
+    $("#uk").click(function () {
 
         $("#postit0").attr("src", "assets/Return.png")
         $("#postit1").attr("src", "assets/food.png")
@@ -40,9 +37,7 @@ $(document).ready(function() {
         $("#postit4").attr("src", "assets/transportation.png")
         $("#postit5").attr("src", "assets/accomodation.png")
     })
-
-
-    $("#fr").click(function() {
+    $("#fr").click(function () {
 
         $("#postit0").attr("src", "assets/postittraj.png")
         $("#postit1").attr("src", "assets/postitmanger.png")
@@ -52,22 +47,22 @@ $(document).ready(function() {
         $("#postit5").attr("src", "assets/postitlogement.png")
     })
 
-    $("#buttonfinito").click(function() {
+    $("#buttonfinito").click(function () {
         // video.stop()
         $(".finalPage").removeClass("hidden")
         fin()
-        setTimeout(function() {
+        setTimeout(function () {
             $('.reset').fadeIn("slow")
             $('.download').fadeIn("slow")
             $('.back').fadeIn("slow")
         }, 4000)
     })
 
-    $(".back").click(function() {
+    $(".back").click(function () {
         // video.stop()
         $(".finalPage").addClass("hidden")
-            // fin()
-        setTimeout(function() {
+        // fin()
+        setTimeout(function () {
             $("#tampon").fadeOut("slow")
             $(".indy").fadeIn("slow")
             $('.reset').fadeOut("slow")
@@ -97,7 +92,7 @@ $(document).ready(function() {
 
 
 
-    $("#start").click(function() {
+    $("#start").click(function () {
         $(".container-carnet").attr('class', "container-carnet carnetmiddle")
         hideBulle()
     })
@@ -110,7 +105,7 @@ $(document).ready(function() {
     $("#fusee").hide();
 
 
-    $(".reset").click(function() {
+    $(".reset").click(function () {
         $(".finalPage").hide()
         sessionStorage.clear();
         location.reload(true)
@@ -122,23 +117,22 @@ $(document).ready(function() {
         $("#smallbubble").fadeOut("fast")
         var fusee = $("#fusee")
         fusee.fadeIn(200)
-        setTimeout(function() {
+        setTimeout(function () {
             fusee.css("top", "-100vh")
         }, 2000)
-        setTimeout(function() {
+        setTimeout(function () {
             $("#tampon").fadeIn()
         }, 3500)
 
     }
 
 
+    $("#uk").click(function (e) {
 
-
-    $("#uk").click(function(e) {
         $("#smallbubble").attr("src", "./assets/smallbubbleUk.png")
         e.stopPropagation()
     })
-    $("#fr").click(function(e) {
+    $("#fr").click(function (e) {
         $("#smallbubble").attr("src", "./assets/smallbubble.png")
         e.stopPropagation()
     })
@@ -150,7 +144,7 @@ $(document).ready(function() {
 
 
     function chargement() {
-        setTimeout(function() {
+        setTimeout(function () {
             $("#loadingPage").fadeOut("slow");
         }, 1000);
     }
@@ -173,7 +167,7 @@ $(document).ready(function() {
         if (e.keyCode == 116) {
             e.preventDefault()
             location.reload(true)
-                // wasPressed = true;
+            // wasPressed = true;
         }
     }
     /* ----- */
@@ -181,7 +175,7 @@ $(document).ready(function() {
 
     $("#buttonbulle").hide();
 
-    $("#container-general").click(function() {
+    $("#container-general").click(function () {
         if ($(".bulle").attr("class") == "cache") {
             return
         } else {
@@ -201,12 +195,12 @@ $(document).ready(function() {
         $(".bulle").fadeIn("slow")
     }
 
-    $(".bulle").click(function(e) {
+    $(".bulle").click(function (e) {
         e.stopPropagation()
     });
 
 
-    $("#closeBubble").click(function() {
+    $("#closeBubble").click(function () {
         hideBulle()
         $(".bulle").addClass('cache')
     })
@@ -214,13 +208,13 @@ $(document).ready(function() {
 
 
 
-    $("#smallbubble").click(function(e) {
+    $("#smallbubble").click(function (e) {
         e.stopPropagation();
         pasHideBulle()
         $("#smallbubble").removeClass("cache")
     })
 
-    setTimeout(function() {
+    setTimeout(function () {
         $(".bulle").fadeIn('slow')
     }, 2000);
 
@@ -253,7 +247,7 @@ $(document).ready(function() {
     }).addTo(map);
 
     // load GeoJSON from an external file
-    $.getJSON("./countries.geojson", function(data) {
+    $.getJSON("./countries.geojson", function (data) {
         // add GeoJSON layer to the map once the file is loaded
         L.geoJson(data).addTo(map);
 
@@ -321,7 +315,7 @@ $(document).ready(function() {
         $(".bulle").fadeIn();
 
 
-        $("#suivantboutonPays").click(function() {
+        $("#suivantboutonPays").click(function () {
             $(".container-carnet").attr('class', "container-carnet carnetmiddle")
         })
 
@@ -361,7 +355,7 @@ $(document).ready(function() {
     $("#closeBook").fadeOut()
 
 
-    $("#closeBook").click(function() {
+    $("#closeBook").click(function () {
         if ($(".container-carnet").attr('class') == "container-carnet carnetmiddle") {
             waitReturnCarnet();
             $("#closeBook").fadeOut();
@@ -391,10 +385,10 @@ $(document).ready(function() {
     var cnt_images = $mybook_images.length;
     var loaded = 0;
 
-    $mybook_images.each(function() {
+    $mybook_images.each(function () {
         var $img = $(this);
         var source = $img.attr('src');
-        $('<img/>').load(function() {
+        $('<img/>').load(function () {
             ++loaded;
             if (loaded == cnt_images) {
                 $loading.hide();
@@ -444,8 +438,8 @@ $(document).ready(function() {
                     shadowTopBackWidth: 166,
                     shadowBtmWidth: 50,
 
-                    before: function() {},
-                    after: function() {}
+                    before: function () { },
+                    after: function () { }
                 });
             }
         }).attr('src', source);
@@ -462,27 +456,27 @@ $(document).ready(function() {
 
     $(".container-game").show()
 
-    $("#paysLink").click(function(e) {
+    $("#paysLink").click(function (e) {
         transitionPage(e)
         callQuest("pays")
     })
 
-    $("#missionsLink").click(function(e) {
+    $("#missionsLink").click(function (e) {
         transitionPage(e)
         callQuest("missions")
     })
 
-    $("#budgetLink").click(function(e) {
+    $("#budgetLink").click(function (e) {
         transitionPage(e)
         callQuest("budget")
     })
 
-    $("#cvlmLink").click(function(e) {
+    $("#cvlmLink").click(function (e) {
         transitionPage(e)
         callQuest("cv")
     })
 
-    $("#entretienLink").click(function(e) {
+    $("#entretienLink").click(function (e) {
         transitionPage(e)
         callQuest("entretien")
     })
@@ -493,7 +487,7 @@ $(document).ready(function() {
 
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             // Not adding `{ audio: true }` since we only want video now
-            navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
                 video.src = window.URL.createObjectURL(stream);
                 video.play();
             });
@@ -501,17 +495,17 @@ $(document).ready(function() {
 
         // Legacy code below: getUserMedia
         else if (navigator.getUserMedia) { // Standard
-            navigator.getUserMedia({ video: true }, function(stream) {
+            navigator.getUserMedia({ video: true }, function (stream) {
                 video.src = stream;
                 video.play();
             }, errBack);
         } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
-            navigator.webkitGetUserMedia({ video: true }, function(stream) {
+            navigator.webkitGetUserMedia({ video: true }, function (stream) {
                 video.src = window.webkitURL.createObjectURL(stream);
                 video.play();
             }, errBack);
         } else if (navigator.mozGetUserMedia) { // Mozilla-prefixed
-            navigator.mozGetUserMedia({ video: true }, function(stream) {
+            navigator.mozGetUserMedia({ video: true }, function (stream) {
                 video.src = window.URL.createObjectURL(stream);
                 video.play();
             }, errBack);
@@ -523,11 +517,11 @@ $(document).ready(function() {
 
     }
 
-    $('.disabledquest').click(function(e) {
+    $('.disabledquest').click(function (e) {
         e.stopPropagation();
     })
 
-    $(".b-load").click(function() {
+    $(".b-load").click(function () {
         if ($(".container-carnet").attr('class') == "container-carnet carnetleft") {
             $("#closeBook").show("slow")
             $(".container-carnet").removeClass("carnetleft")
@@ -547,7 +541,7 @@ $(document).ready(function() {
 
 
     function callQuest(quest) {
-        $('.quest').each(function() {
+        $('.quest').each(function () {
             if ($(this).attr('id') == quest && !($(this).attr('class') == "quest queston")) {
                 sessionStorage.setItem("test", quest);
                 $(this).toggleClass('queston');
@@ -599,11 +593,11 @@ $(document).ready(function() {
             .css('left', (randbet(posy, posy + $(window).width() / 150)) + "%")
             .css('transform', "rotate(" + rot + ")");
     }
-    $('.postit').each(function(e) {
+    $('.postit').each(function (e) {
         melangepostits(e, this);
     })
 
-    $('.postit').click(function(e) {
+    $('.postit').click(function (e) {
         $(this).toggleClass('postitcheck');
         id = ($(this).attr('id')).slice(6);
         if (!prisencharge.includes(postitstabl[id].name)) {
@@ -646,8 +640,8 @@ $(document).ready(function() {
     })
 
 
-    setTimeout(function() {
-        $('#verif').click(function(e) {
+    setTimeout(function () {
+        $('#verif').click(function (e) {
             e.stopPropagation()
             $(".bulle").fadeIn();
             $("#budgetintro").hide();
@@ -662,7 +656,7 @@ $(document).ready(function() {
             checkMission()
             var rightres = 0,
                 wrongres = 0;
-            $('.postit').each(function(e) {
+            $('.postit').each(function (e) {
                 correc = postitstabl[e].prisencharge;
                 if ($(this).attr("class") == 'postit') {
                     res = true;
@@ -680,7 +674,7 @@ $(document).ready(function() {
     }, 5000);
 
 
-    $("#suivantboutonBudget").click(function() {
+    $("#suivantboutonBudget").click(function () {
         $(".container-carnet").attr('class', "container-carnet carnetmiddle")
     })
 
@@ -697,7 +691,7 @@ $(document).ready(function() {
     //callQuest('missions');
     $('.missionchoose')
         .toggle('display')
-        .click(function(e) {
+        .click(function (e) {
             e.stopPropagation();
             var missionchoisie = $(this).parent().attr('id')
             $("#suivantboutonMissions").show()
@@ -713,11 +707,11 @@ $(document).ready(function() {
         });
     $('.missiondescription').toggle();
     $('.mission')
-        .click(function() {
+        .click(function () {
             var timeout1;
             var timeout2;
             var id = $(this).attr('id');
-            $('.mission').each(function() {
+            $('.mission').each(function () {
                 if ($(this).attr('id') == id) {
                     $(this).toggleClass('choosedmission')
                     $(this).children('.missionchoose')
@@ -737,7 +731,6 @@ $(document).ready(function() {
                 }
             })
         })
-
 
     $("#suivantboutonMissions").click(function () {
         $(".container-carnet").attr('class', "container-carnet carnetmiddle")
@@ -807,7 +800,7 @@ $(document).ready(function() {
      * @return {Array} An array with the type of each piece.
      */
 
-    jqJigsawPuzzle.randomPieceTypes = function(rows, columns) {
+    jqJigsawPuzzle.randomPieceTypes = function (rows, columns) {
         var res = new Array();
 
         // Format used for represent a piece type as a binary number of four digits (dcba)
@@ -874,7 +867,7 @@ $(document).ready(function() {
      * @param {object} options An associative array with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit'.
      */
 
-    jqJigsawPuzzle.shufflePieces = function(containerSelector, options) {
+    jqJigsawPuzzle.shufflePieces = function (containerSelector, options) {
         // Process parameters.
         var divPuzzle = jQuery(containerSelector).find('div.puzzle');
         var rightLimit = (options != null && !isNaN(options.rightLimit)) ? options.rightLimit : 0;
@@ -886,7 +879,7 @@ $(document).ready(function() {
 
         // Move the pieces.
 
-        jQuery(containerSelector).find('div.piece').each(function(index, piece) {
+        jQuery(containerSelector).find('div.piece').each(function (index, piece) {
             var pieceWidth = jQuery(this).width();
             var pieceHeight = jQuery(this).height();
 
@@ -903,7 +896,7 @@ $(document).ready(function() {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.createPuzzleFromURL = function(containerSelector, imageUrl, options) {
+    jqJigsawPuzzle.createPuzzleFromURL = function (containerSelector, imageUrl, options) {
         // Add image to the container.
         var imgId = 'img_' + new Date().getTime();
         jQuery(containerSelector).append('<img src="' + imageUrl + '" id="' + imgId + '" alt=""/>');
@@ -919,7 +912,7 @@ $(document).ready(function() {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.createPuzzleFromImage = function(imageSelector, options) {
+    jqJigsawPuzzle.createPuzzleFromImage = function (imageSelector, options) {
         // Verify if the image exists.
         if (jQuery(imageSelector).size() > 0) {
             // Verify if the image has been fully loaded.
@@ -932,7 +925,7 @@ $(document).ready(function() {
 
                 // Add event for when the puzzle is created.
 
-                jQuery(imageSelector).load(function() {
+                jQuery(imageSelector).load(function () {
                     if (!puzzleCreated) {
                         puzzleCreated = true;
                         jqJigsawPuzzle.imageToPuzzle(imageSelector, options);
@@ -955,7 +948,7 @@ $(document).ready(function() {
      * @param {object} options An associative array with the values 'piecesSize', 'borderWidth' and 'shuffle' (which is an associative arrary with the values 'rightLimit', 'leftLimit', 'topLimit' and 'bottomLimit').
      */
 
-    jqJigsawPuzzle.imageToPuzzle = function(imageSelector, options) {
+    jqJigsawPuzzle.imageToPuzzle = function (imageSelector, options) {
         // Process parameters.
         var img = jQuery(imageSelector);
         if (img.size() > 1) img = img.find(':first');
@@ -1042,7 +1035,7 @@ $(document).ready(function() {
                 // Add draggable behavior.
                 jQuery("#" + id).draggable({
 
-                    start: function(event, ui) {
+                    start: function (event, ui) {
                         // Verify if the piece is not already positioned.
                         var posX = parseInt(jQuery(this).attr('data-posX'), 10);
                         var posY = parseInt(jQuery(this).attr('data-posY'), 10);
@@ -1065,7 +1058,7 @@ $(document).ready(function() {
 
                         return true;
                     },
-                    stop: function(event, ui) {
+                    stop: function (event, ui) {
                         // Verify if the piece has been droped close to his correct position.
                         var posX = parseInt(jQuery(this).attr('data-posX'), 10);
                         var posY = parseInt(jQuery(this).attr('data-posY'), 10);
@@ -1082,7 +1075,7 @@ $(document).ready(function() {
 
                             // Change the color of the border for a quarter of a second.
                             piecesContainer.addClass('highlight');
-                            setTimeout(function() { piecesContainer.removeClass('highlight'); }, 250);
+                            setTimeout(function () { piecesContainer.removeClass('highlight'); }, 250);
 
                             // Increase the number of pieces located.
                             var piecesLocated = parseInt(piecesContainer.data('pieces-located'), 10);
@@ -1098,6 +1091,7 @@ $(document).ready(function() {
                                 $('#cvintro').hide();
                                 $("#cvfini").show();
                                 $('#suivantboutonCV').show()
+
                             }
                         }
 
@@ -1109,7 +1103,7 @@ $(document).ready(function() {
         }
 
 
-        $('#suivantboutonCV').click(function() {
+        $('#suivantboutonCV').click(function () {
             $(".container-carnet").attr('class', "container-carnet carnetmiddle")
 
         })
@@ -1121,7 +1115,7 @@ $(document).ready(function() {
 
         // Assign behavior to shuffle button.
 
-        jQuery("#" + puzzleId + "_shuffle").click(function() {
+        jQuery("#" + puzzleId + "_shuffle").click(function () {
             piecesContainer.data('pieces-located', 0);
             piecesContainer.removeClass('highlight');
             piecesContainer.removeClass('resolved');
@@ -1136,7 +1130,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.resetCounters = function(piecesContainer) {
+    jqJigsawPuzzle.resetCounters = function (piecesContainer) {
         // Resets timer counter.
         jqJigsawPuzzle.stopTimerCounter(piecesContainer);
         jqJigsawPuzzle.setTimerCounter(piecesContainer, 0);
@@ -1151,7 +1145,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.increaseMovementCounter = function(piecesContainer) {
+    jqJigsawPuzzle.increaseMovementCounter = function (piecesContainer) {
         var count = parseInt(jQuery(piecesContainer).find(".movement_compter").html(), 10);
         jQuery(piecesContainer).find(".movement_compter").html((count + 1) + '');
     };
@@ -1162,7 +1156,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.startTimerCounter = function(piecesContainer) {
+    jqJigsawPuzzle.startTimerCounter = function (piecesContainer) {
         // Verify if the timer has not already been started.
         if (jQuery(piecesContainer).data('timer-status') != 'running') {
             // Change status and set initial time.
@@ -1171,7 +1165,7 @@ $(document).ready(function() {
 
             // Refresh timer each second.
 
-            var interval = setInterval(function() {
+            var interval = setInterval(function () {
                 jqJigsawPuzzle.refreshTimerCounter(piecesContainer);
             }, 1000);
             jQuery(piecesContainer).data('timer-interval', interval);
@@ -1184,7 +1178,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.stopTimerCounter = function(piecesContainer) {
+    jqJigsawPuzzle.stopTimerCounter = function (piecesContainer) {
         // Verify if the timer has not already been stoped.
         if (jQuery(piecesContainer).data('timer-status') != 'stopped') {
             jQuery(piecesContainer).data('timer-status', 'stopped');
@@ -1198,7 +1192,7 @@ $(document).ready(function() {
      * @param {object} piecesContainer A jQuery selector, which can be an string or a jQuery object, of the element which contains the puzzle.
      */
 
-    jqJigsawPuzzle.refreshTimerCounter = function(piecesContainer) {
+    jqJigsawPuzzle.refreshTimerCounter = function (piecesContainer) {
         var currentTime = new Date().getTime();
         jqJigsawPuzzle.setTimerCounter(piecesContainer, currentTime - jQuery(piecesContainer).data('timer-value'));
     };
@@ -1210,7 +1204,7 @@ $(document).ready(function() {
      * @param {int} time The time passed in milliseconds
      */
 
-    jqJigsawPuzzle.setTimerCounter = function(piecesContainer, time) {
+    jqJigsawPuzzle.setTimerCounter = function (piecesContainer, time) {
         time = (time > 0) ? time / 1000 : 0;
         var seconds = parseInt(time % 60, 10);
         var minutes = parseInt((time / 60) % 60, 10);
@@ -1270,7 +1264,7 @@ $(document).ready(function() {
 
 
 
-    const Question = function(ques, res1, res2, res3, res4) {
+    const Question = function (ques, res1, res2, res3, res4) {
         this.ques = ques;
         this.res1 = res1;
         this.res2 = res2;
@@ -1301,6 +1295,7 @@ $(document).ready(function() {
 
 
     var lang = "fr";
+
     $('.lang').click(function (e) {
         e.stopPropagation()
         lang = $(this).attr('id'); // obtain language id
@@ -1308,20 +1303,12 @@ $(document).ready(function() {
         // translate all translatable elements
         $('.tr').each(function (i) {
 
-
-
-    $('.lang').click(function(e) {
-        e.stopPropagation()
-        lang = $(this).attr('id'); // obtain language id
-            // translate all translatable elements
-        $('.tr').each(function(i) {
-
-
+            $(this).text(aLangKeys[lang][$(this).attr('key')]);
         });
     });
 
 
-    $('#dev').click(function(e, ques) {
+    $('#dev').click(function (e, ques) {
         e.stopPropagation();
 
         if (questions.length == i) {
@@ -1367,7 +1354,7 @@ $(document).ready(function() {
     // Définition du SVE
     aLangKeys['fr']['definition'] = "Le Service Volontaire Européen (SVE) permet de partir dans un pays étranger pour travailler dans une organisation à but non lucratif en tant que volontaire. Ce séjour permet de découvrir une autre culture et d'acquérir de nouvelles compétences. C’est un moyen de se sentir citoyen de l'Europe et se mettre au service d'un projet d'intérêt général.";
     aLangKeys['uk']['definition'] = "The european Voluntary Service allows you to travel to a foreign country to work for a non-profit organisation as a volunteer. During this journey, you will discover other cultures and learn new skills. It's a way of feelling a European citizen and work for a project of common good."
-        // Démarrage du jeu
+    // Démarrage du jeu
     aLangKeys['fr']['intro'] = "Ton carnet de bord, situé sur la gauche de l'écran, récapitule toutes les étapes de ton aventure. Tu peux y retourner à tout moment pour suivre ton évolution. Pour commencer, je te propose de choisir entre une mission ou un pays. Clique sur le bouton 'Démarrer' pour commencer ton aventure.";
     aLangKeys['uk']['intro'] = "Take a look at your log book located on the left side of your screen. It sums up each step of your adventure. You can go back to it at any time to follow your progress. Now that you're ready, just choose between a mission or a country. Click on the 'start' button to begin your adventure.";
 
