@@ -16,10 +16,10 @@ $(document).ready(function () {
     $(".download").hide()
     $(".back").hide()
 
-    sessionStorage.setItem("choixCv", true)
-    sessionStorage.setItem("choixBudget", true)
-    sessionStorage.setItem("choixMission", true)
-    sessionStorage.setItem("choixPays", true)
+    // sessionStorage.setItem("choixCv", true)
+    // sessionStorage.setItem("choixBudget", true)
+    // sessionStorage.setItem("choixMission", true)
+    // sessionStorage.setItem("choixPays", true)
 
     if (lang == "uk") {
         $("#tampon").attr("src", "./assets/tamponE.png")
