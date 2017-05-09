@@ -769,7 +769,7 @@ background: rgba(0,255,0,.5)
 
 @media (max-width: 2600px) {
     .carnetleft {
-       margin-left: -45vw;
+       margin-left: -55vw;
        transform: rotate(10deg);
        transition: 1s;
    }

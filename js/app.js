@@ -952,7 +952,7 @@ $(document).ready(function () {
         // Process parameters.
         var img = jQuery(imageSelector);
         if (img.size() > 1) img = img.find(':first');
-        var piecesSize = (options != null && options.piecesSize != null) ? options.piecesSize : 'normal';
+        var piecesSize = (options != null && options.piecesSize != null) ? options.piecesSize : 'big';
         if (piecesSize != 'normal' && piecesSize != 'small' && piecesSize != 'big') piecesSize = 'normal';
         var borderWidth = (options != null && !isNaN(options.borderWidth)) ? parseInt(options.borderWidth, 10) : 5;
         var puzzleId = 'puzzle_' + new Date().getTime();
