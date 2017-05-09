@@ -16,10 +16,10 @@ $(document).ready(function () {
     $(".download").hide()
     $(".back").hide()
 
-    // sessionStorage.setItem("choixCv", true)
-    // sessionStorage.setItem("choixBudget", true)
-    // sessionStorage.setItem("choixMission", true)
-    // sessionStorage.setItem("choixPays", true)
+    sessionStorage.setItem("choixCv", true)
+    sessionStorage.setItem("choixBudget", true)
+    sessionStorage.setItem("choixMission", true)
+    sessionStorage.setItem("choixPays", true)
 
     if (lang == "uk") {
         $("#tampon").attr("src", "./assets/tamponE.png")
@@ -1273,13 +1273,13 @@ $(document).ready(function () {
     }
 
     var questions = ["", "",
-        new Question("Dans quel domaine souhaites tu exercer votre mission ?",
+        new Question("Dans quel domaine souhaitez-vous exercer votre mission ?",
             "Culture et loisirs", "Le sport et la jeunesse", "Sauvetage des licornes", "Solidarité"),
-        new Question("A ton avis que vas t'apporter le SVE, à travers cette mission ?",
+        new Question("A votre avis, qu'est ce que va vous apporter le SVE à travers cette mission ?",
             " Acquérir de nouvelles compétences et apprendre de nouvelles langues.", " Me faire de nouveaux amis pour mon facebook.", "Une expérience personnelle et professionnelle de terrain .", "Des rencontres nouvelles et échanger par l’entraide ."),
-        new Question("Tes amis disent de toi que tu es plutôt :", "Généreux et altruiste .", "Aventurier et courageux .", "Casanier et indépendant .", "La réponse D."),
-        new Question("Pendant une soirée, un étudiant Erasmus, que tu ne connais pas veut engager la conversation avec toi. Problème, tu ne comprends pas un mot d’espagnol. Quelle est ton attitude ?", "Tu ne cherches pas a faire d’efforts et l’abandonnes au bout de quelques minutes .", "Tu essayes de comprendre quelques mots et d’en apprendre un peu plus sur lui, malgré la barrière de la langue .", "Tu tentes de continuer la conversation en anglais , ou bien demandes a une personne de faire l’interprète .", "Joker"),
-        new Question("Tu as l’occasion de partir faire un voyage dans un pays étranger :", "Tu fais quelques visites culturelles .", "Tu restes a l’hôtel pour profiter de la piscine .", "Tu essayes de t'immerger totalement dans la culture du pays et respectes les traditions locales .", "La réponse D"),
+        new Question("Vos amis disent de vous que vous êtes plutôt :", "Généreux et altruiste .", "Aventurier et courageux .", "Casanier et indépendant .", "Volontaire et Sérieux"),
+        new Question("Pendant une soirée, un étudiant Erasmus, que vous ne connaissez pas veut engager la conversation avec vous. Problème, vous ne comprenez pas un mot d'espagnol. Quelle est votre attitude ?", "Vous ne cherchez pas à faire d'efforts et l'abandonnez au bout de quelques minutes.", "Vous essayez de comprendre quelques mots et d'en apprendre un peu plus sur lui malgré la barrière de la langue.", "Vous tentez de continuer la conversation en anglais", "Vous demandez à une personne de faire l'interprète."),
+        new Question("Vous avez l’occasion de partir faire un voyage dans un pays étranger :", "Vous faites quelques visites culturelles.", "Vous restez à l’hôtel pour profiter de la piscine.", "Vous essayez de vous immerger totalement dans la culture du pays.", "Vous arpentez le pays en long, en large et en travers"),
     ];
 
     var questionsEn = ["", "",
@@ -1287,9 +1287,9 @@ $(document).ready(function () {
             "Culture and hobbies", "Youth and sport", "Saving unicorns", "Solidarity"),
         new Question("In your opinion, which benefits will you gain from the EVS?",
             "gain new skills and learn new languages", "to make new friends for my Facebook", "Personnal development and a professional experience", "Meeting other people and opening my mind through mutual aid"),
-        new Question("Your friends tell you that you are rather :", "Generous and altruistic", "Adventurous and couragous", "Home-based and independant", "Answer D."),
-        new Question("During a party, an unknown Erasmus student wants to talk to you. The problem, you don't understand a word of spanish. How do you react ?", "You don't make any effort and go away after a few minutes", "You try to learn a few things about him with the words you've managed to understand.", "You keep speaking english or you ask a person to translate", "Joker"),
-        new Question("You travel in a foreign country, what are your activities ?", "You make a few cultural visits", "You stay at the hotel to enjoy the pool", "You immeres yourself in the culture of the country and you respect the local traditions", "Answer D"),
+        new Question("Your friends tell you that you are rather :", "Generous and altruistic", "Adventurous and couragous", "Home-based and independant", "Voluntary and serious"),
+        new Question("During a party, an unknown Erasmus student wants to talk to you. The problem, you don't understand a word of spanish. How do you react ?", "You don't make any effort and go away after a few minutes", "You try to learn a few things about him with the words you've managed to understand.", "You keep speaking english.", "You ask a person to translate"),
+        new Question("You travel in a foreign country, what are your activities ?", "You make a few cultural visits", "You stay at the hotel to enjoy the pool", "You immeres yourself in the culture of the country and you respect the local traditions", "You visit every part of the country"),
     ];
     var i = 2;
 
@@ -1323,18 +1323,18 @@ $(document).ready(function () {
             var q = questions[i];
 
             $('#question').html(q.ques).attr('key', "Q" + i);
-            $('#receverR1').html('<input type="radio"><label id="R1" class="tr" key="Q' + i + 'R1"> ' + q.res1 + '</label>');
-            $('#receverR2').html('<input type="radio"><label id="R2" class="tr" key="Q' + i + 'R2"> ' + q.res2 + '</label>');
-            $('#receverR3').html('<input type="radio"><label id="R3" class="tr" key="Q' + i + 'R3"> ' + q.res3 + '</label>');
-            $('#receverR4').html('<input type="radio"><label id="R4" class="tr" key="Q' + i + 'R4"> ' + q.res4 + '</label>');
+            $('#receverR1').html('<input type="checkbox"><label id="R1" class="tr" key="Q' + i + 'R1"> ' + q.res1 + '</label>');
+            $('#receverR2').html('<input type="checkbox"><label id="R2" class="tr" key="Q' + i + 'R2"> ' + q.res2 + '</label>');
+            $('#receverR3').html('<input type="checkbox"><label id="R3" class="tr" key="Q' + i + 'R3"> ' + q.res3 + '</label>');
+            $('#receverR4').html('<input type="checkbox"><label id="R4" class="tr" key="Q' + i + 'R4"> ' + q.res4 + '</label>');
         } else if (lang === "uk") {
             var q = questionsEn[i];
 
             $('#question').html(q.ques).attr('key', "Q" + i);
-            $('#receverR1').html('<input type="radio"><label id="R1" class="tr" key="Q' + i + 'R1"> ' + q.res1 + '</label>');
-            $('#receverR2').html('<input type="radio"><label id="R2" class="tr" key="Q' + i + 'R2"> ' + q.res2 + '</label>');
-            $('#receverR3').html('<input type="radio"><label id="R3" class="tr" key="Q' + i + 'R3"> ' + q.res3 + '</label>');
-            $('#receverR4').html('<input type="radio"><label id="R4" class="tr" key="Q' + i + 'R4"> ' + q.res4 + '</label>');
+            $('#receverR1').html('<input type="checkbox"><label id="R1" class="tr" key="Q' + i + 'R1"> ' + q.res1 + '</label>');
+            $('#receverR2').html('<input type="checkbox"><label id="R2" class="tr" key="Q' + i + 'R2"> ' + q.res2 + '</label>');
+            $('#receverR3').html('<input type="checkbox"><label id="R3" class="tr" key="Q' + i + 'R3"> ' + q.res3 + '</label>');
+            $('#receverR4').html('<input type="checkbox"><label id="R4" class="tr" key="Q' + i + 'R4"> ' + q.res4 + '</label>');
         }
         i++;
 
@@ -1443,7 +1443,7 @@ $(document).ready(function () {
     aLangKeys['uk']['Q1R3'] = "To help the disadvandaged people.";
     aLangKeys['fr']['Q1R4'] = "Faire la fête.";
     aLangKeys['uk']['Q1R4'] = "To party!!!";
-    aLangKeys['fr']['Q2'] = "Dans quel domaine souhaites-tu exercer ta mission ?";
+    aLangKeys['fr']['Q2'] = "Dans quel domaine souhaitez-vous exercer votre mission ?";
     aLangKeys['uk']['Q2'] = "What is the theme of your mission ?"; //In whiwh field to you feel the most comfortable?
     aLangKeys['fr']['Q2R1'] = "Culture et loisirs";
     aLangKeys['uk']['Q2R1'] = "Culture and hobbies";
@@ -1453,7 +1453,7 @@ $(document).ready(function () {
     aLangKeys['uk']['Q2R3'] = "Saving Unicorns";
     aLangKeys['fr']['Q2R4'] = "La solidarité";
     aLangKeys['uk']['Q2R4'] = "Solidarity";
-    aLangKeys['fr']['Q3'] = "A ton avis que peut t'apporter le Service Volontaire Européen ?";
+    aLangKeys['fr']['Q3'] = "A votre avis, qu'est ce que va vous apporter le SVE à travers cette mission ?";
     aLangKeys['uk']['Q3'] = "In your opinion, which benefits will you gain from the EVS?";
     aLangKeys['fr']['Q3R1'] = "Acquérir de nouvelles compétences et apprendre de nouvelles langues";
     aLangKeys['uk']['Q3R1'] = "Gain new skills and learn new languages";
@@ -1471,29 +1471,29 @@ $(document).ready(function () {
     aLangKeys['uk']['Q4R2'] = "Adventurous and couragous";
     aLangKeys['fr']['Q4R3'] = "Casanier et indépendant";
     aLangKeys['uk']['Q4R3'] = "Home-based and independant";
-    aLangKeys['fr']['Q4R4'] = "Réponse D";
-    aLangKeys['uk']['Q4R4'] = "Answer D";
+    aLangKeys['fr']['Q4R4'] = "Volontaire et sérieux";
+    aLangKeys['uk']['Q4R4'] = "Voluntary and serious";
     aLangKeys['fr']['Q5'] = "Pendant une soirée, un étudiant Erasmus, que tu ne connais pas veut engager la conversation avec toi. Problème, tu ne comprends pas pas un mot d’espagnol. Quelle est ton attitude ?";
     aLangKeys['uk']['Q5'] = "During a party, an unknown Erasmus student wants to talk to you. The problem, you don't understand a word of spanish. How do you react?";
-    aLangKeys['fr']['Q5R1'] = "Tu ne cherches pas à faire d’efforts et l’abandonnes au bout de quelques minutes";
+    aLangKeys['fr']['Q5R1'] = "Vous ne cherchez pas à faire d'efforts et l'abandonnez au bout de quelques minutes.";
     aLangKeys['uk']['Q5R1'] = "You don't make any effort and go away after a few minutes";
-    aLangKeys['fr']['Q5R2'] = "Tu essayes de comprendre quelques mots et d’en apprendre un peu plus sur lui/elle";
+    aLangKeys['fr']['Q5R2'] = "Vous essayez de comprendre quelques mots et d'en apprendre un peu plus sur lui malgré la barrière de la langue.";
     aLangKeys['uk']['Q5R2'] = "You try to learn a few things about them with the words you've managed to understand.";
-    aLangKeys['fr']['Q5R3'] = "Tu tentes de continuer la conversation en anglais, ou bien demande à une personne de faire l’interprète";
-    aLangKeys['uk']['Q5R3'] = "You keep speaking english or you ask a person to translate";
-    aLangKeys['fr']['Q5R4'] = "Réponse D";
-    aLangKeys['uk']['Q5R4'] = "Answer D";
-    aLangKeys['fr']['Q6'] = "Tu as l’occasion de partir faire un voyage dans un pays étranger :";
+    aLangKeys['fr']['Q5R3'] = "Vous tentez de continuer la conversation en anglais.";
+    aLangKeys['uk']['Q5R3'] = "You keep speaking english.";
+    aLangKeys['fr']['Q5R4'] = "Vous demandez à une personne de faire l'interprète.";
+    aLangKeys['uk']['Q5R4'] = "You ask a person to translate";
+    aLangKeys['fr']['Q6'] = "Vous avez l’occasion de partir faire un voyage dans un pays étranger :";
     aLangKeys['uk']['Q6'] = "You travel in a foreign country, what are your activities ?";
-    aLangKeys['fr']['Q6R1'] = "Tu fais quelques visites culturelles";
+    aLangKeys['fr']['Q6R1'] = "Vous faites quelques visites culturelles.";
     aLangKeys['uk']['Q6R1'] = "You make a few cultural visits";
-    aLangKeys['fr']['Q6R2'] = "tu restes à l’hôtel pour profiter de la piscine";
+    aLangKeys['fr']['Q6R2'] = "Vous restez à l’hôtel pour profiter de la piscine.";
     aLangKeys['uk']['Q6R2'] = "You stay at the hotel to enjoy the pool";
-    aLangKeys['fr']['Q6R3'] = "Tu t'immerges totalement dans la culture du pays et respectes les traditions locales";
+    aLangKeys['fr']['Q6R3'] = "Vous essayez de vous immerger totalement dans la culture du pays.";
     aLangKeys['uk']['Q6R3'] = "You immerse yourself in the culture of the country and you respect the local traditions";
-    aLangKeys['fr']['Q6R4'] = "Réponse D";
-    aLangKeys['uk']['Q6R4'] = "Answer D";
-    aLangKeys['fr']['Q7'] = "Merci d'avoir répondu à nos questions ! Tu sembles prêt à partir !";
+    aLangKeys['fr']['Q6R4'] = "Vous arpentez le pays en long, en large et en travers.";
+    aLangKeys['uk']['Q6R4'] = "You visit every part of the country";
+    aLangKeys['fr']['Q7'] = "Merci d'avoir répondu à nos questions ! Vous semblez prêt à partir !";
     aLangKeys['uk']['Q7'] = "Thanks for your answers ! It seems you're ready to go !";
 
 
@@ -1506,10 +1506,10 @@ $(document).ready(function () {
     aLangKeys['uk']['carnetTitle'] = "Get ready for the SVE adventure";
 
 
-    aLangKeys['fr']['paysCarnet'] = "Choix du pays";
-    aLangKeys['uk']['paysCarnet'] = "Choose a country";
-    aLangKeys['fr']['missionsCarnet'] = "Choix de la mission";
-    aLangKeys['uk']['missionsCarnet'] = "Choose a mission";
+    aLangKeys['fr']['paysCarnet'] = "Pays";
+    aLangKeys['uk']['paysCarnet'] = "Country";
+    aLangKeys['fr']['missionsCarnet'] = "Mission";
+    aLangKeys['uk']['missionsCarnet'] = "Mission";
     aLangKeys['fr']['cvCarnet'] = "Curriculum Vitae/Lettre de Motivation";
     aLangKeys['uk']['cvCarnet'] = "Curriculum Vitae/Cover Letter";
     aLangKeys['fr']['entretienCarnet'] = "Entretien";
@@ -1519,7 +1519,7 @@ $(document).ready(function () {
 
     aLangKeys['fr']['carnetMissionh1'] = "Choisir sa mission";
     aLangKeys['uk']['carnetMissionh1'] = "Choose your mission";
-    aLangKeys['fr']['carnetMissionp1'] = "Ton parcours de volontaire commence ici ! Faire du volontariat dans un autre pays est un excellent moyen de découvrir d'autres cultures et de te faire des amis, tout en aidant les autres et en acquérant des compétences qui pourront t'être utiles par la suite. Sur ce site:";
+    aLangKeys['fr']['carnetMissionp1'] = "Tu as choisis une mission et un pays, c'est le début de ton parcours de volontariat qui commence ! Un volontariat dans un autre pays est un bon moyen de découvrir d'autres cultures et de te faire des amis, tout en aidant les autres et en acquérant des compétences qui pourront t'être utiles par la suite. Tu peux découvrir les missions qui existent en SVE sur ce site : ";
     aLangKeys['uk']['carnetMissionp1'] = "Your adventure as a Volunteer starts here! Being a volunteer in another country is a great way to discover other cultures and to make new friends, while helping others and gaining new and useful skills.";
     aLangKeys['fr']['carnetMissionp2'] = "Voici quelques liens utiles :";
     aLangKeys['uk']['carnetMissionp2'] = "Here are some usefull links:";
